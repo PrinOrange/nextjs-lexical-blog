@@ -16,7 +16,7 @@ This is a sleek and efficient web blog project, built with Next.js + MDX + Tailw
 It has all the basic functions of a blog website: tag classification, writing, comments, title list, etc.
 
 ![Home Page](./docs/preview1.png)
-![Mobile Home Page](./docs/preview3.png)
+![Reader Page](./docs/preview3.png)
 
 It is a responsive website with good support for most different screen sizes available in the market. Whether it is a mobile phone, tablet, portable small-sized computer, etc., you can easily read website content on it.
 
