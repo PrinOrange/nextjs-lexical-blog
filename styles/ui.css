@@ -1,0 +1,49 @@
+.text-selection {
+  @apply selection:bg-black
+      selection:text-white
+      dark:selection:bg-white
+      dark:selection:text-black;
+}
+
+.list-title {
+  @apply text-3xl
+  font-bold
+  text-sky-600
+  dark:text-sky-500;
+}
+
+.nav-link {
+  @apply border-b-sky-600
+  font-bold
+  hover:text-sky-600
+  dark:hover:border-b-sky-500
+  dark:hover:text-sky-500;
+}
+
+.tag-link {
+  @apply border-2
+  border-black
+  px-2
+  hover:border-gray-600
+  hover:text-gray-600
+  dark:border-white
+  dark:text-white
+  dark:hover:border-gray-200
+  dark:hover:text-gray-200;
+}
+
+.link-button {
+  @apply rounded-md
+  bg-black
+  px-5
+  py-1
+  text-white
+  hover:bg-gray-600
+  dark:bg-white
+  dark:text-black
+  dark:hover:bg-gray-200;
+}
+
+* {
+  @apply text-selection;
+}

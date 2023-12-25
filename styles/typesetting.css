@@ -1,0 +1,28 @@
+.typesetting {
+  @apply prose
+  max-w-full 
+  overflow-x-auto 
+  break-words 
+  px-0
+  dark:prose-invert 
+
+  prose-h1:text-2xl
+  prose-h2:scroll-mt-20
+  prose-h3:scroll-mt-20
+  prose-h4:scroll-mt-20
+  prose-h5:scroll-mt-20
+  prose-h6:scroll-mt-20
+  
+  prose-a:text-sky-700
+  prose-figure:mx-auto
+  prose-table:border-4
+  prose-tr:border-2
+  prose-tr:p-2
+  prose-th:border
+
+  prose-th:p-2
+  prose-td:border-2
+  prose-td:p-2
+  prose-img:mx-auto
+  dark:prose-a:text-sky-500;
+}
