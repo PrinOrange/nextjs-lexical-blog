@@ -20,6 +20,10 @@ export type TConfig = {
     email: string;
   };
 
+  RSSFeed?: {
+    enabled: boolean;
+  };
+
   Giscus?: {
     enabled: boolean;
     repo: string;

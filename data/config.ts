@@ -38,6 +38,11 @@ export const Config: TConfig = {
     categoryId: "DIC_kwDOK44zm84Cb94g",
   },
 
+  // Enable the RSS Feed? If not, the feed file will not be generated and the feed entrance will be closed.
+  RSSFeed: {
+    enabled: true,
+  },
+
   // The supported sponsor ways are wechat-pay, alipay and paypal.
   SponsorLink: {
     // Your WechatPay QRCode Content.

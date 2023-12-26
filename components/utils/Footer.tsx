@@ -29,9 +29,11 @@ export const Footer = () => {
           <Link href="/friends" title="My friend links.">
             {"Friends"}
           </Link>
-          <DialogTrigger asChild>
-            <button title="Subscribe the RSS Feed.">{"Feed"}</button>
-          </DialogTrigger>
+          {Config.RSSFeed?.enabled && (
+            <DialogTrigger asChild>
+              <button title="Subscribe the RSS Feed.">{"Feed"}</button>
+            </DialogTrigger>
+          )}
         </div>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>

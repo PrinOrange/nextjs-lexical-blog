@@ -76,7 +76,9 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
     }
   }
 
-  await generateRSSFeed();
+  if (Config.RSSFeed?.enabled) {
+    await generateRSSFeed();
+  }
 
   return {
     props: {
