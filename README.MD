@@ -148,6 +148,10 @@ Due to the use of the `next-mdx-remote` engine in this project, it doesn't allow
 
 I recommend using **PicGO** tool to set up your own image hosting. [You can click here to view the documentation.](https://picgo.github.io/PicGo-Doc/en/)
 
+#### RSS Feed
+
+This site supports RSS Feed 2.0 and automatically generates an RSS link with each website build. The articles pushed in the RSS Feed are consistent with the latest articles on the homepage. Of course, you can choose whether to enable it or not through the `RSSFeed.enabled` option in `./data/config.ts`.
+
 #### Comment System
 
 This website utilizes Giscus as the comment system. For specific configuration instructions, please refer to this [link](https://giscus.app/). It requires each commenter to use their own GitHub account. Of course, you can also opt for other comment systems like Disqus.

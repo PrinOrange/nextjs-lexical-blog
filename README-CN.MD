@@ -148,6 +148,10 @@ npm run build:turbo
 
 我推荐使用 **PicGO** 工具来搭建自己的图床。[你可以点击此处查看文档。](https://picgo.github.io/PicGo-Doc/en/)
 
+#### RSS Feed
+
+本站支持 RSS Feed 2.0，每次构建网站时均自动生成 RSS 链接。每次 RSS Feed 推送的文章与首页的最新文章一致。当然你可可以通过 `./data/config.ts` 中的 `RSSFeed.enabled` 项来选择是否启用。
+
 #### 评论系统
 
 本网站使用 Giscus 作为评论系统。具体配置方法请看这里。它要求每一个评论者都要使用自己的 Github 账号。当然，你也可以使用其他的评论系统，比如 Disqus 。
