@@ -68,15 +68,22 @@ Then, the program will ask you a series of questions. Simply input your answers 
 
 ? What's the title?
 // Required. Enter the title of your article here.
+// Recommended no more than 15 words.
 
 ? What's the subtitle?
 // Optional. Enter the subtitle of your article here.
+// Recommended no more than 15 words.
 
 ? Assign tags for the posts and separate them with commas.
-// Optional. Tag your article and separate the tags with commas, e.g., technology,news,programming
+// Optional. Tag your article and separate the tags with commas.
+// E.g., technology,news,programming
+// It is recommended that the number of tags should not exceed 4,
+// and each tag should be no more than 2 words.
 
 ? Do NOT prompt this post? (D:false) No
-// Default is no. Do you want to publish this post discreetly? If yes, then the article won't be pushed to the homepage or included in RSS after publishing, and can only be found in the complete article list.
+// Default is no. Do you want to publish this post discreetly?
+// If yes, then the article won't be pushed to the homepage or included in RSS after publishing,
+// and can only be found in the complete article list.
 
 ? Do you want to pin this post? (D:false) No
 // Default is no. Do you want to pin this article?
@@ -92,6 +99,27 @@ Create Post Succeed.
 Open the file ./data/posts/2023-12-24-This-is-my-new-post.md to write your blog now.
 Some fields, such as summary, need to be filled in by yourself after opening the file.
 ```
+
+Open the post file you just created and you can see the following content:
+
+```plaintext
+---
+title: "xxxxxxx"
+subtitle: "xxxxxxx"
+summary: ""
+coverURL: ""
+time: "2023-12-29"
+tags: ["xxx","xxx"]
+noPrompt: false
+pin: false
+allowShare: true
+---
+
+```
+
+The existing `title`, `subtitle`, `tags` and other fields are automatically generated for you by the script when you create them. Only `summary` and `coverURL` fields are still empty. They require you to fill them in manually.
+
+The `summary` field is a general summary of the article, which will be displayed in the blog list. It is recommended to be within 50 words. And `coverURL` is the cover image of the blog. The network reference link of the image needs to be written, which will be displayed at the top of the post. For optimal presentation, the recommended image aspect ratio is 5:2.
 
 #### Development
 

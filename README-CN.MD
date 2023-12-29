@@ -67,16 +67,20 @@ npm run newpost
 > node ./scripts/newpost.mjs
 
 ? What's the title?
-// 必选，在这里输入你的文章标题。
+// 必选，在这里输入你的文章标题。建议不超过 20 字。
 
 ? What's the subtitle?
-// 可选。在这里输入你的文章副标题。
+// 可选。在这里输入你的文章副标题。建议不超过 20 字。
 
 ? Assign tags for the posts and separate them with commas.
-// 可选。为文章打上标签，并且用英文逗号来分隔它们，比如technology,news,programming
+// 可选。为文章打上标签，并且用英文逗号来分隔它们。
+// 比如technology,news,programming 。
+// 建议标签数量不超过 4 个，每个标签不超过 3 个单词或者 5 个汉字。
 
 ? Do NOT prompt this post? (D:false) No
-// 默认为否。是否要低调发布？如果是，那么这篇文章发布后不会被推送到首页，也不会收录到 RSS ，只能通过文章总列表中找到它。
+// 默认为否。是否要低调发布？
+// 如果是，那么这篇文章发布后不会被推送到首页，也不会收录到 RSS 。
+// 只能通过文章总列表中找到它。
 
 ? Do you want to pin this post? (D:false) No
 // 默认为否。是否要置顶这篇文章？
@@ -92,6 +96,27 @@ Create Post Succeed.
 Open the file ./data/posts/2023-12-24-This-is-my-new-post.md to write your blog now.
 Some fields, such as summary, need to be filled in by yourself after opening the file.
 ```
+
+打开刚创建好的帖子文件，你可以看到如下信息：
+
+```plaintext
+---
+title: "xxxxxxx"
+subtitle: "xxxxxxx"
+summary: ""
+coverURL: ""
+time: "2023-12-29"
+tags: ["xxx","xxx"]
+noPrompt: false
+pin: false
+allowShare: true
+---
+
+```
+
+其中 `title` ，`subtitle` ，`tags` 等等字段在创建时脚本已经自动为你生成好了。只有 `summary` ，`coverURL` 字段还是空的。它们需要你手动填写。
+
+`summary` 字段是对文章的大体总结，会展示到博客列表中，建议 100 字以内。而 `coverURL` 是博客的封面图片，需要写入图片的网络引用链接，会展示到帖子顶部。为了最佳展示效果，建议图片的长宽比为 5 : 2。
 
 #### 开发
 

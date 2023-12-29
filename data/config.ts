@@ -14,6 +14,7 @@ export const Config: TConfig = {
   // Your domain for website.
   SiteDomain: "nextjs-lexical-blog-demo.vercel.app",
 
+  // For the cover image displayed on the homepage, the recommended image aspect ratio is 4:1.
   PageCovers: {
     websiteCoverURL: "/images/cover.webp",
   },
