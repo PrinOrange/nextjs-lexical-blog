@@ -1,5 +1,6 @@
 import { HomeCover } from "@/components/homepage/HomeCover";
 import { ContentContainer, Page } from "@/components/layouts/layouts";
+import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { PostList } from "@/components/utils/PostList";
@@ -52,9 +53,11 @@ export default function Home(props: HomePageProps) {
             <hr />
             <PostList data={props.latestPostList} />
             <div className="my-2 flex justify-end">
-              <Link href="/posts" className="link-button font-bold text-base">
-                {"MORE POSTS >"}
-              </Link>
+              <Button asChild>
+                <Link href="/posts" className="font-bold">
+                  {"MORE POSTS >"}
+                </Link>
+              </Button>
             </div>
           </div>
         )}

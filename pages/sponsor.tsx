@@ -24,7 +24,9 @@ export default function AboutPage() {
       <ContentContainer>
         <div className="md:flex">
           <div className="flex flex-col justify-center md:w-1/2">
-            <h2 className={`my-5 flex justify-center text-2xl font-bold text-red-500 ${fontFangZhengXiaoBiaoSongCN.className}`}>
+            <h2
+              className={`my-5 flex justify-center text-2xl font-bold text-red-500 ${fontFangZhengXiaoBiaoSongCN.className}`}
+            >
               <GoHeartFill className="mx-2 my-auto" />
               {"SPONSOR"}
             </h2>

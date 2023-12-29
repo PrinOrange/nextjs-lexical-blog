@@ -17,7 +17,9 @@ export default function AboutPage() {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-around text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>{"ABOUT ME"}</h2>
+        <h2 className={`my-5 flex justify-around text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+          {"ABOUT ME"}
+        </h2>
         <hr />
         <div className={`${fontSourceSerifScreenCN.className} my-5 justify-center md:flex md:space-x-10`}>
           <div className="my-auto flex md:w-1/3">

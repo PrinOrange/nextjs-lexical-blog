@@ -1,4 +1,5 @@
 import { ContentContainer, Page } from "@/components/layouts/layouts";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
@@ -51,16 +52,20 @@ export default function TagsContentPage(props: TagsContentPageProps) {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+        <h2
+          className={`my-5 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}
+        >
           {`Posts of ${props.tagName}`}
         </h2>
         <hr />
         <PostList data={props.postList} />
         <div className="my-5 flex justify-between text-base font-bold">
           {props.pageNumber !== 1 && (
-            <Link href={`/tags/${props.tagName}/${props.pageNumber - 1}/`} className="link-button my-auto">
-              {"< PREV"}
-            </Link>
+            <Button asChild>
+              <Link href={`/tags/${props.tagName}/${props.pageNumber - 1}/`} className="font-bold">
+                {"< PREV"}
+              </Link>
+            </Button>
           )}
           <div className="my-auto font-bold flex justify-center">
             <Input
@@ -72,9 +77,11 @@ export default function TagsContentPage(props: TagsContentPageProps) {
             <div className="my-auto">{`  /  ${props.pageAmount}`}</div>
           </div>
           {props.pageNumber !== props.pageAmount && (
-            <Link href={`/tags/${props.tagName}/${props.pageNumber + 1}/`} className="link-button my-auto">
-              {"NEXT >"}
-            </Link>
+            <Button asChild>
+              <Link href={`/tags/${props.tagName}/${props.pageNumber + 1}/`} className="font-bold">
+                {"NEXT >"}
+              </Link>
+            </Button>
           )}
         </div>
       </ContentContainer>

@@ -65,7 +65,9 @@ const ReaderPage = (props: ReaderPageProps) => {
                 {props.frontMatter?.title}
               </h2>
               {props.frontMatter?.subtitle && (
-                <div className={`${fontFangZhengXiaoBiaoSongCN.className} my-1 flex justify-center text-xl font-bold capitalize`}>
+                <div
+                  className={`${fontFangZhengXiaoBiaoSongCN.className} my-1 flex justify-center text-xl font-bold capitalize`}
+                >
                   {props.frontMatter.subtitle}
                 </div>
               )}

@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 @import "./typesetting.css";
-@import "./formuation.css";
-@import "./ui.css";
+@import "./formulation.css";
 @import "./layout.css";
 @import "./scrollbar.css";
 
@@ -81,4 +80,15 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.selection-style {
+  @apply selection:bg-black
+      selection:text-white
+      dark:selection:bg-white
+      dark:selection:text-black;
+}
+
+* {
+  @apply selection-style;
 }

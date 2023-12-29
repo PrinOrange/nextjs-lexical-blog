@@ -19,7 +19,9 @@ export const HomeCover = () => {
           src={Config.AvatarURL}
         />
       </div>
-      <div className={`${fontFangZhengXiaoBiaoSongCN.className} my-8 text-center text-4xl font-bold`}>{Config.Nickname}</div>
+      <div className={`${fontFangZhengXiaoBiaoSongCN.className} my-8 text-center text-4xl font-bold`}>
+        {Config.Nickname}
+      </div>
       <SocialIcons />
       {Config.Sentence && (
         <div className="my-8 flex justify-center">
