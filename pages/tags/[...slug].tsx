@@ -8,7 +8,7 @@ import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { paginateArray } from "@/lib/utils";
-import { fontFzxbs } from "@/styles/font";
+import { fontFangZhengXiaoBiaoSongCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
@@ -51,7 +51,7 @@ export default function TagsContentPage(props: TagsContentPageProps) {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex flex-col justify-center text-center text-3xl font-bold ${fontFzxbs.className}`}>
+        <h2 className={`my-5 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           {`Posts of ${props.tagName}`}
         </h2>
         <hr />

@@ -4,7 +4,7 @@ import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
 import { isEmptyString } from "@/lib/utils";
-import { fontFzxbs, fontSypxzs } from "@/styles/font";
+import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
 import { FaCcPaypal } from "react-icons/fa";
@@ -24,11 +24,11 @@ export default function AboutPage() {
       <ContentContainer>
         <div className="md:flex">
           <div className="flex flex-col justify-center md:w-1/2">
-            <h2 className={`my-5 flex justify-center text-2xl font-bold text-red-500 ${fontFzxbs.className}`}>
+            <h2 className={`my-5 flex justify-center text-2xl font-bold text-red-500 ${fontFangZhengXiaoBiaoSongCN.className}`}>
               <GoHeartFill className="mx-2 my-auto" />
               {"SPONSOR"}
             </h2>
-            <p className={`${fontSypxzs.className} break-words text-lg`}>
+            <p className={`${fontSourceSerifScreenCN.className} break-words text-lg`}>
               {
                 "If you like my works, I would deeply appreciate your support as a patron. Your contribution not only fuels my creative journey but also allows me to delve deeper into my passion. Your support plays a vital role in making this vision a reality. Thank you for considering becoming a patron and being an integral part of this work endeavor."
               }

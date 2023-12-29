@@ -8,7 +8,7 @@ import { LatestPostCountInHomePage } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { generateRSSFeed } from "@/lib/rss";
-import { fontFzxbs } from "@/styles/font";
+import { fontFangZhengXiaoBiaoSongCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { GetStaticProps } from "next";
 import Link from "next/link";
@@ -34,7 +34,7 @@ export default function Home(props: HomePageProps) {
         {props.pinnedPostList.length !== 0 && (
           <div>
             <hr />
-            <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFzxbs.className}`}>
+            <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
               <RiStarFill className="mx-2 my-auto" />
               {"PINNED POSTS"}
             </h2>
@@ -45,7 +45,7 @@ export default function Home(props: HomePageProps) {
         <hr />
         {props.latestPostList.length !== 0 && (
           <div>
-            <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFzxbs.className}`}>
+            <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
               <LuPenTool className="mx-2 my-auto" />
               {"LATEST POSTS"}
             </h2>

@@ -5,7 +5,7 @@ import { SEO } from "@/components/utils/SEO";
 import { TagBadge } from "@/components/utils/TagBadge";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
-import { fontFzxbs, fontSypxzs } from "@/styles/font";
+import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { nanoid } from "nanoid";
 import { GetStaticProps } from "next";
 import { AiOutlineTags } from "react-icons/ai";
@@ -24,11 +24,11 @@ export default function TagsIndexPage(props: TagsIndexPageProps) {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFzxbs.className}`}>
+        <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           <AiOutlineTags className="mx-2 my-auto" />
           {"ALL TAGS"}
         </h2>
-        <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSypxzs.className}`}>
+        <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
           {props.tagList.map((item) => (
             <TagBadge key={`tag-badge-${nanoid()}`} name={item.name} size="md" count={item.count} />
           ))}

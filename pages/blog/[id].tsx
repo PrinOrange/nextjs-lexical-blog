@@ -14,7 +14,7 @@ import { Config } from "@/data/config";
 import { normalizeDate } from "@/lib/date";
 import { getPostFileContent, sortedPosts } from "@/lib/post-process";
 import { getTOCTree } from "@/lib/toc";
-import { fontFzxbs, fontSypxzs } from "@/styles/font";
+import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { TFrontmatter } from "@/types/frontmatter.type";
 import { TPostListItem } from "@/types/post-list";
 import { TTOCItem } from "@/types/toc.type";
@@ -60,18 +60,18 @@ const ReaderPage = (props: ReaderPageProps) => {
             <div className="py-1">
               {props.frontMatter.coverURL && <PostCover coverURL={props.frontMatter.coverURL} />}
               <h2
-                className={`${fontFzxbs.className} flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
+                className={`${fontFangZhengXiaoBiaoSongCN.className} flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
               >
                 {props.frontMatter?.title}
               </h2>
               {props.frontMatter?.subtitle && (
-                <div className={`${fontFzxbs.className} my-1 flex justify-center text-xl font-bold capitalize`}>
+                <div className={`${fontFangZhengXiaoBiaoSongCN.className} my-1 flex justify-center text-xl font-bold capitalize`}>
                   {props.frontMatter.subtitle}
                 </div>
               )}
               <div className="my-2 flex justify-center text-sm italic">{normalizeDate(props.frontMatter?.time)}</div>
               {props.frontMatter?.summary && (
-                <p className={`${fontSypxzs.className} my-4 indent-8 text-gray-800 dark:text-gray-300`}>
+                <p className={`${fontSourceSerifScreenCN.className} my-4 indent-8 text-gray-800 dark:text-gray-300`}>
                   {props.frontMatter?.summary}
                 </p>
               )}
@@ -85,7 +85,7 @@ const ReaderPage = (props: ReaderPageProps) => {
               )}
             </div>
             <div
-              className={`typesetting ${fontSypxzs.className} flat-scrollbar-thin my-0 ${
+              className={`typesetting ${fontSourceSerifScreenCN.className} flat-scrollbar-thin my-0 ${
                 !props.frontMatter.allowShare && "select-none"
               }`}
             >

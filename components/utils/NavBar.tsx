@@ -1,6 +1,6 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Config } from "@/data/config";
-import { fontFzxbs } from "@/styles/font";
+import { fontFangZhengXiaoBiaoSongCN } from "@/styles/font";
 import { nanoid } from "nanoid";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -40,7 +40,7 @@ export const NavBar = () => {
       <nav className="responsive-width sticky top-0 z-50 flex justify-between py-3 backdrop-blur bg-white/50 dark:bg-black/50">
         <Link href="/" className="cursor-pointer">
           <h1
-            className={`${fontFzxbs.className} my-auto border-b-4 border-b-black text-2xl font-bold dark:border-b-white`}
+            className={`${fontFangZhengXiaoBiaoSongCN.className} my-auto border-b-4 border-b-black text-2xl font-bold dark:border-b-white`}
           >
             {Config.SiteTitle}
           </h1>

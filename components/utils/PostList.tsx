@@ -1,5 +1,5 @@
 import { normalizeDate } from "@/lib/date";
-import { fontSypxzs } from "@/styles/font";
+import { fontSourceSerifScreenCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { nanoid } from "nanoid";
 import Link from "next/link";
@@ -11,7 +11,7 @@ export const PostList = (props: { data: TPostListItem[] }) => {
       {props.data.map((postListItem, index) => (
         <div
           key={`post-list-${nanoid()}`}
-          className={`${fontSypxzs.className} flex flex-col justify-center ${
+          className={`${fontSourceSerifScreenCN.className} flex flex-col justify-center ${
             index !== props.data.length - 1 && "border-b"
           } border-dashed border-gray-400 py-3`}
         >

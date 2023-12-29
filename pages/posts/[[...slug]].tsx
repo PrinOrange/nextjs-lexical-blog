@@ -8,7 +8,7 @@ import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { paginateArray } from "@/lib/utils";
-import { fontFzxbs } from "@/styles/font";
+import { fontFangZhengXiaoBiaoSongCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
@@ -51,7 +51,7 @@ export default function PostsPage(props: PostsPageProps) {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-center text-2xl ${fontFzxbs.className} font-bold`}>
+        <h2 className={`my-5 flex justify-center text-2xl ${fontFangZhengXiaoBiaoSongCN.className} font-bold`}>
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
         </h2>
