@@ -47,7 +47,12 @@ export const NavBar = () => {
         </Link>
         <div className="my-auto hidden sm:flex">
           {MenuItems.map((menuItem) => (
-            <Link href={menuItem.href} key={nanoid()} className="nav-link mx-2 my-auto px-2">
+            <Link
+              href={menuItem.href}
+              key={nanoid()}
+              className="nav-link mx-2 my-auto px-2"
+              onClick={() => setIsSideNavOpen(false)}
+            >
               {menuItem.title}
             </Link>
           ))}
@@ -74,6 +79,7 @@ export const NavBar = () => {
                 href={menuItem.href}
                 key={nanoid()}
                 className="border-b border-dashed p-3 text-xl hover:text-sky-500"
+                onClick={() => setIsSideNavOpen(false)}
               >
                 {menuItem.title}
               </Link>
