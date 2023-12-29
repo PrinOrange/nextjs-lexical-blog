@@ -100,9 +100,8 @@ export const getStaticProps: GetStaticProps<PostsPageProps> = async (context) =>
   const params = (context.params?.slug as string[]) ?? [];
 
   const pageNumber = params[0] ? parseInt(params[0]) : 1;
-  let postList: TPostListItem[] = [];
 
-  postList = paginateArray(sortedPosts.allPostList, PostCountPerPagination, pageNumber);
+  let postList: TPostListItem[] = paginateArray(sortedPosts.allPostList, PostCountPerPagination, pageNumber);
 
   const pageAmount = Math.ceil(sortedPosts.allPostList.length / PostCountPerPagination);
 

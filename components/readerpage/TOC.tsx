@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const TOC = (props: { data: TTOCItem[] }) => {
   return (
-    <div className="sticky top-[5em] m-5 p-2 rounded-md border-2">
+    <div className="sticky top-[5em] mx-5 p-2 rounded-md border-2">
       <div className="p-2 text-center font-bold">{"TABLE OF CONTENTS"}</div>
       <hr />
       <ul className="flat-scrollbar my-1 px-1 h-[60vh] overflow-y-auto">

@@ -37,7 +37,7 @@ export const NavBar = () => {
 
   return (
     <Sheet open={isSideNavOpen} onOpenChange={(open) => setIsSideNavOpen(open)}>
-      <nav className="responsive-width sticky top-0 z-50 flex justify-between bg-inherit py-3 backdrop-blur">
+      <nav className="responsive-width sticky top-0 z-50 flex justify-between py-3 backdrop-blur bg-white/50 dark:bg-black/50">
         <Link href="/" className="cursor-pointer">
           <h1
             className={`${fontFzxbs.className} my-auto border-b-4 border-b-black text-2xl font-bold dark:border-b-white`}
@@ -50,7 +50,7 @@ export const NavBar = () => {
             <Link
               href={menuItem.href}
               key={nanoid()}
-              className="nav-link mx-2 my-auto px-2"
+              className="border-b-sky-600 font-bold hover:text-sky-600 dark:hover:border-b-sky-500 dark:hover:text-sky-500 mx-2 my-auto px-2"
               onClick={() => setIsSideNavOpen(false)}
             >
               {menuItem.title}

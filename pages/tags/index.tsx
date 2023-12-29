@@ -2,12 +2,12 @@ import { ContentContainer, Page } from "@/components/layouts/layouts";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
+import { TagBadge } from "@/components/utils/TagBadge";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { fontFzxbs, fontSypxzs } from "@/styles/font";
 import { nanoid } from "nanoid";
 import { GetStaticProps } from "next";
-import Link from "next/link";
 import { AiOutlineTags } from "react-icons/ai";
 
 type TagsIndexPageProps = {
@@ -30,9 +30,7 @@ export default function TagsIndexPage(props: TagsIndexPageProps) {
         </h2>
         <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSypxzs.className}`}>
           {props.tagList.map((item) => (
-            <Link key={`tag-link-${nanoid()}`} href={`/tags/${item.name}`} className="tag-link m-2 text-base">
-              {`${item.name} (${item.count})`}
-            </Link>
+            <TagBadge key={`tag-badge-${nanoid()}`} name={item.name} size="md" count={item.count} />
           ))}
         </div>
       </ContentContainer>

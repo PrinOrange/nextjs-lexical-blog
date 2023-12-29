@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { RSSFeedLink } from "@/consts/consts";
+import { CopyrightAnnouncement, RSSFeedURL } from "@/consts/consts";
 import { Config } from "@/data/config";
 import Link from "next/link";
 import { useState } from "react";
@@ -37,9 +37,7 @@ export const Footer = () => {
             </DialogTrigger>
           )}
         </div>
-        <div className="mx-auto px-3 text-center font-bold">{`COPYRIGHT © ${
-          Config.YearStart
-        }-${new Date().getFullYear()} ${Config.AuthorName} ALL RIGHTS RESERVED`}</div>
+        <div className="mx-auto px-3 text-center font-bold">{CopyrightAnnouncement}</div>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex">
@@ -57,12 +55,12 @@ export const Footer = () => {
             </div>
             <Separator />
             <div className="w-full flex my-3">
-              <Input defaultValue={RSSFeedLink} readOnly />
+              <Input defaultValue={RSSFeedURL} readOnly />
               <CopyToClipboard
                 onCopy={() => {
                   setIsCopied(true);
                 }}
-                text={RSSFeedLink}
+                text={RSSFeedURL}
               >
                 <Button
                   type="submit"

@@ -5,7 +5,8 @@ import { fontSypxzs } from "@/styles/font";
 import { TfiFaceSad } from "react-icons/tfi";
 
 export default function NotFoundPage() {
-  const goBack = () => {
+  const handleGoBack = () => {
+    if (window == null) return;
     window.history.back();
   };
   return (
@@ -19,7 +20,7 @@ export default function NotFoundPage() {
             {"This page does not exist for it might be removed or closed."}
           </p>
           <div className="my-5 flex justify-center">
-            <button onClick={goBack} className="link text-xl font-bold">
+            <button onClick={handleGoBack} className="link text-xl font-bold">
               {"GO BACK"}
             </button>
           </div>

@@ -48,17 +48,17 @@ export default function AboutPage() {
               </Link>
             </li>
           )}
-          <li className="my-2">🖥️ Programming stack: XXXX</li>
-          <li className="my-2">🤝 I am looking to XXXXX</li>
+          <li className="my-2">🖥️ Programming stack: TypeScript, JavaScript, C++, C, Rust, Go and so on.</li>
+          <li className="my-2">🤝 I am looking for friends who are fund of XXXX</li>
           {Config.SocialLinks.twitter && (
             <li className="my-2">
               {"📫 How to reach me on Twitter: "}
-              <Link target="_blank" className="link" href={`https://x.com/${Config.SocialLinks.twitter}`}>
+              <Link target="_blank" className="link" href={`https://twitter.com/${Config.SocialLinks.twitter}`}>
                 {Config.SocialLinks.twitter}
               </Link>
             </li>
           )}
-          <li className="my-2">Language : 汉语普通话（First Language） / English / 한국어 / 日本語</li>
+          <li className="my-2">Language : 汉语 / English / 한국어 / 日本語 </li>
           <li className="my-2">Gender Identity : Male / Female / MTF / FTM / And Others </li>
           <li className="my-2">From : Your Country, State / Province</li>
         </ul>

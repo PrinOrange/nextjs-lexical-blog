@@ -16,7 +16,7 @@ export default function FriendsPage() {
       <ContentContainer>
         <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFzxbs.className}`}>{"FRIENDS"}</h2>
         <hr />
-        <div className={`my-5 flex flex-wrap justify-center text-2xl ${fontSypxzs.className}`}>
+        <div className={`my-5 py-3 flex flex-wrap justify-center text-2xl ${fontSypxzs.className}`}>
           {FriendsList.map((item) => (
             <Link className="mx-3 p-2 underline" href={item.url} key={nanoid()}>
               {item.title}
@@ -24,7 +24,7 @@ export default function FriendsPage() {
           ))}
         </div>
         <hr />
-        <div className="my-2 text-base flex-col flex justify-start">
+        <div className="my-3 text-base flex-col flex justify-start">
           <div className="mx-auto">
             {"Welcome to exchange our friend links and every high-quality blog websites are welcomed. "}
             <Link className="underline" href={`mailto:${Config.SocialLinks.email}`}>

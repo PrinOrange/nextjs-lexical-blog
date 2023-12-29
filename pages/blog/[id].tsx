@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
+import { TagBadge } from "@/components/utils/TagBadge";
 import { Config } from "@/data/config";
 import { normalizeDate } from "@/lib/date";
 import { getPostFileContent, sortedPosts } from "@/lib/post-process";
@@ -78,13 +79,7 @@ const ReaderPage = (props: ReaderPageProps) => {
                 <div className={`py-3 flex flex-wrap justify-start border-t border-b`}>
                   <div className="font-bold mr-2 my-1">{"TAGS : "}</div>
                   {props.frontMatter.tags.map((tagName) => (
-                    <Link
-                      href={`/tags/${tagName}`}
-                      className={`tag-link m-1 text-sm ${fontSypxzs.className}`}
-                      key={`tags-${nanoid()}`}
-                    >
-                      {tagName}
-                    </Link>
+                    <TagBadge name={tagName} size="sm" key={`tags-${nanoid()}`} />
                   ))}
                 </div>
               )}

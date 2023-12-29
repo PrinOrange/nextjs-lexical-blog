@@ -3,6 +3,7 @@ import { fontSypxzs } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { nanoid } from "nanoid";
 import Link from "next/link";
+import { TagBadge } from "./TagBadge";
 
 export const PostList = (props: { data: TPostListItem[] }) => {
   return (
@@ -31,9 +32,7 @@ export const PostList = (props: { data: TPostListItem[] }) => {
           {postListItem.frontMatter.tags && (
             <div className="my-2 flex justify-center">
               {postListItem.frontMatter.tags.map((tagName) => (
-                <Link href={`/tags/${tagName}`} className="tag-link mx-1 text-sm" key={`tags-${nanoid()}`}>
-                  {tagName}
-                </Link>
+                <TagBadge name={tagName} size="sm" key={`tags-${nanoid()}`} />
               ))}
             </div>
           )}

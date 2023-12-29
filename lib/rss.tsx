@@ -1,4 +1,4 @@
-import { LatestPostCountInHomePage } from "@/consts/consts";
+import { CopyrightAnnouncement, LatestPostCountInHomePage, WebsiteURL } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { Feed } from "feed";
 import fs from "fs";
@@ -15,6 +15,8 @@ import remarkMath from "remark-math";
 import remarkPrism from "remark-prism";
 import { getPostFileContent, sortedPosts } from "./post-process";
 
+const NoticeForRSSReaders = `\n---\n**NOTE:** Different RSS reader may have deficient even no support for svg formulations rendering. If it happens, please read the origin page to have better experience.`;
+
 /**
  * Generate the RSS Feed File in `./public` so it could be visited by https://domain/rss.xml
  */
@@ -23,23 +25,21 @@ export const generateRSSFeed = async () => {
     title: Config.SiteTitle,
     description: Config.Sentence,
     id: Config.SiteDomain,
-    link: `https://${Config.SiteDomain}/`,
+    link: WebsiteURL,
     image: Config.PageCovers.websiteCoverURL,
     favicon: `https://${Config.SiteDomain}/favcion.ico`,
-    copyright: `COPYRIGHT © ${Config.YearStart}-${new Date().getFullYear()} ${Config.AuthorName} ALL RIGHTS RESERVED`,
+    copyright: CopyrightAnnouncement,
     generator: "Node.js Feed",
     author: {
       name: Config.AuthorName,
       email: Config.SocialLinks.email,
-      link: `https://${Config.SiteDomain}/`,
+      link: WebsiteURL,
     },
   });
 
   for (let i = 0; i < LatestPostCountInHomePage; i++) {
     const post = sortedPosts.allPostList[i];
-    const postContent = `${getPostFileContent(
-      post.id,
-    )}\n---\n**NOTE:** Different RSS reader may have deficient even no support for svg formulations rendering. If it happens, please read the origin page to have better experience.`;
+    const postContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders}}`;
     const dateNumber = post.frontMatter.time.split("-").map((num) => parseInt(num));
     const mdxSource = await serialize(postContent ?? "", {
       parseFrontmatter: true,

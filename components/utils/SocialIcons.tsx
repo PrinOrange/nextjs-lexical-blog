@@ -36,11 +36,9 @@ export const SocialIcons = () => {
           <FiGithub className="hover:text-gray-500" />
         </Link>
       )}
-      {Config.SocialLinks.email && (
-        <Link target="_blank" href={`mailto:${Config.SocialLinks.email}`} title="EMail Address">
-          <FiMail className="hover:text-gray-500" />
-        </Link>
-      )}
+      <Link target="_blank" href={`mailto:${Config.SocialLinks.email}`} title="EMail Address">
+        <FiMail className="hover:text-gray-500" />
+      </Link>
     </div>
   );
 };
