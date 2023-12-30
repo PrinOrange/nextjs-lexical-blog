@@ -45,7 +45,7 @@ export default function AboutPage() {
           </div>
           <div className="md:px-15 md:w-1/2">
             <div className="mx-2 my-10 flex flex-col justify-around font-bold">
-              {!isEmptyString(Config.Sponsor?.wechatPay) && (
+              {!isEmptyString(Config.Sponsor?.WechatPayQRCodeContent) && (
                 <div className="my-3 flex justify-between">
                   <div className="my-auto flex">
                     <SiWechat className="mx-3 my-auto text-4xl text-green-500" />
@@ -54,12 +54,12 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="my-2 bg-white p-1">
-                    <QRCodeSVG width={120} value={Config.Sponsor?.wechatPay!} />
+                    <QRCodeSVG width={120} value={Config.Sponsor?.WechatPayQRCodeContent!} />
                   </div>
                 </div>
               )}
               <hr />
-              {!isEmptyString(Config.Sponsor?.alipay) && (
+              {!isEmptyString(Config.Sponsor?.AlipayLink) && (
                 <div className="my-6 flex justify-between">
                   <div className="my-auto flex">
                     <SiAlipay className="mx-3 my-auto text-4xl text-blue-500" />
@@ -69,7 +69,7 @@ export default function AboutPage() {
                   </div>
                   <div className="my-2">
                     <Button className="my-auto" asChild>
-                      <Link target="_blank" href={Config.Sponsor?.alipay!}>
+                      <Link target="_blank" href={Config.Sponsor?.AlipayLink!}>
                         {"DONATE"}
                       </Link>
                     </Button>
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 </div>
               )}
               <hr />
-              {!isEmptyString(Config.Sponsor?.paypal) && (
+              {!isEmptyString(Config.Sponsor?.PaypalId) && (
                 <div className="my-6 flex justify-between">
                   <div className="my-auto flex">
                     <FaCcPaypal className="mx-3 my-auto text-4xl text-blue-600" />
@@ -87,7 +87,7 @@ export default function AboutPage() {
                   </div>
                   <div className="my-2">
                     <Button className="my-auto" asChild>
-                      <Link target="_blank" href={Config.Sponsor?.paypal!}>
+                      <Link target="_blank" href={`https://paypal.me/${Config.Sponsor?.PaypalId}`}>
                         {"DONATE"}
                       </Link>
                     </Button>
@@ -95,7 +95,7 @@ export default function AboutPage() {
                 </div>
               )}
               <hr />
-              {!isEmptyString(Config.Sponsor?.patreon) && (
+              {!isEmptyString(Config.Sponsor?.PatreonId) && (
                 <div className="my-6 flex justify-between">
                   <div className="my-auto flex">
                     <SiPatreon className="mx-3 my-auto text-4xl text-gray-500" />
@@ -105,7 +105,7 @@ export default function AboutPage() {
                   </div>
                   <div className="my-2">
                     <Button className="my-auto" asChild>
-                      <Link target="_blank" href={`https://patreon.com/${Config.Sponsor?.patreon}`}>
+                      <Link target="_blank" href={`https://patreon.com/${Config.Sponsor?.PatreonId}`}>
                         {"DONATE"}
                       </Link>
                     </Button>

@@ -177,6 +177,26 @@ npm run build:turbo
 
 本站支持 RSS Feed 2.0，每次构建网站时均自动生成 RSS 链接。每次 RSS Feed 推送的文章与首页的最新文章一致。当然你可可以通过 `./data/config.ts` 中的 `RSSFeed.enabled` 项来选择是否启用。
 
+#### 赞助渠道
+
+博客网站的 `/sponsor` 页面用于展示赞助渠道、赞助说明。可以在 [`./data/config.ts`](./data/config.ts) 中的 `Sponsor` 项来配置。博客网站目前支持的的赞助渠道有四个：微信支付、支付宝、Paypal 和 Patreon 。
+
+你可以看到如下的配置项：
+
+```typescript
+Sponsor: {
+  WechatPayQRCodeContent: "wxp://xxxxxxxxxxxxxxxxx",
+  AlipayLink: "https://qr.alipay.com/xxxx",
+  PaypalId: "xxxx",
+  PatreonId: "xxxx",
+},
+```
+
+- 如果你需要开通微信支付的赞助渠道，你可以先保存你的微信收款码，然后再使用二维码解码器，以纯文本的解码方式读取微信收款码的字符串内容，然后你会得到类似 `wxp://xxxxxxxxxxxxxxxxx` 的字符串，再输入到 `WechatPayQRCodeContent` 项中。
+- 如果你需要开通支付宝的赞助渠道，同上，可以用二维码解码器的纯文本模式解码支付宝的收款码，然后你会得到类似 `https://qr.alipay.com/xxxx` 的支付宝链接，输入即可。
+- 对于 Paypal 赞助渠道，输入你的 Paypal ID 即可。
+- 对于 Patreon 赞助渠道，输入你的 Patreon ID 即可。
+
 #### 评论系统
 
 本网站使用 Giscus 作为评论系统。具体配置方法请看这里。它要求每一个评论者都要使用自己的 Github 账号。当然，你也可以使用其他的评论系统，比如 Disqus 。

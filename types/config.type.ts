@@ -33,10 +33,10 @@ export type TConfig = {
   };
 
   Sponsor?: {
-    wechatPay?: string;
-    alipay?: string;
-    paypal?: string;
-    patreon?: string;
+    WechatPayQRCodeContent?: `wxp://${string}`;
+    AlipayLink?: `https://qr.alipay.com/${string}`;
+    PaypalId?: string;
+    PatreonId?: string;
   };
 
   YearStart: number;

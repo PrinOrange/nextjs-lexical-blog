@@ -46,14 +46,14 @@ export const Config: TConfig = {
 
   // The supported sponsor ways are wechat-pay, alipay and paypal.
   Sponsor: {
-    // Your WechatPay QRCode Content.
-    wechatPay: "",
-    // Your Alipay Link.
-    alipay: "https://qr.alipay.com/xxxx",
-    // Your Paypal Account Link.
-    paypal: "https://paypal.me/xxxx",
+    // Your WechatPay QRCode content.
+    WechatPayQRCodeContent: "wxp://xxxxxxxxxxxxxxxxx",
+    // Your Alipay link.
+    AlipayLink: "https://qr.alipay.com/xxxx",
+    // Your Paypal user Id.
+    PaypalId: "terminels",
     // Your Patreon user Id.
-    patreon: "xxxx",
+    PatreonId: "xxxx",
   },
 
   // Website establishment year.

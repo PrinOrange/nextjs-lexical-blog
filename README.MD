@@ -180,6 +180,28 @@ I recommend using **PicGO** tool to set up your own image hosting. [You can clic
 
 This site supports RSS Feed 2.0 and automatically generates an RSS link with each website build. The articles pushed in the RSS Feed are consistent with the latest articles on the homepage. Of course, you can choose whether to enable it or not through the `RSSFeed.enabled` option in `./data/config.ts`.
 
+#### Sponsor Methods
+
+The `/sponsor` page on the blog website is where we showcase our sponsorship channels and provide sponsorship details. You can configure this in the `Sponsor` section of [`./data/config.ts`](./data/config.ts). Currently, our blog website supports four sponsorship channels: WeChat Pay, Alipay, Paypal, and Patreon.
+
+**Note:** WeChat Pay and Alipay are mainly for users in mainland China. If you are not a resident of mainland China or if WeChat Pay and Alipay are not commonly used in your local area, you can ignore the configuration for WeChat Pay and Alipay.
+
+You can find the following configuration options:
+
+```typescript
+Sponsor: {
+  WechatPayQRCodeContent: "wxp://xxxxxxxxxxxxxxxxx",
+  AlipayLink: "https://qr.alipay.com/xxxx",
+  PaypalId: "xxxx",
+  PatreonId: "xxxx",
+},
+```
+
+- To set up WeChat Pay as a sponsorship option, first save your WeChat payment QR code. Then use a QR code decoder to read the QR code's content in plain text format. You'll get a string that looks something like `wxp://xxxxxxxxxxxxxxxxx`. Enter this string into the `WechatPayQRCodeContent` field.
+- For Alipay sponsorship, similarly, use a QR code decoder in plain text mode to decode the Alipay payment code. You will obtain a link similar to `https://qr.alipay.com/xxxx`, which you can input.
+- For Paypal sponsorship, simply input your Paypal ID.
+- For Patreon sponsorship, input your Patreon ID.
+
 #### Comment System
 
 This website utilizes Giscus as the comment system. For specific configuration instructions, please refer to this [link](https://giscus.app/). It requires each commenter to use their own GitHub account. Of course, you can also opt for other comment systems like Disqus.
