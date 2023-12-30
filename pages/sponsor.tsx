@@ -1,4 +1,5 @@
 import { ContentContainer, Page } from "@/components/layouts/layouts";
+import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
@@ -9,7 +10,7 @@ import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
 import { FaCcPaypal } from "react-icons/fa";
 import { GoHeartFill } from "react-icons/go";
-import { SiAlipay, SiWechat } from "react-icons/si";
+import { SiAlipay, SiPatreon, SiWechat } from "react-icons/si";
 
 export default function AboutPage() {
   return (
@@ -47,7 +48,7 @@ export default function AboutPage() {
               {!isEmptyString(Config.SponsorLink?.wechatPay) && (
                 <div className="my-3 flex justify-between">
                   <div className="my-auto flex">
-                    <SiWechat className="mx-3 my-auto text-5xl text-green-500" />
+                    <SiWechat className="mx-3 my-auto text-4xl text-green-500" />
                     <div className="my-auto">
                       <h3 className="mx-auto text-sm">{"WECHAT-PAY"}</h3>
                     </div>
@@ -61,15 +62,17 @@ export default function AboutPage() {
               {!isEmptyString(Config.SponsorLink?.alipay) && (
                 <div className="my-6 flex justify-between">
                   <div className="my-auto flex">
-                    <SiAlipay className="mx-3 my-auto text-5xl text-blue-500" />
+                    <SiAlipay className="mx-3 my-auto text-4xl text-blue-500" />
                     <div className="my-auto">
                       <h3 className="mx-auto text-sm">{"ALIPAY"}</h3>
                     </div>
                   </div>
                   <div className="my-2">
-                    <Link className="link-button my-auto text-2xl" target="_blank" href={Config.SponsorLink?.alipay!}>
-                      {"DONATE"}
-                    </Link>
+                    <Button className="my-auto" asChild>
+                      <Link target="_blank" href={Config.SponsorLink?.alipay!}>
+                        {"DONATE"}
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               )}
@@ -77,18 +80,39 @@ export default function AboutPage() {
               {!isEmptyString(Config.SponsorLink?.paypal) && (
                 <div className="my-6 flex justify-between">
                   <div className="my-auto flex">
-                    <FaCcPaypal className="mx-3 my-auto text-5xl text-blue-600" />
+                    <FaCcPaypal className="mx-3 my-auto text-4xl text-blue-600" />
                     <div className="my-auto">
                       <h3 className="mx-auto text-sm">{"PAYPAL"}</h3>
                     </div>
                   </div>
                   <div className="my-2">
-                    <Link className="link-button my-auto text-2xl" target="_blank" href={Config.SponsorLink?.paypal!}>
-                      {"DONATE"}
-                    </Link>
+                    <Button className="my-auto" asChild>
+                      <Link target="_blank" href={Config.SponsorLink?.paypal!}>
+                        {"DONATE"}
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               )}
+              <hr />
+              {!isEmptyString(Config.SponsorLink?.patreon) && (
+                <div className="my-6 flex justify-between">
+                  <div className="my-auto flex">
+                    <SiPatreon className="mx-3 my-auto text-4xl text-gray-500" />
+                    <div className="my-auto">
+                      <h3 className="mx-auto text-sm">{"PATREON"}</h3>
+                    </div>
+                  </div>
+                  <div className="my-2">
+                    <Button className="my-auto" asChild>
+                      <Link target="_blank" href={`https://patreon.com/${Config.SponsorLink?.patreon}`}>
+                        {"DONATE"}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              )}
+              <hr />
             </div>
           </div>
         </div>

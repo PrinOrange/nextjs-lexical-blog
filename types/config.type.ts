@@ -36,6 +36,7 @@ export type TConfig = {
     wechatPay?: string;
     alipay?: string;
     paypal?: string;
+    patreon?: string;
   };
 
   YearStart: number;
