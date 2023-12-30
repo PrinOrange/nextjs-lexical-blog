@@ -27,6 +27,7 @@ import { renderToString } from "react-dom/server";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex";
 import rehypePresetMinify from "rehype-preset-minify";
+import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import externalLinks from "remark-external-links";
 import remarkGfm from "remark-gfm";
@@ -178,7 +179,7 @@ export const getStaticProps: GetStaticProps<ReaderPageProps> = async (context) =
     parseFrontmatter: true,
     mdxOptions: {
       remarkPlugins: [remarkPrism, externalLinks, remarkMath, remarkGfm],
-      rehypePlugins: [rehypeKatex as any, rehypeAutolinkHeadings, rehypeSlug, rehypePresetMinify],
+      rehypePlugins: [rehypeRaw, rehypeKatex as any, rehypeAutolinkHeadings, rehypeSlug, rehypePresetMinify],
       format: "md",
     },
   });
