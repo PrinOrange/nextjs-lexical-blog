@@ -51,7 +51,7 @@ export const Config: TConfig = {
     // Your Alipay link.
     AlipayLink: "https://qr.alipay.com/xxxx",
     // Your Paypal user Id.
-    PaypalId: "terminels",
+    PaypalId: "xxxx",
     // Your Patreon user Id.
     PatreonId: "xxxx",
   },
