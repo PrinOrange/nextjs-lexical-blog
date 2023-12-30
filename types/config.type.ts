@@ -32,7 +32,7 @@ export type TConfig = {
     categoryId: string;
   };
 
-  SponsorLink?: {
+  Sponsor?: {
     wechatPay?: string;
     alipay?: string;
     paypal?: string;

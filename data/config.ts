@@ -45,7 +45,7 @@ export const Config: TConfig = {
   },
 
   // The supported sponsor ways are wechat-pay, alipay and paypal.
-  SponsorLink: {
+  Sponsor: {
     // Your WechatPay QRCode Content.
     wechatPay: "",
     // Your Alipay Link.
