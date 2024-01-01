@@ -156,6 +156,20 @@ The blog's configuration files are located in the `./data` directory, and there 
 - [config.ts](./data/config.ts): Main configuration information for the website, such as the website title, social accounts, avatar, cover images, etc.
 - [friends.ts](./data/friends.ts): Used to store friend links.
 
+### Packaging and Restoring User Data
+
+This project offers a convenient feature for one-click packaging and restoration of user data, including blog files and configurations. This is particularly useful for data migration, backup, or restoration during project upgrades. You can use the following script tool for this purpose:
+
+```bash
+npm run archive
+```
+
+When you run this script, you'll be presented with two options: `Pack to archive the user data` and `Unpack and restore user data`. These options allow you to package your blog files, configuration files, and other data into a `*.tar.gz` file for archiving or to unpack and restore your user data from an archive.
+
+To execute, simply run the script and specify the directory where you want to store the packaged data.
+
+**Caution**: Before restoring user data, ensure that the current `./data` directory is empty or doesn't contain any critical data you wish to keep. Restoring from an archive will overwrite any existing user data in that directory.
+
 ### FAQ
 
 #### Fonts
