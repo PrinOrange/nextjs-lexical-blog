@@ -9,8 +9,6 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPrinOrange%2Fnextjs-lexical-blog&project-name=nextjs-lexical-blog-template&repository-name=nextjs-lexical-blog&demo-title=Lexical%20Blog%20Demo&demo-description=This%20is%20a%20sleek%20and%20efficient%20web%20blog%20project%2C%20built%20with%20Next.js%20%2B%20MDX%20%2B%20TailwindCSS.%20You%20can%20write%20your%20blog%20posts%20in%20Markdown%20and%20easily%20deploy%20them%20on%20Vercel.&demo-url=nextjs-lexical-blog-demo.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2FPrinOrange%2Fnextjs-lexical-blog%2Fmain%2Fdocs%2Fpreview1.png)
 
----
-
 This is a sleek and efficient web blog project, built with Next.js + MDX + TailwindCSS. You can write your blog posts in Markdown and easily deploy them on Vercel.
 
 It has all the basic functions of a blog website: tag classification, writing, comments, title list, etc.
@@ -89,7 +87,8 @@ Then, the program will ask you a series of questions. Simply input your answers 
 // Default is no. Do you want to pin this article?
 
 ? Do you allow everybody to share this post? (D:true) Yes
-// Do you allow others to share this article? If no, then copying and sharing via social links will be disabled for this article.
+// Default is yes. Do you allow others to share this article?
+// If no, then copying and sharing via social links will be disabled for this article.
 ```
 
 Afterward, the program will display the following message, indicating that the blog file has been created, and you can open and edit it.

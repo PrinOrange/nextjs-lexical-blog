@@ -9,8 +9,6 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPrinOrange%2Fnextjs-lexical-blog&project-name=nextjs-lexical-blog-template&repository-name=nextjs-lexical-blog&demo-title=Lexical%20Blog%20Demo&demo-description=This%20is%20a%20sleek%20and%20efficient%20web%20blog%20project%2C%20built%20with%20Next.js%20%2B%20MDX%20%2B%20TailwindCSS.%20You%20can%20write%20your%20blog%20posts%20in%20Markdown%20and%20easily%20deploy%20them%20on%20Vercel.&demo-url=nextjs-lexical-blog-demo.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2FPrinOrange%2Fnextjs-lexical-blog%2Fmain%2Fdocs%2Fpreview1.png)
 
----
-
 这是一个设计简洁、高效的网络博客项目。它以 Next.js + MDX + TailwindCSS 构建，你可以使用 Markdown 格式来编写博客文章，并且能很轻松地部署到 Vercel 上。
 
 它具备了博客网站的一切基本功能：标签分类、编写、评论、标题列表等。
@@ -86,7 +84,8 @@ npm run newpost
 // 默认为否。是否要置顶这篇文章？
 
 ? Do you allow everybody share this post? (D:true) Yes
-// 是否允许他人分享这篇文章？如果为否，那么这篇文章会被禁止复制、通过社交链接分享。
+// 默认为是。是否允许他人分享这篇文章？
+// 如果为否，那么这篇文章会被禁止复制、通过社交链接分享。
 ```
 
 然后程序就会通知如下信息，这代表着博客文件已经生成，你可以打开并编辑。
