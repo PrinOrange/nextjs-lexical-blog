@@ -14,9 +14,10 @@
 它具备了博客网站的一切基本功能：标签分类、编写、评论、标题列表等。
 
 ![Home Page](./docs/preview1.png)
-![Reader Page](./docs/preview3.png)
 
 它是一个响应式的网站，对市场上大多数不同尺寸的屏幕都有良好的支持。无论是手机、平板电脑、便携小尺寸电脑等，都能在上面轻松阅读网站内容。
+
+![Reader Page](./docs/preview3.png)
 
 | Home Page In Mobile              | Reader Page In Mobile            |
 | -------------------------------- | -------------------------------- |
