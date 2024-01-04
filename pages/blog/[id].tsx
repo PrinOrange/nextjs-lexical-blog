@@ -1,9 +1,9 @@
 import { ContentContainer, Page } from "@/components/layouts/layouts";
 import { MDXComponentsSet } from "@/components/mdx";
+import { DrawerTOC } from "@/components/readerpage/DrawerTOC";
 import { PostComments } from "@/components/readerpage/PostComments";
 import { PostCover } from "@/components/readerpage/PostCover";
 import { ShareButtons } from "@/components/readerpage/ShareButtons";
-import { SideTOC } from "@/components/readerpage/SideTOC";
 import { TOC } from "@/components/readerpage/TOC";
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";
@@ -143,7 +143,7 @@ const ReaderPage = (props: ReaderPageProps) => {
         </div>
         {props.tocList.length > 2 && (
           <div className="md:hidden">
-            <SideTOC data={props.tocList} />
+            <DrawerTOC data={props.tocList} />
           </div>
         )}
       </ContentContainer>

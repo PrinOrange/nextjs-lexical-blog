@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaHeading } from "react-icons/fa";
 
-export const SideTOC = (props: { data: TTOCItem[] }) => {
+export const DrawerTOC = (props: { data: TTOCItem[] }) => {
   const [isTOCOpen, setIsTOCOpen] = useState(false);
   return (
     <Sheet open={isTOCOpen} onOpenChange={setIsTOCOpen}>
@@ -25,7 +25,7 @@ export const SideTOC = (props: { data: TTOCItem[] }) => {
               onClick={() => {
                 setIsTOCOpen(false);
               }}
-              key={`flat-toc-${item.anchorId}`}
+              key={`drawer-toc-${item.anchorId}`}
               href={`#${item.anchorId}`}
             >
               <li
