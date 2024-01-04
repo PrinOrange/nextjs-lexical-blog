@@ -52,6 +52,7 @@ const ReaderPage = (props: ReaderPageProps) => {
     onSwipedRight: () => {
       setIsTOCOpen(true);
     },
+    delta: 200,
   });
   return (
     <Page>
