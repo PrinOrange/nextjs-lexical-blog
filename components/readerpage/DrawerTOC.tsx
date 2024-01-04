@@ -2,7 +2,6 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import useDrawerTOCState from "@/stores/useDrawerTOCState";
 import { TTOCItem } from "@/types/toc.type";
 import Link from "next/link";
-import { FaHeading } from "react-icons/fa";
 
 export const DrawerTOC = (props: { data: TTOCItem[] }) => {
   const isTOCOpen = useDrawerTOCState((state) => state.isOpen);
@@ -11,9 +10,11 @@ export const DrawerTOC = (props: { data: TTOCItem[] }) => {
     <Sheet open={isTOCOpen} onOpenChange={setIsTOCOpen}>
       <SheetTrigger
         title="Open the table of contents"
-        className="bottom-7 right-4 fixed bg-white dark:bg-black border dark:border-gray-500 shadow-xl"
+        className="bottom-7 right-4 fixed bg-white dark:bg-black border-gray-700 border dark:border-gray-500 shadow-xl"
       >
-        <FaHeading onClick={() => setIsTOCOpen(!isTOCOpen)} className="p-3 w-14 h-14" />
+        <div onClick={() => setIsTOCOpen(!isTOCOpen)} className="p-3 font-bold">
+          {"TOC"}
+        </div>
       </SheetTrigger>
       <SheetContent side={"left"}>
         <SheetHeader>
