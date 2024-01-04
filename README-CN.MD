@@ -239,6 +239,7 @@ Sponsor: {
 
 ### 开源许可
 
+感谢用户 [@timlrx](https://github.com/timlrx) 开源项目 [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) 的灵感。 \
 本项目以 [MIT 协议](./LICENSE) 开源。我们欢迎一切具有建设性的意见、代码贡献。
 
 **注意：尽量不要将本项目使用于商业用途。因为本项目引用的第三方图标、字体等部分美术资源要求非商业用途，可能存在法律风险。**

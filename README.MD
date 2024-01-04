@@ -244,6 +244,7 @@ Additionally, you can use Let's Encrypt + Certbot to configure a free SSL certif
 
 ### Open Source License
 
+Thanks for the inspirations from [@timlrx](https://github.com/timlrx) 's project [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) \
 This project is open source under the [MIT License](./LICENSE). We welcome any constructive feedback and code contributions.
 
 **Note: Please avoid using this project for commercial purposes whenever possible. Some artistic resources, such as third-party icons and fonts referenced in this project, are intended for non-commercial use and may pose legal risks if used commercially.**
