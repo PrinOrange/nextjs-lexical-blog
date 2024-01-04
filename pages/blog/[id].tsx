@@ -37,7 +37,7 @@ import remarkMath from "remark-math";
 import remarkPrism from "remark-prism";
 
 type ReaderPageProps = {
-  source: MDXRemoteSerializeResult;
+  compiledSource: MDXRemoteSerializeResult;
   tocList: TTOCItem[];
   frontMatter: TFrontmatter;
   postId: string;
@@ -46,14 +46,19 @@ type ReaderPageProps = {
 };
 
 const ReaderPage = (props: ReaderPageProps) => {
-  const source = props.source;
+  const compiledSource = props.compiledSource;
   const setIsTOCOpen = useDrawerTOCState((state) => state.changeDrawerTOCOpen);
+
+  // Only the TOC length reaches 3 can be displayed.
+  // In order to avoid large blank spaces that ruin the visual perception
+  const isTOCLongEnough = props.tocList.length > 2;
   const handleRightSwipe = useSwipeable({
     onSwipedRight: () => {
-      setIsTOCOpen(true);
+      isTOCLongEnough && setIsTOCOpen(true);
     },
-    delta: 120,
+    delta: 150,
   });
+
   return (
     <Page>
       <SEO
@@ -101,11 +106,11 @@ const ReaderPage = (props: ReaderPageProps) => {
               }`}
               {...handleRightSwipe}
             >
-              {source && (
+              {compiledSource && (
                 <MDXRemote
-                  compiledSource={source.compiledSource}
-                  frontmatter={source.frontmatter}
-                  scope={source.scope}
+                  compiledSource={compiledSource.compiledSource}
+                  frontmatter={compiledSource.frontmatter}
+                  scope={compiledSource.scope}
                   //@ts-ignore
                   components={MDXComponentsSet}
                 />
@@ -144,13 +149,13 @@ const ReaderPage = (props: ReaderPageProps) => {
             </ul>
             <PostComments postId={props.postId} />
           </div>
-          {props.tocList.length > 2 && (
+          {isTOCLongEnough && (
             <div className="hidden md:block md:w-1/3">
               <TOC data={props.tocList} />
             </div>
           )}
         </div>
-        {props.tocList.length > 2 && (
+        {isTOCLongEnough && (
           <div className="md:hidden">
             <DrawerTOC data={props.tocList} />
           </div>
@@ -208,7 +213,7 @@ export const getStaticProps: GetStaticProps<ReaderPageProps> = async (context) =
 
   return {
     props: {
-      source: mdxSource,
+      compiledSource: mdxSource,
       tocList: tocList,
       frontMatter: frontMatter,
       postId: postId,
