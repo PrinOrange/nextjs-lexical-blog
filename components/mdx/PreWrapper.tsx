@@ -22,7 +22,7 @@ const PreWrapper = ({ children }: { children: JSX.Element }) => {
   };
 
   return (
-    <div ref={textInput} onMouseEnter={onEnter} onMouseLeave={onExit} className="relative">
+    <div ref={textInput} onMouseEnter={onEnter} onMouseLeave={onExit} className="relative flat-scrollbar-normal">
       {hovered && (
         <button
           aria-label="Copy code"
@@ -60,7 +60,7 @@ const PreWrapper = ({ children }: { children: JSX.Element }) => {
           </svg>
         </button>
       )}
-      <pre>{children}</pre>
+      <pre className="flat-scrollbar-normal">{children}</pre>
     </div>
   );
 };

@@ -88,7 +88,7 @@ const ReaderPage = (props: ReaderPageProps) => {
               )}
             </div>
             <div
-              className={`typesetting ${fontSourceSerifScreenCN.className} flat-scrollbar-thin my-0 ${
+              className={`typesetting ${fontSourceSerifScreenCN.className} mt-0 mb-10 ${
                 !props.frontMatter.allowShare && "select-none"
               }`}
             >
