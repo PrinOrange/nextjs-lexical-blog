@@ -1,11 +1,12 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import useDrawerTOCState from "@/stores/useDrawerTOCState";
 import { TTOCItem } from "@/types/toc.type";
 import Link from "next/link";
-import { useState } from "react";
 import { FaHeading } from "react-icons/fa";
 
 export const DrawerTOC = (props: { data: TTOCItem[] }) => {
-  const [isTOCOpen, setIsTOCOpen] = useState(false);
+  const isTOCOpen = useDrawerTOCState((state) => state.isOpen);
+  const setIsTOCOpen = useDrawerTOCState((state) => state.changeDrawerTOCOpen);
   return (
     <Sheet open={isTOCOpen} onOpenChange={setIsTOCOpen}>
       <SheetTrigger

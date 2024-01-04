@@ -14,6 +14,7 @@ import { Config } from "@/data/config";
 import { normalizeDate } from "@/lib/date";
 import { getPostFileContent, sortedPosts } from "@/lib/post-process";
 import { getTOCTree } from "@/lib/toc";
+import useDrawerTOCState from "@/stores/useDrawerTOCState";
 import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { TFrontmatter } from "@/types/frontmatter.type";
 import { TPostListItem } from "@/types/post-list";
@@ -24,6 +25,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Link from "next/link";
 import { renderToString } from "react-dom/server";
+import { useSwipeable } from "react-swipeable";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex";
 import rehypePresetMinify from "rehype-preset-minify";
@@ -45,7 +47,12 @@ type ReaderPageProps = {
 
 const ReaderPage = (props: ReaderPageProps) => {
   const source = props.source;
-
+  const setIsTOCOpen = useDrawerTOCState((state) => state.changeDrawerTOCOpen);
+  const handleRightSwipe = useSwipeable({
+    onSwipedRight: () => {
+      setIsTOCOpen(true);
+    },
+  });
   return (
     <Page>
       <SEO
@@ -91,6 +98,7 @@ const ReaderPage = (props: ReaderPageProps) => {
               className={`typesetting ${fontSourceSerifScreenCN.className} mt-0 mb-10 ${
                 !props.frontMatter.allowShare && "select-none"
               }`}
+              {...handleRightSwipe}
             >
               {source && (
                 <MDXRemote
