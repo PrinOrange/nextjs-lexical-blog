@@ -1,19 +1,16 @@
+import { cutForSearch } from "@node-rs/jieba";
 import minisearch from "minisearch";
-// import { cutForSearch } from "nodejs-jieba";
 import { getPostFileContent, sortedPosts } from "./post-process";
 
-// TODO: The jieba tokenizer seems not be supported by vercel platform
-// that causes the module loading error.
-// So here is the remain task for seeking better Chinese tokenizer.
-// function tokenizer(str: string) {
-//   return cutForSearch(str, true);
-// }
+function tokenizer(str: string) {
+  return cutForSearch(str, true);
+}
 
 function makeSearchIndex() {
   let miniSearch = new minisearch({
     fields: ["id", "title", "tags", "subtitle", "summary", "content"],
     storeFields: ["id", "title", "tags"],
-    // tokenize: tokenizer,
+    tokenize: tokenizer,
     searchOptions: {
       fuzzy: 0.1,
     },
