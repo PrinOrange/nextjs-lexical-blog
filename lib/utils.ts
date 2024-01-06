@@ -1,3 +1,4 @@
+import { NonEmptyArray } from "@/types/utils.type";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -33,13 +34,10 @@ export function paginateArray<T = any>(array: T[], pageSize: number, pageNumber:
  * @returns return `null` if the input belongs to "", undefined and null.
  */
 export function nullifyEmptyString(value: string | null | undefined): string | null {
-  if (value == null) {
+  if (isEmptyString(value)) {
     return null;
   }
-  if (value.trim() === "") {
-    return null;
-  }
-  return value;
+  return value!;
 }
 
 /**
@@ -48,13 +46,49 @@ export function nullifyEmptyString(value: string | null | undefined): string | n
  * @returns return `true` if the input belongs to "", undefined and null.
  */
 export function isEmptyString(value: string | null | undefined): boolean {
-  if (value == null) {
+  if (value === null || value === undefined) {
     return true;
   }
   if (value.trim() === "") {
     return true;
   }
   return false;
+}
+
+/**
+ * Removes empty values from an array.
+ * @param value - The array to remove empty values from.
+ * @returns The array without empty values.
+ * @template T - The type of the array elements.
+ */
+export function removeEmptyValuesFromArray<T = any>(value: any[]): T[] {
+  return value.filter((item) => item != null);
+}
+
+/**
+ * Checks if an array is empty.
+ * @param value - The array to check.
+ * @returns True if the array is empty, false otherwise.
+ */
+export function isEmptyArray(value: any[] | null | undefined): boolean {
+  if (value === null || value === undefined) {
+    return true;
+  }
+  return removeEmptyValuesFromArray(value).length !== 0;
+}
+
+/**
+ * Nullifies an empty array.
+ *
+ * @template T - The type of the array elements.
+ * @param value - The array value to be nullified if empty.
+ * @returns The nullified array if it is empty, otherwise returns the original array.
+ */
+export function nullifyEmptyArray<T>(value: T[] | null | undefined): NonEmptyArray<T> | null {
+  if (isEmptyArray(value)) {
+    return null;
+  }
+  return value as NonEmptyArray<T>;
 }
 
 /**

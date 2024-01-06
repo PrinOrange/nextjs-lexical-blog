@@ -7,6 +7,7 @@ import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
+import { isEmptyString } from "@/lib/utils";
 import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { TSearchResultItem } from "@/types/search-result";
 import axios from "axios";
@@ -30,7 +31,7 @@ export default function SearchPage() {
     onSuccess: (data) => {
       setSearchResult(data);
       if (data.length === 0) {
-        toast({ title: "Empty Result", description: "Change the keyword please." });
+        toast({ title: "Empty Result", description: "No results were found for this keyword. Try another keyword." });
       }
     },
     onError: () => {
@@ -47,6 +48,10 @@ export default function SearchPage() {
   };
 
   const handleMakeSearch = () => {
+    if (isEmptyString(searchText)) {
+      toast({ title: "Enter a Keyword", description: "Please enter one keyword at least." });
+      return;
+    }
     querySearch.refetch();
   };
 

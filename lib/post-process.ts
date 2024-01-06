@@ -4,7 +4,7 @@ import { TPostListItem, TTagSubPostSet } from "@/types/post-list";
 import fs from "fs";
 import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
-import { capitalizeFirstLetter, nullifyEmptyString } from "./utils";
+import { isEmptyString, nullifyEmptyArray, nullifyEmptyString } from "./utils";
 
 async function getFrontmatters(filepath: string): Promise<TFrontmatter> {
   const source = fs.readFileSync(filepath, "utf-8");
@@ -45,7 +45,10 @@ const sortOutPostLists = async (): Promise<{
   for (let i = 0; i < postFilePaths.length; i++) {
     const frontmatter = await getFrontmatters(postFilePaths[i]);
     const postId = path.parse(postFilePaths[i]).name;
-    const normalizedTags = frontmatter.tags?.map((tagname) => tagname.toUpperCase());
+
+    const normalizedTags = frontmatter.tags
+      ?.filter((tagname) => !isEmptyString(tagname))
+      .map((tagname) => tagname.toUpperCase());
 
     const postListItem: TPostListItem = {
       id: postId,
@@ -53,7 +56,7 @@ const sortOutPostLists = async (): Promise<{
         title: frontmatter.title,
         subtitle: nullifyEmptyString(frontmatter.subtitle),
         coverURL: nullifyEmptyString(frontmatter.coverURL),
-        tags: normalizedTags ?? [],
+        tags: nullifyEmptyArray(normalizedTags),
         summary: nullifyEmptyString(frontmatter.summary),
         time: frontmatter.time,
         pin: frontmatter.pin ?? false,

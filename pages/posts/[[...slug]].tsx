@@ -38,7 +38,7 @@ export default function PostsPage(props: PostsPageProps) {
     }
   };
 
-  const handleChangePageNumber = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleInputPageNumber = (event: ChangeEvent<HTMLInputElement>) => {
     setPageNumber(event.target.value);
   };
 
@@ -78,7 +78,7 @@ export default function PostsPage(props: PostsPageProps) {
           <div className="my-auto font-bold flex justify-center">
             <Input
               onKeyDown={handleEnterKeyJump}
-              onChange={handleChangePageNumber}
+              onChange={handleInputPageNumber}
               className="my-auto mx-2 w-11 h-6"
               value={pageNumber}
             />
