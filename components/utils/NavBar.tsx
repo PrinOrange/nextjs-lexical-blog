@@ -5,7 +5,7 @@ import { nanoid } from "nanoid";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState } from "react";
-import { MdMenu, MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { MdMenu, MdOutlineDarkMode, MdOutlineLightMode, MdSearch } from "react-icons/md";
 
 const MenuItems = [
   {
@@ -50,15 +50,22 @@ export const NavBar = () => {
             <Link
               href={menuItem.href}
               key={nanoid()}
-              className="border-b-sky-600 font-bold hover:text-sky-600 dark:hover:border-b-sky-500 dark:hover:text-sky-500 mx-2 my-auto px-2"
+              className="border-b-sky-600 font-bold hover:text-sky-600 dark:hover:border-b-sky-500 dark:hover:text-sky-500 mx-1 my-auto px-2"
               onClick={() => setIsSideNavOpen(false)}
             >
               {menuItem.title}
             </Link>
           ))}
+          <Link
+            href={"/search"}
+            key={nanoid()}
+            className="cursor-pointer mx-1 rounded-full p-1 text-3xl text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
+          >
+            <MdSearch />
+          </Link>
           <div
             title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-            className="cursor-pointer mx-2 rounded-full p-1 text-3xl text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
+            className="cursor-pointer mx-1 rounded-full p-1 text-3xl text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
             onClick={handleSwitchTheme}
           >
             {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
@@ -84,6 +91,14 @@ export const NavBar = () => {
                 {menuItem.title}
               </Link>
             ))}
+            <Link
+              href={"/search"}
+              key={nanoid()}
+              className="border-b border-dashed p-3 text-xl hover:text-sky-500"
+              onClick={() => setIsSideNavOpen(false)}
+            >
+              {"SEARCH"}
+            </Link>
             <div
               title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
               className="cursor-pointer m-2 rounded-full p-1 text-xl text-black dark:text-gray-50"
