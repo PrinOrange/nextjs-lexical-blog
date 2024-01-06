@@ -60,7 +60,7 @@ export default function PostsPage(props: PostsPageProps) {
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
         </h2>
-        {!isEmptyArray(props.tagList) && (
+        {!isEmptyArray(props.tagList) && props.pageNumber === 1 && (
           <>
             <Separator />
             <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
