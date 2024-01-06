@@ -44,9 +44,9 @@ export default function Home(props: HomePageProps) {
             <PostList data={props.pinnedPostList} />
           </div>
         )}
-        <Separator />
         {props.latestPostList.length !== 0 && (
           <div>
+            <Separator />
             <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
               <LuPenTool className="mx-2 my-auto" />
               {"LATEST POSTS"}
