@@ -25,6 +25,9 @@ export const Footer = () => {
           </Link>
         </div>
         <div className="my-2 flex flex-wrap justify-center space-x-3 text-center text-gray-500 underline dark:text-gray-400">
+          <Link href="https://github.com/PrinOrange/nextjs-lexical-blog" title="Sponsor me for my works.">
+            {"Source Code"}
+          </Link>
           <Link href="/sponsor" title="Sponsor me for my works.">
             {"Sponsor"}
           </Link>
