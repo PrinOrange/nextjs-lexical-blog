@@ -53,7 +53,7 @@ export default function TagsContentPage(props: TagsContentPageProps) {
       <ContentContainer>
         <NavBar />
         <h2
-          className={`my-5 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}
+          className={`my-10 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}
         >
           {`Posts of ${props.tagName}`}
         </h2>

@@ -55,7 +55,7 @@ export default function PostsPage(props: PostsPageProps) {
       />
       <ContentContainer>
         <NavBar />
-        <h2 className={`my-5 flex justify-center text-2xl ${fontFangZhengXiaoBiaoSongCN.className} font-bold`}>
+        <h2 className={`my-10 flex justify-center text-2xl ${fontFangZhengXiaoBiaoSongCN.className} font-bold`}>
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
         </h2>
