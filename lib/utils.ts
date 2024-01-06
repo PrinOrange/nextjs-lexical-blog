@@ -56,3 +56,17 @@ export function isEmptyString(value: string | null | undefined): boolean {
   }
   return false;
 }
+
+/**
+ * Capitalizes the first letter of each word in a string.
+ *
+ * @param str - The input string.
+ * @returns The string with the first letter of each word capitalized.
+ */
+export function capitalizeFirstLetter(str: string) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
