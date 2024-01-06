@@ -45,7 +45,7 @@ const sortOutPostLists = async (): Promise<{
   for (let i = 0; i < postFilePaths.length; i++) {
     const frontmatter = await getFrontmatters(postFilePaths[i]);
     const postId = path.parse(postFilePaths[i]).name;
-    const capitalizedTags = frontmatter.tags?.map((tagname) => capitalizeFirstLetter(tagname));
+    const normalizedTags = frontmatter.tags?.map((tagname) => tagname.toUpperCase());
 
     const postListItem: TPostListItem = {
       id: postId,
@@ -53,7 +53,7 @@ const sortOutPostLists = async (): Promise<{
         title: frontmatter.title,
         subtitle: nullifyEmptyString(frontmatter.subtitle),
         coverURL: nullifyEmptyString(frontmatter.coverURL),
-        tags: capitalizedTags ?? [],
+        tags: normalizedTags ?? [],
         summary: nullifyEmptyString(frontmatter.summary),
         time: frontmatter.time,
         pin: frontmatter.pin ?? false,
