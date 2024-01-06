@@ -10,7 +10,7 @@ import { TagBadge } from "@/components/utils/TagBadge";
 import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
-import { paginateArray } from "@/lib/utils";
+import { isEmptyArray, paginateArray } from "@/lib/utils";
 import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { nanoid } from "nanoid";
@@ -60,12 +60,16 @@ export default function PostsPage(props: PostsPageProps) {
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
         </h2>
-        <Separator />
-        <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
-          {props.tagList.map((item) => (
-            <TagBadge key={`tag-badge-${nanoid()}`} name={item.name} size="md" count={item.count} />
-          ))}
-        </div>
+        {!isEmptyArray(props.tagList) && (
+          <>
+            <Separator />
+            <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
+              {props.tagList.map((item) => (
+                <TagBadge key={`tag-badge-${nanoid()}`} name={item.name} size="md" count={item.count} />
+              ))}
+            </div>
+          </>
+        )}
         <Separator />
         <PostList data={props.postList} />
         <div className="my-5 flex justify-between text-base font-bold">
