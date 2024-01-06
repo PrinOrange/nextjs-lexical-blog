@@ -61,7 +61,7 @@ export function isEmptyString(value: string | null | undefined): boolean {
  * @returns The array without empty values.
  * @template T - The type of the array elements.
  */
-export function removeEmptyValuesFromArray<T = any>(value: any[]): T[] {
+export function removeEmptyValuesFromArray<T>(value: T[]): T[] {
   return value.filter((item) => item != null);
 }
 
@@ -74,7 +74,7 @@ export function isEmptyArray(value: any[] | null | undefined): boolean {
   if (value === null || value === undefined) {
     return true;
   }
-  return removeEmptyValuesFromArray(value).length !== 0;
+  return removeEmptyValuesFromArray(value).length === 0;
 }
 
 /**

@@ -13,7 +13,7 @@ export const PostList = (props: { data: TPostListItem[] }) => {
           key={`post-list-${nanoid()}`}
           className={`${fontSourceSerifScreenCN.className} flex flex-col justify-center ${
             index !== props.data.length - 1 && "border-b"
-          } border-dashed border-gray-400 py-3`}
+          } border-gray-200 dark:border-gray-800 py-3`}
         >
           <Link className="hover:text-gray-600 dark:hover:text-gray-400" href={`/blog/${postListItem.id}`}>
             <div className="flex-center flex flex-col py-2 ">

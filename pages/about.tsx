@@ -1,4 +1,5 @@
 import { ContentContainer, Page } from "@/components/layouts/layouts";
+import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
@@ -17,10 +18,10 @@ export default function AboutPage() {
       />
       <ContentContainer>
         <NavBar />
-        <h2 className={`my-10 flex justify-around text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+        <h2 className={`my-5 flex justify-around text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           {"ABOUT ME"}
         </h2>
-        <hr />
+        <Separator />
         <div className={`${fontSourceSerifScreenCN.className} my-5 justify-center md:flex md:space-x-10`}>
           <div className="my-auto flex md:w-1/3">
             <img alt="my-profile" className="mx-auto my-auto max-h-[23rem] rounded-lg" src="/images/profile.webp" />

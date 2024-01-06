@@ -1,6 +1,7 @@
 import { ContentContainer, Page } from "@/components/layouts/layouts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { PostList } from "@/components/utils/PostList";
@@ -55,17 +56,17 @@ export default function PostsPage(props: PostsPageProps) {
       />
       <ContentContainer>
         <NavBar />
-        <h2 className={`my-10 flex justify-center text-2xl ${fontFangZhengXiaoBiaoSongCN.className} font-bold`}>
+        <h2 className={`my-5 flex justify-center text-2xl ${fontFangZhengXiaoBiaoSongCN.className} font-bold`}>
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
         </h2>
-        <hr />
+        <Separator />
         <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
           {props.tagList.map((item) => (
             <TagBadge key={`tag-badge-${nanoid()}`} name={item.name} size="md" count={item.count} />
           ))}
         </div>
-        <hr />
+        <Separator />
         <PostList data={props.postList} />
         <div className="my-5 flex justify-between text-base font-bold">
           {props.pageNumber !== 1 && (

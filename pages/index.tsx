@@ -1,6 +1,7 @@
 import { HomeCover } from "@/components/homepage/HomeCover";
 import { ContentContainer, Page } from "@/components/layouts/layouts";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { PostList } from "@/components/utils/PostList";
@@ -34,12 +35,12 @@ export default function Home(props: HomePageProps) {
         <HomeCover />
         {props.pinnedPostList.length !== 0 && (
           <div>
-            <hr />
+            <Separator />
             <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
               <RiStarFill className="mx-2 my-auto" />
               {"PINNED POSTS"}
             </h2>
-            <hr />
+            <Separator />
             <PostList data={props.pinnedPostList} />
           </div>
         )}
@@ -50,7 +51,7 @@ export default function Home(props: HomePageProps) {
               <LuPenTool className="mx-2 my-auto" />
               {"LATEST POSTS"}
             </h2>
-            <hr />
+            <Separator />
             <PostList data={props.latestPostList} />
             <div className="my-2 flex justify-end">
               <Button asChild>

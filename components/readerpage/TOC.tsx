@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const TOC = (props: { data: TTOCItem[] }) => {
   return (
-    <div className="sticky top-[5em] mx-5 p-2 border border-black dark:border-gray-400 rounded-sm">
+    <div className="sticky top-[5em] mx-5 p-2 border border-black dark:border-gray-400">
       <div className="p-2 font-bold text-center border bg-black text-white dark:text-black dark:bg-gray-100">
         {"TABLE OF CONTENTS"}
       </div>

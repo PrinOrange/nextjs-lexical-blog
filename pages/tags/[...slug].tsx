@@ -1,6 +1,7 @@
 import { ContentContainer, Page } from "@/components/layouts/layouts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { PostList } from "@/components/utils/PostList";
@@ -53,11 +54,11 @@ export default function TagsContentPage(props: TagsContentPageProps) {
       <ContentContainer>
         <NavBar />
         <h2
-          className={`my-10 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}
+          className={`my-5 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}
         >
           {`Posts of ${props.tagName}`}
         </h2>
-        <hr />
+        <Separator />
         <PostList data={props.postList} />
         <div className="my-5 flex justify-between text-base font-bold">
           {props.pageNumber !== 1 && (
