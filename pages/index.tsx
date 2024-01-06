@@ -44,7 +44,7 @@ export default function Home(props: HomePageProps) {
             <PostList data={props.pinnedPostList} />
           </div>
         )}
-        <hr />
+        <Separator />
         {props.latestPostList.length !== 0 && (
           <div>
             <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
