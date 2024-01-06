@@ -12,7 +12,7 @@ export const DrawerTOC = (props: { data: TTOCItem[] }) => {
         title="Open the table of contents"
         className="bottom-7 right-4 fixed bg-white dark:bg-black border-gray-700 border dark:border-gray-500 shadow-xl"
       >
-        <div onClick={() => setIsTOCOpen(!isTOCOpen)} className="p-3 font-bold">
+        <div onClick={() => setIsTOCOpen(!isTOCOpen)} className="p-2 font-bold">
           {"TOC"}
         </div>
       </SheetTrigger>
@@ -20,7 +20,7 @@ export const DrawerTOC = (props: { data: TTOCItem[] }) => {
         <SheetHeader>
           <SheetTitle className="mt-8 font-bold">{"TABLE OF CONTENTS"}</SheetTitle>
         </SheetHeader>
-        <ul className="my-3 flat-scrollbar h-[70vh] flex flex-col overflow-y-auto">
+        <ul className="my-3 flat-scrollbar h-[70vh] flex flex-col overflow-y-auto flat-scrollbar-normal">
           {props.data?.map((item) => (
             <Link
               className="hover:text-sky-500 border-t border-b py-2 border-dashed"

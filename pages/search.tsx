@@ -53,10 +53,10 @@ export default function SearchPage() {
   return (
     <Page>
       <SEO title={`${Config.SiteTitle} - Search`} description={"Search the posts on your demand."} />
-      <NavBar />
       <Toaster />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+        <NavBar />
+        <h2 className={`my-10 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           {"SEARCH POSTS"}
         </h2>
         <div className="flex my-10 h-1/2">

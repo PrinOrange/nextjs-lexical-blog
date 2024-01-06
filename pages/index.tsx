@@ -29,8 +29,8 @@ export default function Home(props: HomePageProps) {
         description={`Welcome to the ${Config.Nickname}'s blog website. It's the website for recording thoughts for technology, life experience and so on.`}
         coverURL={Config.PageCovers.websiteCoverURL}
       />
-      <NavBar />
       <ContentContainer>
+        <NavBar />
         <HomeCover />
         {props.pinnedPostList.length !== 0 && (
           <div>

@@ -22,8 +22,8 @@ export default function TagsIndexPage(props: TagsIndexPageProps) {
         description={"Here is the list page for all tags which sorts all posts to every catagories."}
         coverURL={Config.PageCovers.websiteCoverURL}
       />
-      <NavBar />
       <ContentContainer>
+        <NavBar />
         <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           <AiOutlineTags className="mx-2 my-auto" />
           {"ALL TAGS"}

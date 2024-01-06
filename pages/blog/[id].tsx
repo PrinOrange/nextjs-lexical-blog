@@ -66,9 +66,9 @@ const ReaderPage = (props: ReaderPageProps) => {
         description={props.frontMatter.summary}
         coverURL={props.frontMatter.coverURL ?? Config.AvatarURL}
       />
-      <NavBar />
       <Toaster />
       <ContentContainer>
+        <NavBar />
         <div className="my-5 justify-center md:flex">
           <div className="md:w-2/3">
             <div className="py-1">

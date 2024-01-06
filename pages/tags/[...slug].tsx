@@ -50,8 +50,8 @@ export default function TagsContentPage(props: TagsContentPageProps) {
         description={`Here are posts under the tag ${props.tagName}.`}
         coverURL={Config.PageCovers.websiteCoverURL}
       />
-      <NavBar />
       <ContentContainer>
+        <NavBar />
         <h2
           className={`my-5 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}
         >

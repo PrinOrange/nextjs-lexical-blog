@@ -12,9 +12,9 @@ export default function FriendsPage() {
   return (
     <Page>
       <SEO title={`${Config.SiteTitle} - Friends`} description={"My Friend Links"} />
-      <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+        <NavBar />
+        <h2 className={`my-10 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           {"FRIENDS"}
         </h2>
         <hr />

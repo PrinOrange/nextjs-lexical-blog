@@ -50,8 +50,8 @@ export default function PostsPage(props: PostsPageProps) {
         description={"Here is the list page for all published posts. Click here for more details."}
         coverURL={Config.PageCovers.websiteCoverURL}
       />
-      <NavBar />
       <ContentContainer>
+        <NavBar />
         <h2 className={`my-5 flex justify-center text-2xl ${fontFangZhengXiaoBiaoSongCN.className} font-bold`}>
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}

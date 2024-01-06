@@ -37,7 +37,7 @@ export const NavBar = () => {
 
   return (
     <Sheet open={isSideNavOpen} onOpenChange={(open) => setIsSideNavOpen(open)}>
-      <nav className="responsive-width sticky top-0 z-50 flex justify-between py-3 backdrop-blur bg-white/50 dark:bg-black/50">
+      <nav className="sticky top-0 z-50 flex justify-between py-3 backdrop-blur bg-white/50 dark:bg-black/50">
         <Link href="/" className="cursor-pointer">
           <h1
             className={`${fontFangZhengXiaoBiaoSongCN.className} my-auto border-b-4 border-b-black text-2xl font-bold dark:border-b-white`}
