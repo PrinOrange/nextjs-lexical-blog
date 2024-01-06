@@ -5,12 +5,14 @@ import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { PostList } from "@/components/utils/PostList";
 import { SEO } from "@/components/utils/SEO";
+import { TagBadge } from "@/components/utils/TagBadge";
 import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { paginateArray } from "@/lib/utils";
-import { fontFangZhengXiaoBiaoSongCN } from "@/styles/font";
+import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
+import { nanoid } from "nanoid";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -21,6 +23,7 @@ type PostsPageProps = {
   pageAmount: number;
   pageNumber: number;
   postList: TPostListItem[];
+  tagList: { name: string; count: number }[];
 };
 
 export default function PostsPage(props: PostsPageProps) {
@@ -56,6 +59,12 @@ export default function PostsPage(props: PostsPageProps) {
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
         </h2>
+        <hr />
+        <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
+          {props.tagList.map((item) => (
+            <TagBadge key={`tag-badge-${nanoid()}`} name={item.name} size="md" count={item.count} />
+          ))}
+        </div>
         <hr />
         <PostList data={props.postList} />
         <div className="my-5 flex justify-between text-base font-bold">
@@ -110,11 +119,20 @@ export const getStaticProps: GetStaticProps<PostsPageProps> = async (context) =>
 
   const pageAmount = Math.ceil(sortedPosts.allPostList.length / PostCountPerPagination);
 
+  const tagList: {
+    name: string;
+    count: number;
+  }[] = Object.keys(sortedPosts.tagSubPostSet).map((tagName) => ({
+    name: tagName,
+    count: sortedPosts.tagSubPostSet[tagName].length,
+  }));
+
   return {
     props: {
       pageAmount: pageAmount,
       pageNumber: pageNumber,
       postList: postList,
+      tagList: tagList,
     },
   };
 };

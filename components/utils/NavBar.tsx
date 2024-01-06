@@ -13,10 +13,6 @@ const MenuItems = [
     href: "/",
   },
   {
-    title: "TAGS",
-    href: "/tags",
-  },
-  {
     title: "POSTS",
     href: "/posts",
   },
@@ -50,7 +46,7 @@ export const NavBar = () => {
             <Link
               href={menuItem.href}
               key={nanoid()}
-              className="border-b-sky-600 font-bold hover:text-sky-600 dark:hover:border-b-sky-500 dark:hover:text-sky-500 mx-1 my-auto px-2"
+              className="border-b-sky-600 font-bold hover:text-sky-600 dark:hover:border-b-sky-500 dark:hover:text-sky-500 mx-2 my-auto px-2"
               onClick={() => setIsSideNavOpen(false)}
             >
               {menuItem.title}
@@ -59,7 +55,7 @@ export const NavBar = () => {
           <Link
             href={"/search"}
             key={nanoid()}
-            className="cursor-pointer mx-1 rounded-full p-1 text-3xl text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
+            className="cursor-pointer mx-2 rounded-full p-1 text-3xl text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
           >
             <MdSearch />
           </Link>
