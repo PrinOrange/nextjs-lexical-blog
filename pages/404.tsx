@@ -1,4 +1,5 @@
 import { ContentContainer, Page } from "@/components/layouts/layouts";
+import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { fontSourceSerifScreenCN } from "@/styles/font";
@@ -20,9 +21,9 @@ export default function NotFoundPage() {
             {"This page does not exist for it might be removed or closed."}
           </p>
           <div className="my-5 flex justify-center">
-            <button onClick={handleGoBack} className="link text-xl font-bold">
+            <Button onClick={handleGoBack} className="font-bold">
               {"GO BACK"}
-            </button>
+            </Button>
           </div>
         </div>
       </ContentContainer>
