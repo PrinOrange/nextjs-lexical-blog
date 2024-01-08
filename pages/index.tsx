@@ -53,7 +53,8 @@ export default function Home(props: HomePageProps) {
             </h2>
             <Separator />
             <PostList data={props.latestPostList} />
-            <div className="my-2 flex justify-end">
+            <Separator />
+            <div className="my-5 flex justify-end">
               <Button asChild>
                 <Link href="/posts" className="font-bold">
                   {"MORE POSTS >"}

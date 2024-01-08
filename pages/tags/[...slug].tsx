@@ -60,6 +60,7 @@ export default function TagsContentPage(props: TagsContentPageProps) {
         </h2>
         <Separator />
         <PostList data={props.postList} />
+        <Separator />
         <div className="my-5 flex justify-between text-base font-bold">
           {props.pageNumber !== 1 && (
             <Button asChild>

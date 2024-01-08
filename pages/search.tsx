@@ -73,7 +73,7 @@ export default function SearchPage() {
             onChange={handleInputSearchText}
           />
           <Button className="mx-3 my-auto" disabled={querySearch.isLoading} onClick={handleMakeSearch}>
-            {querySearch.isLoading ? "Loading" : "Search"}
+            {querySearch.isFetching ? "Loading" : "Search"}
           </Button>
         </div>
         <div className="flex flex-col justify-center">

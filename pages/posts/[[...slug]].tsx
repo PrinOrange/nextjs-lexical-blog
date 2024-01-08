@@ -65,13 +65,16 @@ export default function PostsPage(props: PostsPageProps) {
             <Separator />
             <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
               {props.tagList.map((item) => (
-                <TagBadge key={`tag-badge-${nanoid()}`} name={item.name} size="md" count={item.count} />
+                <Link href={`/tags/${item.name}`} key={`tag-badge-${nanoid()}`}>
+                  <TagBadge name={item.name} size="md" count={item.count} />
+                </Link>
               ))}
             </div>
           </>
         )}
         <Separator />
         <PostList data={props.postList} />
+        <Separator />
         <div className="my-5 flex justify-between text-base font-bold">
           {props.pageNumber !== 1 && (
             <Button asChild>

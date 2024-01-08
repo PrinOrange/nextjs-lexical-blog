@@ -33,13 +33,9 @@ export const NavBar = () => {
 
   return (
     <Sheet open={isSideNavOpen} onOpenChange={(open) => setIsSideNavOpen(open)}>
-      <nav className="sticky top-0 z-50 flex flex-wrap justify-between py-3 backdrop-blur bg-white/50 dark:bg-black/50">
-        <Link href="/" className="cursor-pointer">
-          <h1
-            className={`${fontFangZhengXiaoBiaoSongCN.className} my-auto border-b-4 border-b-black text-xl font-bold dark:border-b-white`}
-          >
-            {Config.SiteTitle}
-          </h1>
+      <nav className="sticky top-0 z-50 flex flex-wrap justify-between py-3 backdrop-blur bg-white/50 dark:bg-gray-950/50">
+        <Link href="/" className="cursor-pointer my-auto text-xl font-bold">
+          <h1 className={`${fontFangZhengXiaoBiaoSongCN.className}`}>{Config.SiteTitle}</h1>
         </Link>
         <div className="my-auto hidden sm:flex">
           {MenuItems.map((menuItem) => (
@@ -67,20 +63,6 @@ export const NavBar = () => {
           </div>
         </div>
         <div className="flex flex-wrap text-3xl space-x-2 sm:hidden">
-          <Link
-            title="Search the posts"
-            className="my-auto rounded-full p-1 text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
-            href="/search"
-          >
-            <MdSearch />
-          </Link>
-          <div
-            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-            className="cursor-pointer rounded-full my-auto p-1 text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
-            onClick={handleSwitchTheme}
-          >
-            {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
-          </div>
           <SheetTrigger
             title="Spread the navigation menu"
             className="text-black rounded-full p-1 hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
@@ -105,6 +87,22 @@ export const NavBar = () => {
               {menuItem.title}
             </Link>
           ))}
+        </div>
+        <div className="flex justify-end text-3xl">
+          <Link
+            title="Search the posts"
+            className="my-auto rounded-full p-1 text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
+            href="/search"
+          >
+            <MdSearch />
+          </Link>
+          <div
+            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+            className="cursor-pointer rounded-full my-auto p-1 text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
+            onClick={handleSwitchTheme}
+          >
+            {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+          </div>
         </div>
       </SheetContent>
     </Sheet>
