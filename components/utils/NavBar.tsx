@@ -104,7 +104,7 @@ export const NavBar = () => {
           >
             {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
           </div>
-          <div className="my-auto">{theme === "light" ? "LIGHT" : "DARK"}</div>
+          <div className="my-auto">{theme === "light" ? "DARK" : "LIGHT"}</div>
         </div>
       </SheetContent>
     </Sheet>
