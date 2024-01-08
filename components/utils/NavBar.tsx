@@ -62,7 +62,7 @@ export const NavBar = () => {
             {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
           </div>
         </div>
-        <div className="flex flex-wrap text-3xl space-x-2 sm:hidden">
+        <div className="flex flex-wrap text-3xl sm:hidden">
           <SheetTrigger
             title="Spread the navigation menu"
             className="text-black rounded-full p-1 hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
@@ -75,34 +75,36 @@ export const NavBar = () => {
           </SheetTrigger>
         </div>
       </nav>
-      <SheetContent className="bg:white border-none shadow-md dark:bg-black">
-        <div className="my-5 flex flex-col">
-          {MenuItems.map((menuItem) => (
-            <Link
-              href={menuItem.href}
-              key={nanoid()}
-              className="border-b border-dashed p-3 text-xl hover:text-sky-500"
-              onClick={() => setIsSideNavOpen(false)}
-            >
-              {menuItem.title}
-            </Link>
-          ))}
-        </div>
-        <div className="flex justify-end text-3xl">
+      <SheetContent className="bg:white border-none shadow-md dark:bg-black flex flex-col justify-end text-end">
+        {MenuItems.map((menuItem) => (
           <Link
-            title="Search the posts"
-            className="my-auto rounded-full p-1 text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
-            href="/search"
+            href={menuItem.href}
+            key={nanoid()}
+            className="border-b border-dashed p-3 text-xl hover:text-sky-500"
+            onClick={() => setIsSideNavOpen(false)}
           >
-            <MdSearch />
+            {menuItem.title}
           </Link>
+        ))}
+        <Link
+          title="Search the posts"
+          className="border-b border-dashed p-3 text-xl hover:text-sky-500"
+          href="/search"
+          onClick={() => setIsSideNavOpen(false)}
+        >
+          {"SEARCH"}
+        </Link>
+        <div
+          className="flex text-xl p-3 cursor-pointer border-b border-dashed justify-end hover:text-sky-500"
+          onClick={handleSwitchTheme}
+        >
           <div
             title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-            className="cursor-pointer rounded-full my-auto p-1 text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
-            onClick={handleSwitchTheme}
+            className="cursor-pointer mx-1 my-auto rounded-full text-2xl"
           >
             {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
           </div>
+          <div className="my-auto">{theme === "light" ? "LIGHT" : "DARK"}</div>
         </div>
       </SheetContent>
     </Sheet>
