@@ -11,6 +11,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
     res.status(200).json([]);
     return;
   }
+  if (searchText.length < 10) {
+    res.status(200).json([]);
+    return;
+  }
   const result: TSearchResultItem[] = SearchIndex.search(searchText).map((item) => ({
     id: item.id,
     title: item.title,

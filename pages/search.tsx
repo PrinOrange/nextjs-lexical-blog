@@ -52,6 +52,10 @@ export default function SearchPage() {
       toast({ title: "Enter a Keyword", description: "Please enter one keyword at least." });
       return;
     }
+    if (searchText.length < 10) {
+      toast({ title: "Keywords too short", description: "Keyword length must be at least 10." });
+      return;
+    }
     querySearch.refetch();
   };
 
