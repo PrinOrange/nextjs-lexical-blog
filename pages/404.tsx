@@ -12,8 +12,8 @@ export default function NotFoundPage() {
   };
   return (
     <Page>
+      <NavBar />
       <ContentContainer>
-        <NavBar />
         <div className="flex flex-col justify-center">
           <TfiFaceSad className="mx-auto my-4" size={"6em"} />
           <p className="mx-auto my-3 text-center text-2xl font-bold">{"404 NOT FOUND"}</p>

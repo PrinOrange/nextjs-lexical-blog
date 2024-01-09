@@ -33,8 +33,8 @@ export const NavBar = () => {
 
   return (
     <Sheet open={isSideNavOpen} onOpenChange={(open) => setIsSideNavOpen(open)}>
-      <nav className="sticky top-0 z-50 flex flex-wrap justify-between py-3 backdrop-blur bg-white/50 dark:bg-gray-950/50">
-        <Link href="/" className="cursor-pointer my-auto text-xl font-bold">
+      <div className="sticky top-0 z-50 border-gray-200 dark:border-gray-700 border-b flex flex-wrap justify-between py-3 backdrop-blur bg-white/50 dark:bg-gray-950/50 px-5 lg:px-20 xl:px-32 2xl:px-52">
+        <Link href="/" className="cursor-pointer my-auto text-2xl font-bold">
           <h1 className={`${fontFangZhengXiaoBiaoSongCN.className}`}>{Config.SiteTitle}</h1>
         </Link>
         <div className="my-auto hidden sm:flex">
@@ -74,7 +74,7 @@ export const NavBar = () => {
             />
           </SheetTrigger>
         </div>
-      </nav>
+      </div>
       <SheetContent className="bg:white border-none shadow-md dark:bg-black flex flex-col justify-end text-end">
         {MenuItems.map((menuItem) => (
           <Link

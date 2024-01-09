@@ -46,13 +46,13 @@ export default function TagsContentPage(props: TagsContentPageProps) {
 
   return (
     <Page>
+      <NavBar />
       <SEO
         title={`Tag - ${props.tagName}`}
         description={`Here are posts under the tag ${props.tagName}.`}
         coverURL={Config.PageCovers.websiteCoverURL}
       />
       <ContentContainer>
-        <NavBar />
         <h2
           className={`my-5 flex flex-col justify-center text-center text-3xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}
         >

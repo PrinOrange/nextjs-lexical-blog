@@ -6,7 +6,6 @@ import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { PostList } from "@/components/utils/PostList";
 import { SEO } from "@/components/utils/SEO";
-import { TagBadge } from "@/components/utils/TagBadge";
 import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
@@ -54,8 +53,8 @@ export default function PostsPage(props: PostsPageProps) {
         description={"Here is the list page for all published posts. Click here for more details."}
         coverURL={Config.PageCovers.websiteCoverURL}
       />
+      <NavBar />
       <ContentContainer>
-        <NavBar />
         <h2 className={`my-5 flex justify-center text-2xl ${fontFangZhengXiaoBiaoSongCN.className} font-bold`}>
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
@@ -65,8 +64,12 @@ export default function PostsPage(props: PostsPageProps) {
             <Separator />
             <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
               {props.tagList.map((item) => (
-                <Link href={`/tags/${item.name}`} key={`tag-badge-${nanoid()}`}>
-                  <TagBadge name={item.name} size="md" count={item.count} />
+                <Link
+                  className="m-1 p-1 underline underline-offset-[5px] my-auto text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold"
+                  href={`/tags/${item.name}`}
+                  key={`tags-${nanoid()}`}
+                >
+                  {`${item.name} (${item.count})`}
                 </Link>
               ))}
             </div>

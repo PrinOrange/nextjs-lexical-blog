@@ -9,7 +9,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
-import { TagBadge } from "@/components/utils/TagBadge";
 import { Config } from "@/data/config";
 import { normalizeDate } from "@/lib/date";
 import { getPostFileContent, sortedPosts } from "@/lib/post-process";
@@ -67,17 +66,17 @@ const ReaderPage = (props: ReaderPageProps) => {
         coverURL={props.frontMatter.coverURL ?? Config.AvatarURL}
       />
       <Toaster />
+      <NavBar />
       <ContentContainer>
-        <NavBar />
-        <div className="my-5 justify-center md:flex">
-          <div className="md:w-2/3">
-            <div className="py-1">
+        <div className="py-5 justify-center md:flex">
+          <div className="md:w-2/3 py-5">
+            <div className="typesetting">
               {props.frontMatter.coverURL && <PostCover coverURL={props.frontMatter.coverURL} />}
-              <h2
+              <div
                 className={`${fontFangZhengXiaoBiaoSongCN.className} flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
               >
                 {props.frontMatter?.title}
-              </h2>
+              </div>
               {props.frontMatter?.subtitle && (
                 <div
                   className={`${fontFangZhengXiaoBiaoSongCN.className} my-1 flex justify-center text-xl font-bold capitalize`}
@@ -93,28 +92,35 @@ const ReaderPage = (props: ReaderPageProps) => {
               )}
               {props.frontMatter.tags && (
                 <div className={`py-3 flex flex-wrap justify-start border-t border-b`}>
-                  <div className="font-bold mr-2 my-1">{"TAGS : "}</div>
+                  <div className="my-auto font-bold mr-2">{"TAGS: "}</div>
                   {props.frontMatter.tags.map((tagName) => (
-                    <TagBadge name={tagName} size="sm" key={`tags-${nanoid()}`} />
+                    <Link
+                      className="mx-2 my-auto text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold text-sm"
+                      href={`/tags/${tagName}`}
+                      key={`tags-${nanoid()}`}
+                    >
+                      {tagName}
+                    </Link>
                   ))}
                 </div>
               )}
-            </div>
-            <div
-              className={`typesetting ${fontSourceSerifScreenCN.className} mt-0 mb-10 ${
-                !props.frontMatter.allowShare && "select-none"
-              }`}
-              {...handleRightSwipe}
-            >
-              {compiledSource && (
-                <MDXRemote
-                  compiledSource={compiledSource.compiledSource}
-                  frontmatter={compiledSource.frontmatter}
-                  scope={compiledSource.scope}
-                  //@ts-ignore
-                  components={MDXComponentsSet}
-                />
-              )}
+
+              <div
+                className={`py-5 ${fontSourceSerifScreenCN.className} ${
+                  !props.frontMatter.allowShare ? "select-none" : ""
+                }`}
+                {...handleRightSwipe}
+              >
+                {compiledSource && (
+                  <MDXRemote
+                    compiledSource={compiledSource.compiledSource}
+                    frontmatter={compiledSource.frontmatter}
+                    scope={compiledSource.scope}
+                    //@ts-ignore
+                    components={MDXComponentsSet}
+                  />
+                )}
+              </div>
             </div>
             <hr />
             <ShareButtons
@@ -150,13 +156,13 @@ const ReaderPage = (props: ReaderPageProps) => {
             <PostComments postId={props.postId} />
           </div>
           {isTOCLongEnough && (
-            <div className="hidden md:block md:w-1/3">
+            <div className="hidden lg:block lg:w-1/3 py-5">
               <TOC data={props.tocList} />
             </div>
           )}
         </div>
         {isTOCLongEnough && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <DrawerTOC data={props.tocList} />
           </div>
         )}

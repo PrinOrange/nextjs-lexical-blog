@@ -21,8 +21,8 @@ export default function AboutPage() {
           "If you like my works, I would deeply appreciate your support as a patron. Your contribution not only fuels my creative journey but also allows me to delve deeper into my passion."
         }
       />
+      <NavBar />
       <ContentContainer>
-        <NavBar />
         <div className="md:flex">
           <div className="flex flex-col justify-center md:w-1/2">
             <h2

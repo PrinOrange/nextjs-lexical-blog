@@ -3,36 +3,38 @@ import { fontSourceSerifScreenCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { nanoid } from "nanoid";
 import Link from "next/link";
-import { TagBadge } from "./TagBadge";
+import { Badge } from "../ui/badge";
 
 export const PostList = (props: { data: TPostListItem[] }) => {
   return (
     <div>
-      {props.data.map((postListItem, index) => (
-        <Link className="cursor-pointer" href={`/blog/${postListItem.id}`} key={`post-list-${nanoid()}`}>
+      {props.data.map((postItem, index) => (
+        <Link className="cursor-pointer" href={`/blog/${postItem.id}`} key={`post-list-${nanoid()}`}>
           <div
-            className={`${fontSourceSerifScreenCN.className} flex flex-col justify-center ${
+            className={`flex flex-col justify-center ${
               index !== props.data.length - 1 && "border-b"
             } border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-950 dark:border-gray-800 p-3`}
           >
-            <div className="flex-center flex flex-col py-2">
-              <h3 className="mx-auto text-lg font-extrabold capitalize">{postListItem.frontMatter.title}</h3>
-              {postListItem.frontMatter.subtitle && (
+            <div className={`${fontSourceSerifScreenCN.className} text-center flex-col py-2`}>
+              <h3 className="mx-auto text-lg font-extrabold capitalize">{postItem.frontMatter.title}</h3>
+              {postItem.frontMatter.subtitle && (
                 <div className="mx-auto text-base font-semibold capitalize text-gray-700 dark:text-gray-300">
-                  {postListItem.frontMatter.subtitle}
+                  {postItem.frontMatter.subtitle}
                 </div>
               )}
             </div>
-            <div className="text-center">{normalizeDate(postListItem.frontMatter.time)}</div>
-            {postListItem.frontMatter.summary && (
-              <div className="flex my-1 justify-center">
-                <p>{postListItem.frontMatter.summary}</p>
+            <div className="text-center">{normalizeDate(postItem.frontMatter.time)}</div>
+            {postItem.frontMatter.summary && (
+              <div className={`${fontSourceSerifScreenCN.className} flex my-1 justify-center`}>
+                <p>{postItem.frontMatter.summary}</p>
               </div>
             )}
-            {postListItem.frontMatter.tags && (
+            {postItem.frontMatter.tags && (
               <div className="my-2 flex justify-center">
-                {postListItem.frontMatter.tags.map((tagName) => (
-                  <TagBadge name={tagName} size="sm" key={`tags-${nanoid()}`} />
+                {postItem.frontMatter.tags.map((tagName) => (
+                  <Badge className="mx-1" key={`tags-${nanoid()}`}>
+                    {tagName}
+                  </Badge>
                 ))}
               </div>
             )}

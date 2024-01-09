@@ -59,8 +59,8 @@ export default function SearchPage() {
     <Page>
       <SEO title={`${Config.SiteTitle} - Search`} description={"Search the posts on your demand."} />
       <Toaster />
+      <NavBar />
       <ContentContainer>
-        <NavBar />
         <h2 className={`my-10 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           {"SEARCH POSTS"}
         </h2>
@@ -72,7 +72,7 @@ export default function SearchPage() {
             onKeyDown={handleEnterKeySearch}
             onChange={handleInputSearchText}
           />
-          <Button className="mx-3 my-auto" disabled={querySearch.isLoading} onClick={handleMakeSearch}>
+          <Button className="mx-3 w-32 my-auto" disabled={querySearch.isLoading} onClick={handleMakeSearch}>
             {querySearch.isFetching ? "Loading" : "Search"}
           </Button>
         </div>

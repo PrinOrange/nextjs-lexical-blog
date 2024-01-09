@@ -16,8 +16,8 @@ export default function AboutPage() {
         description={"Type your brief self-introduction in a sentence here make SEO recognize it easily."}
         coverURL={Config.PageCovers.websiteCoverURL}
       />
+      <NavBar />
       <ContentContainer>
-        <NavBar />
         <h2 className={`my-5 flex justify-around text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           {"ABOUT ME"}
         </h2>
