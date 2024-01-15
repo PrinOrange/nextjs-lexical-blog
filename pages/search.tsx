@@ -1,4 +1,4 @@
-import { ContentContainer, Page } from "@/components/layouts/layouts";
+import { ContentContainer, Page } from "@/components/layouts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Toaster } from "@/components/ui/toaster";

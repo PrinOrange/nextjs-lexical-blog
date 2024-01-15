@@ -1,4 +1,4 @@
-import { ContentContainer, Page } from "@/components/layouts/layouts";
+import { ContentContainer, Page } from "@/components/layouts";
 import { MDXComponentsSet } from "@/components/mdx";
 import { DrawerTOC } from "@/components/readerpage/DrawerTOC";
 import { PostComments } from "@/components/readerpage/PostComments";
