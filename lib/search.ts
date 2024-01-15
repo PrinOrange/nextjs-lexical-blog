@@ -1,5 +1,7 @@
 import { cutForSearch } from "@node-rs/jieba";
+import Colors from "colors";
 import minisearch from "minisearch";
+import sizeof from "object-sizeof";
 import { getPostFileContent, sortedPosts } from "./post-process";
 
 // Due to the flaws of the word tokenizer,
@@ -30,6 +32,8 @@ function makeSearchIndex() {
       content: content,
     });
   }
+  const sizeofIndex = (sizeof(miniSearch) / 1024 ** 2).toFixed(3);
+  console.log(Colors.cyan(`Search index is ready. And the size of index is ${sizeofIndex} mb`));
   return miniSearch;
 }
 

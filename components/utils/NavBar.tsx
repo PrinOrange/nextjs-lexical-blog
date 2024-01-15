@@ -33,7 +33,7 @@ export const NavBar = () => {
 
   return (
     <Sheet open={isSideNavOpen} onOpenChange={(open) => setIsSideNavOpen(open)}>
-      <div className="sticky top-0 z-50 border-gray-200 dark:border-gray-700 border-b flex flex-wrap justify-between py-3 backdrop-blur bg-white/50 dark:bg-gray-950/50 px-5 lg:px-20 xl:px-32 2xl:px-52">
+      <div className="sticky top-0 z-50 border-gray-200 dark:border-gray-700 border-b flex flex-wrap justify-between py-3 backdrop-blur bg-white/50 dark:bg-gray-950/50 px-5 md:px-10 lg:px-20 xl:px-32 2xl:px-52">
         <Link href="/" className="cursor-pointer my-auto text-2xl font-bold">
           <h1 className={`${fontFangZhengXiaoBiaoSongCN.className} my-auto`}>{Config.SiteTitle}</h1>
         </Link>
@@ -62,7 +62,7 @@ export const NavBar = () => {
             {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
           </div>
         </div>
-        <div className="flex flex-wrap text-3xl sm:hidden">
+        <div className="text-3xl sm:hidden my-auto">
           <SheetTrigger
             title="Spread the navigation menu"
             className="text-black rounded-full p-1 hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
@@ -75,7 +75,7 @@ export const NavBar = () => {
           </SheetTrigger>
         </div>
       </div>
-      <SheetContent className="bg:white border-none shadow-md dark:bg-black flex flex-col justify-end text-end">
+      <SheetContent className="bg:white border-none py-16 shadow-md dark:bg-black flex flex-col text-end">
         {MenuItems.map((menuItem) => (
           <Link
             href={menuItem.href}

@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -11,6 +13,10 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        fangzhengxiaobiaosong: "--font-fangzhengxiaobiaosong",
+        sourceSerifScreenCN: "--font-source-serif-screen-cn",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

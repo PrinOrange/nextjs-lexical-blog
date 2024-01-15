@@ -11,7 +11,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
     res.status(200).json([]);
     return;
   }
-  if (searchText.length < 10) {
+  if (searchText.length < 4) {
     res.status(200).json([]);
     return;
   }

@@ -15,19 +15,19 @@ export default function FriendsPage() {
       <SEO title={`${Config.SiteTitle} - Friends`} description={"My Friend Links"} />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-10 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+        <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
           {"FRIENDS"}
         </h2>
         <Separator />
-        <div className={`my-5 py-3 flex flex-wrap justify-center text-2xl ${fontSourceSerifScreenCN.className}`}>
+        <div className={`my-5 flex flex-wrap justify-center text-2xl ${fontSourceSerifScreenCN.className}`}>
           {FriendsList.map((item) => (
-            <Link className="mx-3 p-2 underline" href={item.url} key={nanoid()}>
+            <Link className="mx-2 p-2 underline" href={item.url} key={nanoid()}>
               {item.title}
             </Link>
           ))}
         </div>
         <Separator />
-        <div className="my-3 text-base flex-col flex justify-start">
+        <div className="my-2 text-base flex-col flex justify-start">
           <div className="mx-auto">
             {"Welcome to exchange our friend links and every high-quality blog websites are welcomed. "}
             <Link className="underline" href={`mailto:${Config.SocialLinks.email}`}>

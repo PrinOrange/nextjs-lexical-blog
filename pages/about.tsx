@@ -38,11 +38,11 @@ export default function AboutPage() {
             Additionally, I am also interested in XXXX.
           </div>
         </div>
-        <hr />
+        <Separator />
         <SocialIcons />
-        <hr />
+        <Separator />
 
-        <ul className="mx-auto my-10 md:w-2/3 list-disc">
+        <ul className="mx-auto my-10 px-5 md:w-2/3 list-disc">
           {Config.SocialLinks.github && (
             <li className="my-2">
               {"📕 Check out my github profile at "}

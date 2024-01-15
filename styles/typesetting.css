@@ -1,23 +1,49 @@
 .typesetting {
-  @apply prose
+  @apply prose 
   max-w-full 
   overflow-x-auto 
-  break-words 
-  px-0
-  dark:prose-invert 
+  break-words
+
+  px-0 
+
+  dark:prose-invert
 
   prose-headings:scroll-mt-20
   
+  prose-headings:target:text-sky-700
   prose-a:text-sky-700
+
+  prose-blockquote:bg-gray-100
+  prose-blockquote:px-5
+  prose-blockquote:py-0.5
+  prose-blockquote:text-base
+  prose-blockquote:not-italic
   prose-figure:mx-auto
-  prose-table:border-4
+
+  prose-code:mx-1
+
+  prose-code:rounded-sm
+  prose-code:bg-gray-200
+  prose-code:px-1
+  prose-code:py-0.5
+  prose-code:text-gray-800
+  prose-code:before:content-['']
+
+  prose-code:after:content-['']
+  prose-table:border-4 
   prose-tr:border-2
   prose-tr:p-2
-  prose-th:border
 
+  prose-th:border
   prose-th:p-2
   prose-td:border-2
   prose-td:p-2
+
   prose-img:mx-auto
-  dark:prose-a:text-sky-500;
+
+  dark:prose-a:text-sky-500
+
+ dark:prose-blockquote:bg-gray-800
+ dark:prose-code:bg-gray-700
+ dark:prose-code:text-gray-100;
 }

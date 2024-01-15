@@ -21,12 +21,12 @@ export default function SearchPage() {
   const [searchResult, setSearchResult] = useState<TSearchResultItem[]>([]);
   const { toast } = useToast();
 
-  const fetchAPI = async (param: string) => {
+  const fetchSearchAPI = async (param: string) => {
     const response = (await axios.get<TSearchResultItem[]>(`/api/search/${param}`)).data;
     return response;
   };
 
-  const querySearch = useQuery("searchData", () => fetchAPI(searchText), {
+  const querySearch = useQuery("searchData", () => fetchSearchAPI(searchText), {
     enabled: false,
     onSuccess: (data) => {
       setSearchResult(data);
@@ -52,8 +52,8 @@ export default function SearchPage() {
       toast({ title: "Enter a Keyword", description: "Please enter one keyword at least." });
       return;
     }
-    if (searchText.length < 10) {
-      toast({ title: "Keywords too short", description: "Keyword length must be at least 10." });
+    if (searchText.length < 4) {
+      toast({ title: "Keywords too short", description: "Keyword length must be at least 5." });
       return;
     }
     querySearch.refetch();

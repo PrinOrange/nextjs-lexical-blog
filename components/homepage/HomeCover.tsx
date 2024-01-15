@@ -6,7 +6,7 @@ export const HomeCover = () => {
   return (
     <>
       <div
-        className="mb-24 mt-3 flex w-full justify-center rounded-xl"
+        className="mb-20 mt-5 flex w-full justify-center rounded-xl"
         style={{
           aspectRatio: "4/1",
           background: `url(${Config.PageCovers.websiteCoverURL})`,

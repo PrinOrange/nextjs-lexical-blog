@@ -6,7 +6,7 @@ export const PostComments = (props: { postId: string }) => {
   const { theme } = useTheme();
   return (
     Config.Giscus && (
-      <div className="my-5">
+      <div className="mt-10 mb-5">
         <Giscus
           id={props.postId}
           repo={Config.Giscus.repo as `${string}/${string}`}

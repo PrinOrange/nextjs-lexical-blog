@@ -84,7 +84,7 @@
 .selection-style {
   @apply selection:bg-black
       selection:text-white
-      dark:selection:bg-white
+      dark:selection:bg-gray-500
       dark:selection:text-black;
 }
 

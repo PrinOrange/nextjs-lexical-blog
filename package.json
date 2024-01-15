@@ -55,6 +55,7 @@
     "next-seo": "^6.4.0",
     "next-share": "^0.27.0",
     "next-themes": "^0.2.1",
+    "object-sizeof": "^2.6.3",
     "postcss": "8.4.31",
     "prism": "^1.0.0",
     "prismjs": "^1.29.0",

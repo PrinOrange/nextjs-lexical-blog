@@ -2,6 +2,7 @@ import { CopyrightAnnouncement, LatestPostCountInHomePage, WebsiteURL } from "@/
 import { Config } from "@/data/config";
 import { Feed } from "feed";
 import fs from "fs";
+import { JSDOM } from "jsdom";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { renderToString } from "react-dom/server";
@@ -16,6 +17,25 @@ import remarkPrism from "remark-prism";
 import { getPostFileContent, sortedPosts } from "./post-process";
 
 const NoticeForRSSReaders = `\n---\n**NOTE:** Different RSS reader may have deficient even no support for svg formulations rendering. If it happens, please read the origin page to have better experience.`;
+
+function minifyHTMLCode(htmlString: string): string {
+  const dom = new JSDOM(htmlString);
+  const document = dom.window.document;
+  const elements = document.querySelectorAll("*");
+  const unusedElements = document.querySelectorAll("script, style");
+
+  // Remove all class attributes.
+  elements.forEach((element) => {
+    element.removeAttribute("class");
+  });
+
+  // Remove all script and style tags.
+  unusedElements.forEach((element) => {
+    element.parentElement?.removeChild(element);
+  });
+
+  return dom.serialize();
+}
 
 /**
  * Generate the RSS Feed File in `./public` so it could be visited by https://domain/rss.xml
@@ -49,7 +69,7 @@ export const generateRSSFeed = async () => {
         format: "md",
       },
     });
-    const htmlContent = renderToString(<MDXRemote {...mdxSource} />);
+    const htmlContent = minifyHTMLCode(renderToString(<MDXRemote {...mdxSource} />));
 
     feed.addItem({
       title: post.frontMatter.title,

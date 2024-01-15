@@ -23,19 +23,23 @@ export const PostList = (props: { data: TPostListItem[] }) => {
                 </div>
               )}
             </div>
-            <div className="text-center">{normalizeDate(postItem.frontMatter.time)}</div>
-            {postItem.frontMatter.summary && (
-              <div className={`${fontSourceSerifScreenCN.className} flex my-1 justify-center`}>
-                <p>{postItem.frontMatter.summary}</p>
-              </div>
-            )}
+            <div className="text-center text-sm italic">{normalizeDate(postItem.frontMatter.time)}</div>
             {postItem.frontMatter.tags && (
               <div className="my-2 flex justify-center">
                 {postItem.frontMatter.tags.map((tagName) => (
-                  <Badge className="mx-1" key={`tags-${nanoid()}`}>
+                  <Badge
+                    variant={"secondary"}
+                    className="mx-1 text-gray-600 dark:text-gray-300"
+                    key={`tags-${nanoid()}`}
+                  >
                     {tagName}
                   </Badge>
                 ))}
+              </div>
+            )}
+            {postItem.frontMatter.summary && (
+              <div className={`${fontSourceSerifScreenCN.className} flex my-1 justify-center`}>
+                <p>{postItem.frontMatter.summary}</p>
               </div>
             )}
           </div>

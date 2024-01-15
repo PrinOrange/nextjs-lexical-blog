@@ -5,6 +5,7 @@ import { PostComments } from "@/components/readerpage/PostComments";
 import { PostCover } from "@/components/readerpage/PostCover";
 import { ShareButtons } from "@/components/readerpage/ShareButtons";
 import { TOC } from "@/components/readerpage/TOC";
+import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
@@ -50,7 +51,7 @@ const ReaderPage = (props: ReaderPageProps) => {
 
   // Only the TOC length reaches 3 can be displayed.
   // In order to avoid large blank spaces that ruin the visual perception
-  const isTOCLongEnough = props.tocList.length > 2;
+  const isTOCLongEnough = props.tocList.length > 4;
   const handleRightSwipe = useSwipeable({
     onSwipedRight: () => {
       isTOCLongEnough && setIsTOCOpen(true);
@@ -68,12 +69,12 @@ const ReaderPage = (props: ReaderPageProps) => {
       <Toaster />
       <NavBar />
       <ContentContainer>
-        <div className="py-5 justify-center md:flex">
-          <div className="md:w-2/3 py-5">
+        <div className="py-5 justify-center lg:flex" style={{ borderRadius: "5px" }}>
+          <div className={`${isTOCLongEnough ? "lg:w-2/3" : "lg:w-5/6"} py-5`}>
             <div className="typesetting">
               {props.frontMatter.coverURL && <PostCover coverURL={props.frontMatter.coverURL} />}
               <div
-                className={`${fontFangZhengXiaoBiaoSongCN.className} flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
+                className={`${fontFangZhengXiaoBiaoSongCN.className} my-5 text-black dark:text-white flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
               >
                 {props.frontMatter?.title}
               </div>
@@ -95,7 +96,7 @@ const ReaderPage = (props: ReaderPageProps) => {
                   <div className="my-auto font-bold mr-2">{"TAGS: "}</div>
                   {props.frontMatter.tags.map((tagName) => (
                     <Link
-                      className="mx-2 my-auto text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold text-sm"
+                      className="mx-1 my-auto text-gray-700 underline-offset-4 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold text-sm"
                       href={`/tags/${tagName}`}
                       key={`tags-${nanoid()}`}
                     >
@@ -122,7 +123,7 @@ const ReaderPage = (props: ReaderPageProps) => {
                 )}
               </div>
             </div>
-            <hr />
+            <Separator />
             <ShareButtons
               subtitle={props.frontMatter.subtitle}
               title={props.frontMatter.title}
@@ -130,8 +131,8 @@ const ReaderPage = (props: ReaderPageProps) => {
               postId={props.postId}
               allowShare={props.frontMatter.allowShare}
             />
-            <hr />
-            <ul className="my-2 px-5 flex flex-col justify-center list-disc">
+            <Separator />
+            <ul className="my-5 px-5 flex flex-col justify-center list-disc">
               {props.prevPostListItem && (
                 <li className="my-1">
                   <Link
@@ -156,7 +157,7 @@ const ReaderPage = (props: ReaderPageProps) => {
             <PostComments postId={props.postId} />
           </div>
           {isTOCLongEnough && (
-            <div className="hidden lg:block lg:w-1/3 py-5">
+            <div className="hidden lg:block md:w-1/3 py-5">
               <TOC data={props.tocList} />
             </div>
           )}

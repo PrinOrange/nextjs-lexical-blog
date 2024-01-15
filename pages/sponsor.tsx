@@ -1,5 +1,6 @@
 import { ContentContainer, Page } from "@/components/layouts";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
@@ -54,11 +55,11 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="my-2 bg-white p-1">
-                    <QRCodeSVG width={120} value={Config.Sponsor?.WechatPayQRCodeContent!} />
+                    <QRCodeSVG width={100} height={100} value={Config.Sponsor?.WechatPayQRCodeContent!} />
                   </div>
                 </div>
               )}
-              <hr />
+              <Separator />
               {!isEmptyString(Config.Sponsor?.AlipayLink) && (
                 <div className="my-6 flex justify-between">
                   <div className="my-auto flex">
@@ -76,7 +77,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               )}
-              <hr />
+              <Separator />
               {!isEmptyString(Config.Sponsor?.PaypalId) && (
                 <div className="my-6 flex justify-between">
                   <div className="my-auto flex">
@@ -94,7 +95,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               )}
-              <hr />
+              <Separator />
               {!isEmptyString(Config.Sponsor?.PatreonId) && (
                 <div className="my-6 flex justify-between">
                   <div className="my-auto flex">
@@ -112,7 +113,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               )}
-              <hr />
+              <Separator />
             </div>
           </div>
         </div>

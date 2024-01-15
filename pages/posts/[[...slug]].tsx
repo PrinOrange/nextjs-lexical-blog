@@ -62,7 +62,7 @@ export default function PostsPage(props: PostsPageProps) {
         {!isEmptyArray(props.tagList) && props.pageNumber === 1 && (
           <>
             <Separator />
-            <div className={`my-5 flex flex-wrap justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
+            <div className={`my-5 flex flex-wrap text-sm justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
               {props.tagList.map((item) => (
                 <Link
                   className="m-1 p-1 underline underline-offset-[5px] my-auto text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold"
