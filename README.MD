@@ -222,6 +222,12 @@ This website utilizes Giscus as the comment system. For specific configuration i
 
 You can [click here to view the relevant information and usage of Giscus](https://giscus.app/).
 
+#### Full-Text Search
+
+In this project, we utilize [MiniSearch](https://github.com/lucaong/minisearch) as an in-memory indexed full-text search engine. Taking Shakespeare's complete works as an example, with around 890,000 words, its performance is impressive: the index occupies approximately 10 MB of memory space, and with each query call, the average response time remains below 100 ms.
+
+**Note:** Currently, full-text search supports only Chinese and languages of the Latin family (English, French, Spanish, etc.). It does not yet support other Asian languages such as Japanese, Korean, Thai, etc. To include support for these languages, the integration of effective tokenizers for these languages is required for indexing. Individuals fluent in these languages are welcome to submit pull requests to assist in completing this task.
+
 #### i18n
 
 For personal blogs, i18n (internationalization) doesn't really serve a practical purpose. Therefore, this project does not support i18n at the moment. If you are a multilingual author and want to distinguish your blogs by language, I suggest adding a tag for the current language in the tags of each article. For instance, if you are a bilingual speaker of Spanish and English, you could add an `español` tag under the tags for each Spanish article, and an `English` tag for the English blogs.
