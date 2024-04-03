@@ -61,9 +61,9 @@ export const Footer = () => {
                 text={RSSFeedURL}
               >
                 <Button
-                  type="submit"
-                  size="sm"
                   className={`ml-3 my-auto ${isCopied && "bg-green-500 hover:bg-green-500"}`}
+                  size="sm"
+                  type="submit"
                 >
                   <span className="sr-only">{"Copy"}</span>
                   {isCopied ? <FaCheck className="h-4 w-4" /> : <FaCopy className="h-4 w-4" />}

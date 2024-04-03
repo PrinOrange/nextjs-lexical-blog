@@ -5,24 +5,22 @@ import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { SocialIcons } from "@/components/utils/SocialIcons";
 import { Config } from "@/data/config";
-import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
+
 import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <Page>
       <SEO
-        title={`About Me - ${Config.AuthorName}`}
-        description={"Type your brief self-introduction in a sentence here make SEO recognize it easily."}
         coverURL={Config.PageCovers.websiteCoverURL}
+        description={"Type your brief self-introduction in a sentence here make SEO recognize it easily."}
+        title={`About Me - ${Config.AuthorName}`}
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-around text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
-          {"ABOUT ME"}
-        </h2>
+        <h2 className={`my-5 flex justify-around text-2xl font-bold font-fang-zheng-xiao-biao-song`}>{"ABOUT ME"}</h2>
         <Separator />
-        <div className={`${fontSourceSerifScreenCN.className} my-5 justify-center md:flex md:space-x-10`}>
+        <div className={`font-source-serif-screen my-5 justify-center md:flex md:space-x-10`}>
           <div className="my-auto flex md:w-1/3">
             <img alt="my-profile" className="mx-auto my-auto max-h-[23rem] rounded-lg" src="/images/profile.webp" />
           </div>
@@ -46,7 +44,7 @@ export default function AboutPage() {
           {Config.SocialLinks.github && (
             <li className="my-2">
               {"📕 Check out my github profile at "}
-              <Link target="_blank" className="underline" href={`https://github.com/${Config.SocialLinks.github}`}>
+              <Link className="underline" href={`https://github.com/${Config.SocialLinks.github}`} target="_blank">
                 Github
               </Link>
             </li>
@@ -56,7 +54,7 @@ export default function AboutPage() {
           {Config.SocialLinks.twitter && (
             <li className="my-2">
               {"📫 How to reach me on Twitter: "}
-              <Link target="_blank" className="link" href={`https://twitter.com/${Config.SocialLinks.twitter}`}>
+              <Link className="link" href={`https://twitter.com/${Config.SocialLinks.twitter}`} target="_blank">
                 {Config.SocialLinks.twitter}
               </Link>
             </li>

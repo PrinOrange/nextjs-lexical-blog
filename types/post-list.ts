@@ -5,6 +5,6 @@ export type TPostListItem = {
   frontMatter: TFrontmatter;
 };
 
-export type TTagSubPostSet = {
+export type TPostsByTag = {
   [tagName: string]: TPostListItem[];
 };

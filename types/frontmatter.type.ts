@@ -10,4 +10,5 @@ export type TFrontmatter = {
   pin: boolean | null;
   noPrompt: boolean | null;
   allowShare: boolean | null;
+  closed: boolean | null;
 };

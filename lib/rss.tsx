@@ -57,11 +57,11 @@ export const generateRSSFeed = async () => {
     },
   });
 
-  for (let i = 0; i < LatestPostCountInHomePage; i++) {
+  for (let i = 0; i < Math.min(LatestPostCountInHomePage, sortedPosts.allPostList.length); i++) {
     const post = sortedPosts.allPostList[i];
-    const postContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders}}`;
+    const postFileContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders}}`;
     const dateNumber = post.frontMatter.time.split("-").map((num) => parseInt(num));
-    const mdxSource = await serialize(postContent ?? "", {
+    const mdxSource = await serialize(postFileContent ?? "", {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkPrism, externalLinks, remarkMath, remarkGfm],
@@ -81,7 +81,7 @@ export const generateRSSFeed = async () => {
         {
           name: Config.AuthorName,
           email: Config.SocialLinks.email,
-          link: `https://${Config.SiteDomain}/`,
+          link: `https://${Config.SiteDomain}/about`,
         },
       ],
       category: post.frontMatter.tags?.map((tagname) => ({ name: tagname })),

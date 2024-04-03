@@ -8,19 +8,19 @@ export const PostComments = (props: { postId: string }) => {
     Config.Giscus && (
       <div className="mt-10 mb-5">
         <Giscus
-          id={props.postId}
-          repo={Config.Giscus.repo as `${string}/${string}`}
-          repoId={Config.Giscus.repoId}
           category={Config.Giscus.category}
           categoryId={Config.Giscus.categoryId}
-          mapping="pathname"
-          term={props.postId}
-          reactionsEnabled="1"
           emitMetadata="0"
-          theme={theme === "light" ? "light_tritanopia" : "dark_tritanopia"}
+          id={props.postId}
           inputPosition="top"
-          loading="eager"
           lang="en"
+          loading="eager"
+          mapping="pathname"
+          reactionsEnabled="1"
+          repo={Config.Giscus.repo as `${string}/${string}`}
+          repoId={Config.Giscus.repoId}
+          term={props.postId}
+          theme={theme === "light" ? "light_tritanopia" : "dark_tritanopia"}
         />
       </div>
     )

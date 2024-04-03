@@ -1,4 +1,5 @@
 import { ContentContainer, Page } from "@/components/layouts";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
@@ -10,7 +11,6 @@ import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { isEmptyArray, paginateArray } from "@/lib/utils";
-import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { nanoid } from "nanoid";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -49,31 +49,36 @@ export default function PostsPage(props: PostsPageProps) {
   return (
     <Page>
       <SEO
-        title={`${Config.SiteTitle} - All published posts`}
-        description={"Here is the list page for all published posts. Click here for more details."}
         coverURL={Config.PageCovers.websiteCoverURL}
+        description={"Here is the list page for all published posts. Click here for more details."}
+        title={`${Config.SiteTitle} - All published posts`}
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-center text-2xl ${fontFangZhengXiaoBiaoSongCN.className} font-bold`}>
+        <h2 className={`my-5 flex justify-center text-2xl font-fang-zheng-xiao-biao-song font-bold`}>
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
         </h2>
-        {!isEmptyArray(props.tagList) && props.pageNumber === 1 && (
-          <>
-            <Separator />
-            <div className={`my-5 flex flex-wrap text-sm justify-center px-2 ${fontSourceSerifScreenCN.className}`}>
-              {props.tagList.map((item) => (
-                <Link
-                  className="m-1 p-1 underline underline-offset-[5px] my-auto text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold"
-                  href={`/tags/${item.name}`}
-                  key={`tags-${nanoid()}`}
-                >
-                  {`${item.name} (${item.count})`}
-                </Link>
-              ))}
-            </div>
-          </>
+        {!isEmptyArray(props.tagList) && (
+          <Accordion collapsible type="single">
+            <AccordionItem className="border-t" value="item-1">
+              <AccordionTrigger className="hover:no-underline font-bold">{"TAG FILTER"}</AccordionTrigger>
+              <AccordionContent>
+                <Separator />
+                <div className={`my-5 flex flex-wrap text-wrap text-sm justify-center px-2`}>
+                  {props.tagList.map((item) => (
+                    <Link
+                      className="m-1 p-1 underline underline-offset-[5px] my-auto text-gray-700 decoration-2 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold"
+                      href={`/tags/${item.name}`}
+                      key={`tags-${nanoid()}`}
+                    >
+                      {`${item.name} (${item.count})`}
+                    </Link>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         )}
         <Separator />
         <PostList data={props.postList} />
@@ -81,23 +86,24 @@ export default function PostsPage(props: PostsPageProps) {
         <div className="my-5 flex justify-between text-base font-bold">
           {props.pageNumber !== 1 && (
             <Button asChild>
-              <Link href={`/posts/${props.pageNumber - 1}/`} className="font-bold">
+              <Link className="font-bold" href={`/posts/${props.pageNumber - 1}/`}>
                 {"< PREV"}
               </Link>
             </Button>
           )}
           <div className="my-auto font-bold flex justify-center">
             <Input
-              onKeyDown={handleEnterKeyJump}
-              onChange={handleInputPageNumber}
               className="my-auto mx-2 w-11 h-6"
+              onChange={handleInputPageNumber}
+              onKeyDown={handleEnterKeyJump}
+              title="Type the specified page number and press Enter to jump."
               value={pageNumber}
             />
             <div className="my-auto">{`  /  ${props.pageAmount}`}</div>
           </div>
           {props.pageNumber !== props.pageAmount && (
             <Button asChild>
-              <Link href={`/posts/${props.pageNumber + 1}/`} className="font-bold">
+              <Link className="font-bold" href={`/posts/${props.pageNumber + 1}/`}>
                 {"NEXT >"}
               </Link>
             </Button>
@@ -133,10 +139,12 @@ export const getStaticProps: GetStaticProps<PostsPageProps> = async (context) =>
   const tagList: {
     name: string;
     count: number;
-  }[] = Object.keys(sortedPosts.tagSubPostSet).map((tagName) => ({
-    name: tagName,
-    count: sortedPosts.tagSubPostSet[tagName].length,
-  }));
+  }[] = Object.keys(sortedPosts.postsByTag)
+    .map((tagName) => ({
+      name: tagName,
+      count: sortedPosts.postsByTag[tagName].length,
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return {
     props: {

@@ -1,4 +1,5 @@
-import { H2 } from "./H2";
+import Blockquote from "./Blockquote";
+import H2 from "./H2";
 import ImageWrapper from "./ImageWrapper";
 import PreWrapper from "./PreWrapper";
 import TableWrapper from "./TableWrapper";
@@ -8,4 +9,5 @@ export const MDXComponentsSet = {
   table: TableWrapper,
   img: ImageWrapper,
   h2: H2,
+  blockquote: Blockquote,
 };

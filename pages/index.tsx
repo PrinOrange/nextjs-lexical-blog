@@ -10,7 +10,6 @@ import { LatestPostCountInHomePage } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { generateRSSFeed } from "@/lib/rss";
-import { fontFangZhengXiaoBiaoSongCN } from "@/styles/font";
 import { TPostListItem } from "@/types/post-list";
 import { GetStaticProps } from "next";
 import Link from "next/link";
@@ -26,9 +25,9 @@ export default function Home(props: HomePageProps) {
   return (
     <Page>
       <SEO
-        title={`${Config.SiteTitle} - The personal blog for ${Config.Nickname}`}
-        description={`Welcome to the ${Config.Nickname}'s blog website. It's the website for recording thoughts for technology, life experience and so on.`}
         coverURL={Config.PageCovers.websiteCoverURL}
+        description={`Welcome to the ${Config.Nickname}'s blog website. It's the website for recording thoughts for technology, life experience and so on.`}
+        title={`${Config.SiteTitle} - The personal blog for ${Config.Nickname}`}
       />
       <NavBar />
       <ContentContainer>
@@ -36,7 +35,7 @@ export default function Home(props: HomePageProps) {
         {props.pinnedPostList.length !== 0 && (
           <div>
             <Separator />
-            <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+            <h2 className={`my-5 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
               <RiStarFill className="mx-2 my-auto" />
               {"PINNED POSTS"}
             </h2>
@@ -47,7 +46,7 @@ export default function Home(props: HomePageProps) {
         {props.latestPostList.length !== 0 && (
           <div>
             <Separator />
-            <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+            <h2 className={`my-5 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
               <LuPenTool className="mx-2 my-auto" />
               {"LATEST POSTS"}
             </h2>
@@ -56,7 +55,7 @@ export default function Home(props: HomePageProps) {
             <Separator />
             <div className="my-5 flex justify-end">
               <Button asChild>
-                <Link href="/posts" className="font-bold">
+                <Link className="font-bold" href="/posts">
                   {"MORE POSTS >"}
                 </Link>
               </Button>

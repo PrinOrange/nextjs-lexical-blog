@@ -10,11 +10,12 @@ import { getPostFileContent, sortedPosts } from "./post-process";
 const CJKLRecognizeRegex = /[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7A3a-zA-Z]+/g;
 
 function tokenizer(str: string) {
-  const result = cutForSearch(str, true).filter((item) => item.match(CJKLRecognizeRegex));
+  const result = cutForSearch(str, true).filter((item) => CJKLRecognizeRegex.test(item));
   return result;
 }
 
 function makeSearchIndex() {
+  const startTime = Date.now();
   let miniSearch = new minisearch({
     fields: ["id", "title", "tags", "subtitle", "summary", "content"],
     storeFields: ["id", "title", "tags"],
@@ -32,8 +33,13 @@ function makeSearchIndex() {
       content: content,
     });
   }
+  const endTime = Date.now();
   const sizeofIndex = (sizeof(miniSearch) / 1024 ** 2).toFixed(3);
-  console.log(Colors.cyan(`Search index is ready. And the size of index is ${sizeofIndex} mb`));
+  console.log(
+    Colors.cyan(
+      `Search index is ready. And the size of index is ${sizeofIndex} mb. And it costs ${(endTime - startTime) / 1000} s.`,
+    ),
+  );
   return miniSearch;
 }
 

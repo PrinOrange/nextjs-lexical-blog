@@ -52,8 +52,28 @@ export const Config: TConfig = {
     AlipayLink: "https://qr.alipay.com/xxxx",
     // Your Paypal user Id.
     PaypalId: "xxxx",
+    // If it's true, it will show the github sponsor link button.
+    Github: true,
     // Your Patreon user Id.
     PatreonId: "xxxx",
+    // Write your crypto wallet address here.
+    Crypto: [
+      {
+        Name: "BTC",
+        Address: "bc1q9mgj2kejx0ag3uu34lp7e6we8cs8z8s6r9les3",
+        Blockchain: "Bitcoin",
+      },
+      {
+        Name: "ETH",
+        Address: "0xe42110C65Bf732a9F63e95F15e4e1Cc5963D2e74",
+        Blockchain: "Ethereum",
+      },
+      {
+        Name: "USDT",
+        Address: "0xe42110C65Bf732a9F63e95F15e4e1Cc5963D2e74",
+        Blockchain: "Ethereum",
+      },
+    ],
   },
 
   // Website establishment year.

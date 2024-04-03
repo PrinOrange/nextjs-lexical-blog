@@ -1,5 +1,7 @@
 {
   "printWidth": 120,
   "endOfLine": "auto",
-  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"]
+  "jsxBracketSameLine": true,
+  "trailingComma": "all",
+  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports", "react"]
 }

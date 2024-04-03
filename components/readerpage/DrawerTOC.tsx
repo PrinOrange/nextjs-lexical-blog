@@ -11,12 +11,12 @@ export const DrawerTOC = (props: { data: TTOCItem[] }) => {
   const setIsTOCOpen = useDrawerTOCState((state) => state.changeDrawerTOCOpen);
   const activeId = useActiveHeading(props.data.map((item) => `#${item.anchorId}`));
   return (
-    <Sheet open={isTOCOpen} onOpenChange={setIsTOCOpen}>
+    <Sheet onOpenChange={setIsTOCOpen} open={isTOCOpen}>
       <SheetTrigger
-        title="Open the table of contents"
         className="bottom-16 right-5 fixed bg-white dark:bg-black border-gray-700 border dark:border-gray-500 shadow-xl"
+        title="Open the table of contents"
       >
-        <div title="Open the table of contents" onClick={() => setIsTOCOpen(!isTOCOpen)} className="p-1 font-bold">
+        <div className="p-1 font-bold" onClick={() => setIsTOCOpen(!isTOCOpen)} title="Open the table of contents">
           <MdMenuBook className="text-3xl" />
         </div>
       </SheetTrigger>
@@ -31,11 +31,11 @@ export const DrawerTOC = (props: { data: TTOCItem[] }) => {
                 "border-t border-b py-1 px-2 border-dashed hover:bg-gray-100 hover:dark:bg-gray-900",
                 activeId === `#${item.anchorId}` ? "bg-gray-100 dark:bg-gray-900 text-sky-700 dark:text-sky-500" : "",
               )}
+              href={`#${item.anchorId}`}
+              key={`drawer-toc-${item.anchorId}`}
               onClick={() => {
                 setIsTOCOpen(false);
               }}
-              key={`drawer-toc-${item.anchorId}`}
-              href={`#${item.anchorId}`}
             >
               <li className={"p-2"} style={{ paddingLeft: `${item.level - 2}em` }}>{`${item.title}`}</li>
             </Link>

@@ -6,7 +6,8 @@
 @import "./formulation.css";
 @import "./scrollbar.css";
 
-@import "./prism.css";
+@import "./font.css";
+@import "./highlight.css";
 
 @layer base {
   :root {

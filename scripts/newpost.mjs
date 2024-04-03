@@ -68,6 +68,7 @@ tags: ${JSON.stringify(tags)}
 noPrompt: ${noPrompt}
 pin: ${pin}
 allowShare: ${allowShare}
+closed: false
 ---
 `;
 

@@ -1,7 +1,8 @@
 .typesetting {
   @apply prose 
-  max-w-full 
-  overflow-x-auto 
+  h-fit
+  max-w-full
+  overflow-x-hidden
   break-words
 
   px-0 
@@ -9,41 +10,43 @@
   dark:prose-invert
 
   prose-headings:scroll-mt-20
-  
-  prose-headings:target:text-sky-700
-  prose-a:text-sky-700
 
-  prose-blockquote:bg-gray-100
-  prose-blockquote:px-5
-  prose-blockquote:py-0.5
-  prose-blockquote:text-base
-  prose-blockquote:not-italic
+  prose-a:text-sky-800
+  
+  prose-a:decoration-dashed
+  prose-a:underline-offset-[5px]
+
   prose-figure:mx-auto
 
-  prose-code:mx-1
+  prose-code:overflow-hidden
 
-  prose-code:rounded-sm
-  prose-code:bg-gray-200
-  prose-code:px-1
-  prose-code:py-0.5
-  prose-code:text-gray-800
-  prose-code:before:content-['']
+  prose-code:text-sky-700
 
-  prose-code:after:content-['']
-  prose-table:border-4 
-  prose-tr:border-2
+  prose-table:mb-5
+  prose-table:mt-0
+  prose-table:border-2
+  prose-table:border-gray-400
+
+prose-tr:border-2
+  prose-tr:border-gray-400 
   prose-tr:p-2
 
-  prose-th:border
-  prose-th:p-2
-  prose-td:border-2
+  prose-th:border-2
+prose-th:border-gray-400
+prose-th:bg-gray-100
+prose-th:p-2
+prose-td:border-2
+
+  prose-td:border-gray-400
   prose-td:p-2
-
   prose-img:mx-auto
+   dark:prose-a:text-sky-500
 
-  dark:prose-a:text-sky-500
+   dark:prose-code:text-sky-500
 
- dark:prose-blockquote:bg-gray-800
- dark:prose-code:bg-gray-700
- dark:prose-code:text-gray-100;
+  dark:prose-table:border-gray-700
+  dark:prose-tr:border-gray-700
+  dark:prose-th:border-gray-700
+  dark:prose-th:bg-gray-900
+dark:prose-td:border-gray-700;
 }

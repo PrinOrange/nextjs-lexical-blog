@@ -8,7 +8,6 @@ import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
 import { isEmptyString } from "@/lib/utils";
-import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { TSearchResultItem } from "@/types/search-result";
 import axios from "axios";
 import { nanoid } from "nanoid";
@@ -61,35 +60,35 @@ export default function SearchPage() {
 
   return (
     <Page>
-      <SEO title={`${Config.SiteTitle} - Search`} description={"Search the posts on your demand."} />
+      <SEO description={"Search the posts on your demand."} title={`${Config.SiteTitle} - Search`} />
       <Toaster />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-10 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
+        <h2 className={`my-10 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
           {"SEARCH POSTS"}
         </h2>
-        <div className="flex my-10 h-1/2">
+        <div className="flex my-10">
           <Input
             className="my-auto py-0"
+            onChange={handleInputSearchText}
+            onKeyDown={handleEnterKeySearch}
             placeholder="Input the keyword"
             value={searchText}
-            onKeyDown={handleEnterKeySearch}
-            onChange={handleInputSearchText}
           />
           <Button className="mx-3 w-32 my-auto" disabled={querySearch.isLoading} onClick={handleMakeSearch}>
             {querySearch.isFetching ? "Loading" : "Search"}
           </Button>
         </div>
         <div className="flex flex-col justify-center">
-          <div className={`min-h-full flex flex-col ${fontSourceSerifScreenCN.className}`}>
+          <div className={`min-h-full flex flex-col font-source-serif-screen`}>
             {querySearch.isSuccess &&
               searchResult.map((item, index) => (
                 <Link
                   className={`py-2 px-5 border-t ${
                     index === searchResult.length - 1 && "border-b"
                   } hover:bg-gray-50 dark:hover:bg-gray-900 flex flex-col`}
-                  key={nanoid()}
                   href={`/blog/${item.id}`}
+                  key={nanoid()}
                   target="_blank"
                 >
                   <div className="my-1 capitalize">{item.title}</div>

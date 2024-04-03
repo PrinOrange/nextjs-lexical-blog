@@ -7,7 +7,7 @@ import { JSDOM } from "jsdom";
  * @param htmlCode
  * @returns
  */
-export const getTOCTree = (htmlCode: string) => {
+export const makeTOCTree = (htmlCode: string) => {
   const doc_dom = new JSDOM(htmlCode);
   const all_headers = doc_dom.window.document.querySelectorAll("h1,h2,h3,h4,h5,h6");
   const result: TTOCItem[] = [];

@@ -5,21 +5,18 @@ import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
 import { FriendsList } from "@/data/friends";
-import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { nanoid } from "nanoid";
 import Link from "next/link";
 
 export default function FriendsPage() {
   return (
     <Page>
-      <SEO title={`${Config.SiteTitle} - Friends`} description={"My Friend Links"} />
+      <SEO description={"My Friend Links"} title={`${Config.SiteTitle} - Friends`} />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-center text-2xl font-bold ${fontFangZhengXiaoBiaoSongCN.className}`}>
-          {"FRIENDS"}
-        </h2>
+        <h2 className={`my-5 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>{"FRIENDS"}</h2>
         <Separator />
-        <div className={`my-5 flex flex-wrap justify-center text-2xl ${fontSourceSerifScreenCN.className}`}>
+        <div className={`my-5 flex flex-wrap justify-center text-2xl font-source-serif-screen`}>
           {FriendsList.map((item) => (
             <Link className="mx-2 p-2 underline" href={item.url} key={nanoid()}>
               {item.title}

@@ -1,5 +1,6 @@
 import { ContentContainer, Page } from "@/components/layouts";
 import { MDXComponentsSet } from "@/components/mdx";
+import { BottomCard } from "@/components/readerpage/BottomCard";
 import { DrawerTOC } from "@/components/readerpage/DrawerTOC";
 import { PostComments } from "@/components/readerpage/PostComments";
 import { PostCover } from "@/components/readerpage/PostCover";
@@ -13,9 +14,8 @@ import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
 import { normalizeDate } from "@/lib/date";
 import { getPostFileContent, sortedPosts } from "@/lib/post-process";
-import { getTOCTree } from "@/lib/toc";
+import { makeTOCTree } from "@/lib/toc";
 import useDrawerTOCState from "@/stores/useDrawerTOCState";
-import { fontFangZhengXiaoBiaoSongCN, fontSourceSerifScreenCN } from "@/styles/font";
 import { TFrontmatter } from "@/types/frontmatter.type";
 import { TPostListItem } from "@/types/post-list";
 import { TTOCItem } from "@/types/toc.type";
@@ -27,6 +27,7 @@ import Link from "next/link";
 import { renderToString } from "react-dom/server";
 import { useSwipeable } from "react-swipeable";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
 import rehypePresetMinify from "rehype-preset-minify";
 import rehypeRaw from "rehype-raw";
@@ -34,7 +35,6 @@ import rehypeSlug from "rehype-slug";
 import externalLinks from "remark-external-links";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import remarkPrism from "remark-prism";
 
 type ReaderPageProps = {
   compiledSource: MDXRemoteSerializeResult;
@@ -51,7 +51,7 @@ const ReaderPage = (props: ReaderPageProps) => {
 
   // Only the TOC length reaches 3 can be displayed.
   // In order to avoid large blank spaces that ruin the visual perception
-  const isTOCLongEnough = props.tocList.length > 4;
+  const isTOCLongEnough = props.tocList.length > 2;
   const handleRightSwipe = useSwipeable({
     onSwipedRight: () => {
       isTOCLongEnough && setIsTOCOpen(true);
@@ -62,52 +62,55 @@ const ReaderPage = (props: ReaderPageProps) => {
   return (
     <Page>
       <SEO
-        title={`${props.frontMatter.title} - ${Config.SiteTitle}`}
-        description={props.frontMatter.summary}
         coverURL={props.frontMatter.coverURL ?? Config.AvatarURL}
+        description={props.frontMatter.summary}
+        title={`${props.frontMatter.title} - ${Config.SiteTitle}`}
       />
       <Toaster />
       <NavBar />
       <ContentContainer>
-        <div className="py-5 justify-center lg:flex" style={{ borderRadius: "5px" }}>
+        <div
+          className={`py-1 ${isTOCLongEnough ? "justify-between" : "justify-center"} lg:flex space-x-5`}
+          style={{ borderRadius: "5px" }}
+        >
           <div className={`${isTOCLongEnough ? "lg:w-2/3" : "lg:w-5/6"} py-5`}>
             <div className="typesetting">
               {props.frontMatter.coverURL && <PostCover coverURL={props.frontMatter.coverURL} />}
-              <div
-                className={`${fontFangZhengXiaoBiaoSongCN.className} my-5 text-black dark:text-white flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
-              >
-                {props.frontMatter?.title}
-              </div>
-              {props.frontMatter?.subtitle && (
+              <div className="pb-1 border-b-2 border-black dark:border-gray-300">
                 <div
-                  className={`${fontFangZhengXiaoBiaoSongCN.className} my-1 flex justify-center text-xl font-bold capitalize`}
+                  className={`font-fang-zheng-xiao-biao-song my-2 text-black dark:text-white flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
                 >
-                  {props.frontMatter.subtitle}
+                  {props.frontMatter?.title}
                 </div>
-              )}
-              <div className="my-2 flex justify-center text-sm italic">{normalizeDate(props.frontMatter?.time)}</div>
-              {props.frontMatter?.summary && (
-                <p className={`${fontSourceSerifScreenCN.className} my-4 indent-8 text-gray-800 dark:text-gray-300`}>
-                  {props.frontMatter?.summary}
-                </p>
-              )}
-              {props.frontMatter.tags && (
-                <div className={`py-3 flex flex-wrap justify-start border-t border-b`}>
-                  <div className="my-auto font-bold mr-2">{"TAGS: "}</div>
-                  {props.frontMatter.tags.map((tagName) => (
-                    <Link
-                      className="mx-1 my-auto text-gray-700 underline-offset-4 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold text-sm"
-                      href={`/tags/${tagName}`}
-                      key={`tags-${nanoid()}`}
-                    >
-                      {tagName}
-                    </Link>
-                  ))}
-                </div>
-              )}
-
+                {props.frontMatter?.subtitle && (
+                  <div
+                    className={`font-fang-zheng-xiao-biao-song my-1 flex justify-center text-xl font-bold capitalize`}
+                  >
+                    {props.frontMatter.subtitle}
+                  </div>
+                )}
+                <div className="my-1 flex justify-center text-sm italic">{normalizeDate(props.frontMatter?.time)}</div>
+                {props.frontMatter?.summary && (
+                  <p className={"font-source-serif-screen my-4 indent-8 text-gray-800 dark:text-gray-300"}>
+                    {props.frontMatter?.summary}
+                  </p>
+                )}
+                {props.frontMatter.tags && (
+                  <div className={"pt-1 flex flex-wrap border-t-2 border-black dark:border-gray-300"}>
+                    {props.frontMatter.tags.map((tagName) => (
+                      <Link
+                        className="not-prose mr-2 px-2 py-1 font-bold border-2 border-black dark:border-gray-300 my-1 text-gray-700 hover:text-black text-xs  dark:text-gray-300 dark:hover:text-gray-200"
+                        href={`/tags/${tagName}`}
+                        key={`tags-${nanoid()}`}
+                      >
+                        {tagName}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
               <div
-                className={`py-5 ${fontSourceSerifScreenCN.className} ${
+                className={`text-wrap border-gray-500 font-source-serif-screen ${
                   !props.frontMatter.allowShare ? "select-none" : ""
                 }`}
                 {...handleRightSwipe}
@@ -115,21 +118,23 @@ const ReaderPage = (props: ReaderPageProps) => {
                 {compiledSource && (
                   <MDXRemote
                     compiledSource={compiledSource.compiledSource}
+                    // @ts-ignore
+                    components={MDXComponentsSet}
                     frontmatter={compiledSource.frontmatter}
                     scope={compiledSource.scope}
-                    //@ts-ignore
-                    components={MDXComponentsSet}
                   />
                 )}
               </div>
             </div>
             <Separator />
+            <BottomCard />
+            <Separator />
             <ShareButtons
+              allowShare={props.frontMatter.allowShare}
+              postId={props.postId}
+              quote={props.frontMatter.summary}
               subtitle={props.frontMatter.subtitle}
               title={props.frontMatter.title}
-              quote={props.frontMatter.summary}
-              postId={props.postId}
-              allowShare={props.frontMatter.allowShare}
             />
             <Separator />
             <ul className="my-5 px-5 flex flex-col justify-center list-disc">
@@ -158,7 +163,9 @@ const ReaderPage = (props: ReaderPageProps) => {
           </div>
           {isTOCLongEnough && (
             <div className="hidden lg:block md:w-1/3 py-5">
-              <TOC data={props.tocList} />
+              <div className="sticky top-[5em]">
+                <TOC data={props.tocList} />
+              </div>
             </div>
           )}
         </div>
@@ -199,13 +206,20 @@ export const getStaticProps: GetStaticProps<ReaderPageProps> = async (context) =
   const mdxSource = await serialize(source, {
     parseFrontmatter: true,
     mdxOptions: {
-      remarkPlugins: [remarkPrism, externalLinks, remarkMath, remarkGfm],
-      rehypePlugins: [rehypeRaw, rehypeKatex as any, rehypeAutolinkHeadings, rehypeSlug, rehypePresetMinify],
+      remarkPlugins: [externalLinks, remarkMath, remarkGfm],
+      rehypePlugins: [
+        rehypeRaw,
+        rehypeKatex as any,
+        rehypeAutolinkHeadings,
+        rehypeSlug,
+        rehypePresetMinify.plugins,
+        () => rehypeHighlight({ detect: true }),
+      ],
       format: "md",
     },
   });
 
-  const tocList = getTOCTree(renderToString(<MDXRemote {...mdxSource} />));
+  const tocList = makeTOCTree(renderToString(<MDXRemote {...mdxSource} />));
 
   const postIndexInAllPosts = sortedPosts.allPostList.findIndex((item) => item.id === postId);
 

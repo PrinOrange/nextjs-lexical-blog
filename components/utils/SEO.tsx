@@ -6,9 +6,8 @@ export const SEO = (props: { title: string; description?: string | null; coverUR
   return (
     <>
       <title>{props.title}</title>
-      <link rel="alternate" type="application/rss+xml" href={RSSFeedURL} />
+      <link href={RSSFeedURL} rel="alternate" type="application/rss+xml" />
       <NextSeo
-        title={props.title}
         description={props.description ?? Config.Sentence}
         openGraph={{
           title: props.title,
@@ -31,6 +30,7 @@ export const SEO = (props: { title: string; description?: string | null; coverUR
                 },
               ],
         }}
+        title={props.title}
         twitter={{
           handle: `@${Config.SocialLinks.twitter}`,
           site: WebsiteURL,

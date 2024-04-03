@@ -1,0 +1,3 @@
+.responsive-width {
+  @apply px-5 lg:px-20 xl:px-32 2xl:px-52;
+}

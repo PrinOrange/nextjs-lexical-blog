@@ -2,8 +2,7 @@
  * Convert the date format of YYYY-MM-DD to American writing
  * @param date The date in format of YYYY-MM-DD.
  */
-export const normalizeDate = (date: string): string => {
-  if (date == null) return "01 January, 1970";
+export const normalizeDate = (date: string = "1970-01-01"): string => {
   let [year, month, day] = date.split("-");
   let month_num = parseInt(month);
   let day_num = parseInt(day);

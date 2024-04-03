@@ -33,10 +33,12 @@ export type TConfig = {
   };
 
   Sponsor?: {
+    Github?: boolean;
     WechatPayQRCodeContent?: `wxp://${string}`;
     AlipayLink?: `https://qr.alipay.com/${string}`;
     PaypalId?: string;
     PatreonId?: string;
+    Crypto?: { Name: string; Address: string; Blockchain: string }[];
   };
 
   YearStart: number;

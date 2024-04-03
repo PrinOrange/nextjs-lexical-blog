@@ -1,4 +1,7 @@
 import { useRef, useState } from "react";
+import { FaCheck } from "react-icons/fa";
+import { IoCopyOutline } from "react-icons/io5";
+import { Button } from "../ui/button";
 
 const PreWrapper = ({ children }: { children: JSX.Element }) => {
   const textInput = useRef(null);
@@ -16,51 +19,23 @@ const PreWrapper = ({ children }: { children: JSX.Element }) => {
     setCopied(true);
     //@ts-ignore
     textInput.current && navigator.clipboard.writeText(textInput.current.textContent);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
   };
 
   return (
-    <div ref={textInput} onMouseEnter={onEnter} onMouseLeave={onExit} className="relative flat-scrollbar-normal">
+    <div className="relative flat-scrollbar-normal" onMouseLeave={onExit} onMouseMove={onEnter} ref={textInput}>
       {hovered && (
-        <button
+        <Button
           aria-label="Copy code"
-          className={`absolute right-2 top-2 h-8 w-8 rounded border-2 bg-gray-700 p-1 dark:bg-gray-800 ${
-            copied ? "border-green-400 focus:border-green-400 focus:outline-none" : "border-gray-300"
-          }`}
+          className={`absolute right-2 top-2 h-8 w-8 rounded p-1 ${copied ? "hover:text-green-500 text-green-500" : ""}`}
           onClick={onCopy}
+          variant={"outline"}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            fill="none"
-            className={copied ? "text-green-400" : "text-gray-300"}
-          >
-            {copied ? (
-              <>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                />
-              </>
-            ) : (
-              <>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                />
-              </>
-            )}
-          </svg>
-        </button>
+          {copied ? <FaCheck /> : <IoCopyOutline />}
+        </Button>
       )}
-      <pre className="flat-scrollbar-normal">{children}</pre>
+      <pre className="p-2 dark:bg-[#0d1117] bg-[#F6F8FA] rounded-md flat-scrollbar-normal not-prose text-sm dark:selection:bg-gray-700 selection:bg-gray-300 selection:text-inherit">
+        {children}
+      </pre>
     </div>
   );
 };
