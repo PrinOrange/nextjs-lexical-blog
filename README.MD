@@ -208,6 +208,7 @@ Sponsor: {
   AlipayLink: "https://qr.alipay.com/xxxx",
   PaypalId: "xxxx",
   PatreonId: "xxxx",
+  ...
 },
 ```
 

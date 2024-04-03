@@ -195,7 +195,7 @@ npm run archive
 
 博客网站的 `/sponsor` 页面用于展示赞助渠道、赞助说明。可以在 [`./data/config.ts`](./data/config.ts) 中的 `Sponsor` 项来配置。博客网站目前支持的的赞助渠道有四个：微信支付、支付宝、Paypal 和 Patreon 。
 
-你可以看到如下的配置项：
+你可以看到类似如下的配置项：
 
 ```typescript
 Sponsor: {
@@ -203,6 +203,7 @@ Sponsor: {
   AlipayLink: "https://qr.alipay.com/xxxx",
   PaypalId: "xxxx",
   PatreonId: "xxxx",
+  ....
 },
 ```
 
