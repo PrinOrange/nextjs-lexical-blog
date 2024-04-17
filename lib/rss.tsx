@@ -9,6 +9,7 @@ import { renderToString } from "react-dom/server";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeMathJax from "rehype-mathjax/svg";
 import rehypePresetMinify from "rehype-preset-minify";
+import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import externalLinks from "remark-external-links";
 import remarkGfm from "remark-gfm";
@@ -65,7 +66,7 @@ export const generateRSSFeed = async () => {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkPrism, externalLinks, remarkMath, remarkGfm],
-        rehypePlugins: [rehypeMathJax, rehypeAutolinkHeadings, rehypeSlug, rehypePresetMinify as any],
+        rehypePlugins: [rehypeMathJax, rehypeAutolinkHeadings, rehypeSlug, rehypePresetMinify as any, rehypeRaw],
         format: "md",
       },
     });

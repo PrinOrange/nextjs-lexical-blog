@@ -4,8 +4,7 @@
   max-w-full
   overflow-x-hidden
   break-words
-
-  px-0 
+  px-0
 
   dark:prose-invert
 
@@ -18,31 +17,42 @@
 
   prose-figure:mx-auto
 
-  prose-code:overflow-hidden
+  prose-code:mx-1
+  prose-code:overflow-hidden 
+  prose-code:rounded-md
+  prose-code:bg-gray-100
 
+  prose-code:px-2
+  prose-code:py-1
   prose-code:text-sky-700
-
+  prose-code:before:content-['']
+  prose-code:after:content-['']
+  prose-li:marker:text-black
   prose-table:mb-5
-  prose-table:mt-0
+
+ prose-table:mt-0
+
   prose-table:border-2
   prose-table:border-gray-400
+  prose-tr:border-2
+  prose-tr:border-gray-400
 
-prose-tr:border-2
-  prose-tr:border-gray-400 
   prose-tr:p-2
+  prose-th:border-2 
+  prose-th:border-gray-400
 
-  prose-th:border-2
-prose-th:border-gray-400
-prose-th:bg-gray-100
+  prose-th:bg-gray-100
 prose-th:p-2
 prose-td:border-2
+prose-td:border-gray-400
+prose-td:p-2
 
-  prose-td:border-gray-400
-  prose-td:p-2
   prose-img:mx-auto
-   dark:prose-a:text-sky-500
-
+  dark:prose-a:text-sky-500
+  prose-code:dark:bg-gray-800
    dark:prose-code:text-sky-500
+
+   dark:prose-li:marker:text-gray-100
 
   dark:prose-table:border-gray-700
   dark:prose-tr:border-gray-700
