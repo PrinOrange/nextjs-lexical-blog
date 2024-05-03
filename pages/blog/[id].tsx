@@ -159,7 +159,7 @@ const ReaderPage = (props: ReaderPageProps) => {
                 </li>
               )}
             </ul>
-            <PostComments postId={props.postId} />
+            {Config.Giscus?.enabled && <PostComments postId={props.postId} />}
           </div>
           {isTOCLongEnough && (
             <div className="hidden lg:block md:w-1/3 py-5">
