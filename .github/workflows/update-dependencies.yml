@@ -1,0 +1,35 @@
+name: Update npm Dependencies
+
+on:
+  schedule:
+    - cron: "0 0 * * 4"
+  workflow_dispatch:
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.10.0"
+
+      - name: Install latest npm
+        run: npm install -g npm@latest
+
+      - name: Update npm dependencies
+        run: npm update
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add package-lock.json
+          git commit -m 'chore: update npm dependencies'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
