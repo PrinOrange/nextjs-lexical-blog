@@ -22,7 +22,7 @@ export const normalizeDate = (date: string = "1970-01-01"): string => {
     11: "November",
     12: "December",
   };
-  return `${day_num} ${month_en[month_num]}, ${year}`;
+  return `${month_en[month_num]} ${day_num}, ${year}`;
 };
 
 export const getCurrentTime = (): {
