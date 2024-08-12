@@ -172,6 +172,26 @@ To execute, simply run the script and specify the directory where you want to st
 
 ### FAQ
 
+#### RTL & LTR
+
+The default layout of this project is LTR. However, this project also supports RTL layout. If you are using Arabic, Persian, Hebrew, etc., please modify [\_document.tsx](./pages/_document.tsx) manually as following.
+
+Change the Html tag
+
+```tsx
+<Html dir="ltr" lang="en">
+  {....}
+</Html>
+```
+
+Into
+
+```tsx
+<Html dir="rtl" lang="en">
+  {....}
+</Html>
+```
+
 #### Fonts
 
 After extensive practical testing, this site primarily uses Chinese and English texts. Therefore, this project employs **Fangzheng Xiaobiaosong (for non-commercial use) and Source Han Serif Screen** as font resources. They display well on both mobile and PC screens, hence are used respectively for official titles and main text.
