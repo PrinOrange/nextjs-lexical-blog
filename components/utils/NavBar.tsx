@@ -34,7 +34,7 @@ export const NavBar = () => {
     <Sheet onOpenChange={(open) => setIsSideNavOpen(open)} open={isSideNavOpen}>
       <div className="sticky top-0 z-50 border-black-200 dark:border-gray-700 border-b bg-white dark:bg-gray-950 flex flex-wrap justify-between py-3 px-5 md:px-10 lg:px-20 xl:px-32 2xl:px-52">
         <Link className="cursor-pointer my-auto text-2xl font-bold" href="/">
-          <h1 className={`font-fang-zheng-xiao-biao-song my-auto`} title="Click to jump to home page.">
+          <h1 className={`website-title-font my-auto`} title="Click to jump to home page.">
             {Config.SiteTitle}
           </h1>
         </Link>

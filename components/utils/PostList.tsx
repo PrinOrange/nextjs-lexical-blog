@@ -14,7 +14,7 @@ export const PostList = (props: { data: TPostListItem[] }) => {
               index !== props.data.length - 1 && "border-b"
             } border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-900 dark:border-gray-800 px-3 py-1`}
           >
-            <div className={"font-source-serif-screen flex-col py-3"}>
+            <div className={"post-list-caption-font flex-col py-3"}>
               <div className="flex justify-center">
                 <h3 className="mx-auto text-lg font-extrabold capitalize">{postItem.frontMatter.title}</h3>
               </div>
@@ -27,7 +27,7 @@ export const PostList = (props: { data: TPostListItem[] }) => {
               </div>
             </div>
             {postItem.frontMatter.summary && (
-              <div className={"font-source-serif-screen flex justify-center"}>
+              <div className={"content-font flex justify-center"}>
                 <p>{postItem.frontMatter.summary}</p>
               </div>
             )}

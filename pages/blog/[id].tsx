@@ -78,20 +78,18 @@ const ReaderPage = (props: ReaderPageProps) => {
               {props.frontMatter.coverURL && <PostCover coverURL={props.frontMatter.coverURL} />}
               <div className="pb-1 border-b-2 border-black dark:border-gray-300">
                 <div
-                  className={`font-fang-zheng-xiao-biao-song my-2 text-black dark:text-white flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
+                  className={`caption-font my-2 text-black dark:text-white flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
                 >
                   {props.frontMatter?.title}
                 </div>
                 {props.frontMatter?.subtitle && (
-                  <div
-                    className={`font-fang-zheng-xiao-biao-song my-1 flex justify-center text-xl font-bold capitalize`}
-                  >
+                  <div className={`caption-font my-1 flex justify-center text-xl font-bold capitalize`}>
                     {props.frontMatter.subtitle}
                   </div>
                 )}
                 <div className="my-1 flex justify-center text-sm italic">{normalizeDate(props.frontMatter?.time)}</div>
                 {props.frontMatter?.summary && (
-                  <p className={"font-source-serif-screen my-4 indent-8 text-gray-800 dark:text-gray-300"}>
+                  <p className={"content-font my-4 indent-8 text-gray-800 dark:text-gray-300"}>
                     {props.frontMatter?.summary}
                   </p>
                 )}
@@ -110,7 +108,7 @@ const ReaderPage = (props: ReaderPageProps) => {
                 )}
               </div>
               <div
-                className={`text-wrap border-gray-500 font-source-serif-screen ${
+                className={`text-wrap border-gray-500 content-font ${
                   !props.frontMatter.allowShare ? "select-none" : ""
                 }`}
                 {...handleRightSwipe}

@@ -35,7 +35,7 @@ module.exports = {
       },
       fontFamily: {
         fangzhengxiaobiaosong: "--font-fangzhengxiaobiaosong",
-        sourceSerifScreenCN: "--font-source-serif-screen-cn",
+        sourceSerifScreenCN: "--content-font-cn",
       },
       colors: {
         border: "hsl(var(--border))",

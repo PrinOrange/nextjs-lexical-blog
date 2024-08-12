@@ -1,6 +1,6 @@
 const H2 = (props: JSX.IntrinsicElements["h2"]) => {
   return (
-    <h2 className={`font-fang-zheng-xiao-biao-song scroll-mt-20`} id={props.id}>
+    <h2 className={`caption-font scroll-mt-20`} id={props.id}>
       {props.children}
     </h2>
   );

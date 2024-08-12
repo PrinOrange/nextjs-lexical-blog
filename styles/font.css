@@ -1,2 +1,29 @@
-@import "../assets/font-css/fang-zheng-xiao-biao-song/index.css";
-@import "../assets/font-css/source-serif-screen/index.css";
+@import url("https://font-host.dreams.plus/fonts/fang-zheng-xiao-biao-song/index.css");
+@import url("https://font-host.dreams.plus/fonts/source-serif-4/index.css");
+@import url("https://font-host.dreams.plus/fonts/noto-serif-kr/index.css");
+@import url("https://font-host.dreams.plus/fonts/fang-zheng-serif-screen/index.css");
+@import url("https://font-host.dreams.plus/fonts/source-serif-screen/index.css");
+
+.prose b {
+  font-weight: 600;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.caption-font {
+  font-family: "Source Serif 4", "FZXiaoBiaoSong-B05", "Noto Serif KR";
+}
+
+.content-font {
+  font-family: "Source Serif 4", "FZPingXianYaSong-R-GBK", "Noto Serif KR";
+}
+
+.website-title-font {
+  font-family: "FZXiaoBiaoSong-B05";
+}
+
+.post-list-caption-font {
+  font-family: "Clear Han Serif", "Noto Serif KR";
+}

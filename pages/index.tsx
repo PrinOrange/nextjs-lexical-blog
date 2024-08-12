@@ -35,7 +35,7 @@ export default function Home(props: HomePageProps) {
         {props.pinnedPostList.length !== 0 && (
           <div>
             <Separator />
-            <h2 className={`my-5 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
+            <h2 className={`my-5 flex justify-center text-2xl font-bold caption-font`}>
               <RiStarFill className="mx-2 my-auto" />
               {"PINNED POSTS"}
             </h2>
@@ -46,7 +46,7 @@ export default function Home(props: HomePageProps) {
         {props.latestPostList.length !== 0 && (
           <div>
             <Separator />
-            <h2 className={`my-5 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
+            <h2 className={`my-5 flex justify-center text-2xl font-bold caption-font`}>
               <LuPenTool className="mx-2 my-auto" />
               {"LATEST POSTS"}
             </h2>

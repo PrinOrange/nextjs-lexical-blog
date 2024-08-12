@@ -20,10 +20,10 @@ export const HomeCover = () => {
           />
         </div>
       </div>
-      <div className={`font-fang-zheng-xiao-biao-song my-8 text-center text-4xl font-bold`}>{Config.Nickname}</div>
+      <div className={`caption-font my-8 text-center text-4xl font-bold`}>{Config.Nickname}</div>
       {Config.Sentence && (
         <div className="my-5 flex justify-center">
-          <p className={`font-source-serif-screen text-lg`}>{Config.Sentence}</p>
+          <p className={`content-font text-lg`}>{Config.Sentence}</p>
         </div>
       )}
       <div className="my-8">
