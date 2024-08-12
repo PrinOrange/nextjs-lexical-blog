@@ -8,7 +8,7 @@ import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
 import { GoHeartFill } from "react-icons/go";
 
-export default function AboutPage() {
+export default function SponsorPage() {
   return (
     <Page>
       <SEO
