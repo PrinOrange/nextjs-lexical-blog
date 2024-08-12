@@ -4,6 +4,7 @@ import { TPostListItem, TPostsByTag } from "@/types/post-list";
 import fs from "fs";
 import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
+import { titleCase } from "title-case";
 import { isEmptyString, nullifyEmptyArray, nullifyEmptyString } from "./utils";
 
 async function extractFrontmatters(filepath: string): Promise<TFrontmatter> {
@@ -19,7 +20,7 @@ async function extractFrontmatters(filepath: string): Promise<TFrontmatter> {
     .map((tagname) => tagname.toUpperCase());
 
   const normalizedResult: TFrontmatter = {
-    title: frontmatter.title,
+    title: titleCase(frontmatter.title),
     subtitle: nullifyEmptyString(frontmatter.subtitle),
     coverURL: nullifyEmptyString(frontmatter.coverURL),
     tags: nullifyEmptyArray(normalizedTags),
