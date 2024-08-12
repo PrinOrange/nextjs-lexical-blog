@@ -33,7 +33,10 @@ const PreWrapper = ({ children }: { children: JSX.Element }) => {
           {copied ? <FaCheck /> : <IoCopyOutline />}
         </Button>
       )}
-      <pre className="p-2 dark:bg-[#0d1117] bg-[#F6F8FA] rounded-md flat-scrollbar-normal not-prose text-sm dark:selection:bg-gray-700 selection:bg-gray-300 selection:text-inherit" dir="ltr">
+      <pre
+        className="p-2 dark:bg-[#0d1117] bg-[#F6F8FA] rounded-md flat-scrollbar-normal not-prose text-sm dark:selection:bg-gray-700 selection:bg-gray-300 selection:text-inherit"
+        dir="ltr"
+      >
         {children}
       </pre>
     </div>

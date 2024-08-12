@@ -18,7 +18,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
   const result: TSearchResultItem[] = SearchIndex.search(searchText).map((item) => ({
     id: item.id,
     title: item.title,
-    summary:item.summary,
+    summary: item.summary,
     tags: item.tags,
   }));
   res.status(200).json(result);

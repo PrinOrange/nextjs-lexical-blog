@@ -2,6 +2,7 @@
   overflow: auto hidden;
   padding-top: 10px;
   padding-bottom: 10px;
+  direction: ltr;
 }
 
 .katex-display::-webkit-scrollbar-track {
@@ -20,5 +21,4 @@
 .katex-display::-webkit-scrollbar {
   height: 0.4rem;
   width: 0.5rem;
-  direction: ltr;
 }
