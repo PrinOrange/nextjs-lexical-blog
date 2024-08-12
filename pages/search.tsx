@@ -10,52 +10,76 @@ import { Config } from "@/data/config";
 import { isEmptyString } from "@/lib/utils";
 import { TSearchResultItem } from "@/types/search-result";
 import axios from "axios";
+import { isArray } from "lodash";
 import { nanoid } from "nanoid";
+import { GetServerSideProps } from "next";
 import Link from "next/link";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { useQuery } from "react-query";
+import { useRouter } from "next/router";
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 
-export default function SearchPage() {
-  const [searchText, setSearchText] = useState<string>("");
+type SearchPageProps = { query: string | null };
+
+export default function SearchPage(props: SearchPageProps) {
+  const [searchText, setSearchText] = useState<string>(props.query ?? "");
   const [searchResult, setSearchResult] = useState<TSearchResultItem[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { toast } = useToast();
+  const router = useRouter();
 
-  const fetchSearchAPI = async (param: string) => {
-    const response = (await axios.get<TSearchResultItem[]>(`/api/search/${param}`)).data;
-    return response;
+  useEffect(() => {
+    if (!isEmptyString(searchText)) {
+      handleMakeSearch();
+    }
+  }, []);
+
+  const fetchSearchAPI = (param: string): Promise<TSearchResultItem[]> => {
+    return axios.get<TSearchResultItem[]>(`/api/search/${param}`).then((response) => response.data);
   };
-
-  const querySearch = useQuery("searchData", () => fetchSearchAPI(searchText), {
-    enabled: false,
-    onSuccess: (data) => {
-      setSearchResult(data);
-      if (data.length === 0) {
-        toast({ title: "Empty Result", description: "No results were found for this keyword. Try another keyword." });
-      }
-    },
-    onError: () => {
-      toast({ title: "Network Error", description: "Please try it later." });
-    },
-  });
 
   const handleInputSearchText = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
   };
 
   const handleEnterKeySearch = (event: KeyboardEvent<HTMLInputElement>) => {
-    (event.key === "Go" || event.key === "Enter") && handleMakeSearch();
+    if (event.key === "Go" || event.key === "Enter") {
+      handleMakeSearch();
+    }
   };
 
   const handleMakeSearch = () => {
-    if (isEmptyString(searchText)) {
+    const searchQuery = searchText;
+
+    if (isEmptyString(searchQuery)) {
       toast({ title: "Enter a Keyword", description: "Please enter one keyword at least." });
       return;
     }
-    if (searchText.length < 4) {
+    if (searchQuery && searchQuery.length < 4) {
       toast({ title: "Keywords too short", description: "Keyword length must be at least 5." });
       return;
     }
-    querySearch.refetch();
+
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, q: searchQuery },
+    });
+    setIsLoading(true);
+
+    fetchSearchAPI(searchQuery)
+      .then((data) => {
+        setSearchResult(data);
+        if (data.length === 0) {
+          toast({
+            title: "Empty Result",
+            description: "No results were found for this keyword. Try another keyword.",
+          });
+        }
+      })
+      .catch(() => {
+        toast({ title: "Network Error", description: "Please try it later." });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -64,9 +88,7 @@ export default function SearchPage() {
       <Toaster />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-10 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
-          {"SEARCH POSTS"}
-        </h2>
+        <h2 className={`my-10 flex justify-center text-2xl font-bold caption-font`}>{"SEARCH POSTS"}</h2>
         <div className="flex my-10">
           <Input
             className="my-auto py-0"
@@ -75,36 +97,45 @@ export default function SearchPage() {
             placeholder="Input the keyword"
             value={searchText}
           />
-          <Button className="mx-3 w-32 my-auto" disabled={querySearch.isLoading} onClick={handleMakeSearch}>
-            {querySearch.isFetching ? "Loading" : "Search"}
+          <Button className="mx-3 w-32 my-auto" disabled={isLoading} onClick={handleMakeSearch}>
+            {isLoading ? "Loading" : "Search"}
           </Button>
         </div>
         <div className="flex flex-col justify-center">
-          <div className={`min-h-full flex flex-col font-source-serif-screen`}>
-            {querySearch.isSuccess &&
-              searchResult.map((item, index) => (
-                <Link
-                  className={`py-2 px-5 border-t ${
-                    index === searchResult.length - 1 && "border-b"
-                  } hover:bg-gray-50 dark:hover:bg-gray-900 flex flex-col`}
-                  href={`/blog/${item.id}`}
-                  key={nanoid()}
-                  target="_blank"
-                >
-                  <div className="my-1 capitalize">{item.title}</div>
-                  <div className="flex space-x-2 flex-wrap">
-                    {item.tags?.map((tagitem) => (
-                      <div className="text-sm text-gray-500 dark:text-gray-400" key={nanoid()}>
-                        {tagitem}
-                      </div>
-                    ))}
-                  </div>
-                </Link>
-              ))}
+          <div className={`min-h-full flex flex-col content-font`}>
+            {searchResult.map((item, index) => (
+              <Link
+                className={`p-2 border-t ${index === searchResult.length - 1 && "border-b"} hover:bg-gray-50 dark:hover:bg-gray-900 flex flex-col`}
+                href={`/blog/${item.id}`}
+                key={nanoid()}
+                target="_blank"
+              >
+                <div className="my-1">
+                  <div className="capitalize post-list-caption-font text-md font-bold">{item.title}</div>
+                  {item.summary && <div>{item.summary}</div>}
+                </div>
+                <div className="flex space-x-2 flex-wrap">
+                  {item.tags?.map((tagitem) => (
+                    <div className="text-sm text-gray-500 dark:text-gray-400" key={nanoid()}>
+                      {tagitem}
+                    </div>
+                  ))}
+                </div>
+              </Link>
+            ))}
           </div>
+        </div>
+        <div className="text-center my-3 text-gray-500 dark:text-gray-400">
+          <p className="mx-auto text-sm">{"For search efficiency, only the first 20 results are displayed."}</p>
         </div>
       </ContentContainer>
       <Footer />
     </Page>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<SearchPageProps> = async (context) => {
+  let query = context.query.q;
+  if (isArray(query)) query = query.join(" ");
+  return { props: { query: query ?? null } };
+};

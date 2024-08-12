@@ -7,10 +7,17 @@ import { getPostFileContent, sortedPosts } from "./post-process";
 // Due to the flaws of the word tokenizer,
 // it is necessary to match CJKL symbols only
 // during the word segmentation process to prevent repeated recognition.
-const CJKLRecognizeRegex = /[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7A3a-zA-Z]+/g;
+const NonCJKLRecognizeRegex =
+  /[^\u4e00-\u9fa5\u3040-\u30ff\uac00-\ud7af\u1100-\u11ff\u3130-\u318f\u31c0-\u31ef\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\u0041-\u005a\u0061-\u007a\u00c0-\u00ff\u0100-\u017f\u0180-\u024f\s ]/g;
 
 function tokenizer(str: string) {
-  const result = cutForSearch(str, true).filter((item) => CJKLRecognizeRegex.test(item));
+  const result = cutForSearch(str.replace(NonCJKLRecognizeRegex, " "), true);
+  for (let i = 0; i < result.length; i++) {
+    if (result[i].trim() === "") {
+      result.splice(i, 1);
+      i--;
+    }
+  }
   return result;
 }
 
@@ -18,7 +25,7 @@ function makeSearchIndex() {
   const startTime = Date.now();
   let miniSearch = new minisearch({
     fields: ["id", "title", "tags", "subtitle", "summary", "content"],
-    storeFields: ["id", "title", "tags"],
+    storeFields: ["id", "title", "tags", "summary"],
     tokenize: tokenizer,
   });
   for (let index = 0; index < sortedPosts.allPostList.length; index++) {
@@ -43,4 +50,4 @@ function makeSearchIndex() {
   return miniSearch;
 }
 
-export const SearchIndex = makeSearchIndex();
+export const SearchIndex = Object.freeze(makeSearchIndex());
