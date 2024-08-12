@@ -1,4 +1,4 @@
-import { PostsRootDirectory } from "@/consts/consts";
+import { PostFilesDirectory } from "@/consts/consts";
 import { TFrontmatter } from "@/types/frontmatter.type";
 import { TPostListItem, TPostsByTag } from "@/types/post-list";
 import fs from "fs";
@@ -36,8 +36,8 @@ async function extractFrontmatters(filepath: string): Promise<TFrontmatter> {
 
 function readPostsDirectory(): string[] {
   const result: string[] = [];
-  fs.readdirSync(PostsRootDirectory).forEach((fileName) => {
-    const filePath = path.join(PostsRootDirectory, fileName);
+  fs.readdirSync(PostFilesDirectory).forEach((fileName) => {
+    const filePath = path.join(PostFilesDirectory, fileName);
     const fileStat = fs.statSync(filePath);
 
     if (fileStat.isFile() && fileName.endsWith(".md")) {
@@ -48,7 +48,7 @@ function readPostsDirectory(): string[] {
 }
 
 export const getPostFileContent = (postId: string): string | null => {
-  const filePath = path.join(PostsRootDirectory, `${postId}.md`);
+  const filePath = path.join(PostFilesDirectory, `${postId}.md`);
   if (!fs.existsSync(filePath)) return null;
   const content = fs.readFileSync(filePath, "utf-8");
   return content;

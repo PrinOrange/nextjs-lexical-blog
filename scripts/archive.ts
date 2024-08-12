@@ -1,37 +1,14 @@
+import { UserDataDirectory } from "@/consts/consts";
+import { getCurrentTime } from "@/lib/date";
+import { checkAndCreateDirectory, isDirectoryEmptySync } from "@/lib/file";
 import archiver from "archiver";
 import Color from "colors";
-import fs from "fs";
+import * as fs from "fs";
 import inquirer from "inquirer";
-import path from "path";
-import tar from "tar";
+import * as path from "path";
+import * as tar from "tar";
 
-const UserDataDirectory = "./data";
-
-function checkAndCreateDirectory(dirPath) {
-  try {
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
-    fs.accessSync(dirPath, fs.constants.R_OK | fs.constants.W_OK);
-    return true;
-  } catch (err) {
-    throw err;
-  }
-}
-
-function isDirectoryEmptySync(directory) {
-  try {
-    if (!fs.existsSync(directory)) {
-      fs.mkdirSync(directory, { recursive: true });
-    }
-    const files = fs.readdirSync(directory);
-    return files.length === 0;
-  } catch (err) {
-    throw err;
-  }
-}
-
-function packageDirectory(sourceDir, outputFilePath) {
+function packageDirectory(sourceDir: string, outputFilePath: string) {
   const output = fs.createWriteStream(outputFilePath);
   const archive = archiver("tar", {
     gzip: true,
@@ -51,7 +28,7 @@ function packageDirectory(sourceDir, outputFilePath) {
   archive.finalize();
 }
 
-function extractTarGz(tarGzPath, targetDir) {
+function extractTarGz(tarGzPath: string, targetDir: string) {
   tar
     .x({
       file: tarGzPath,
@@ -83,16 +60,13 @@ async function main() {
         })
         .then((answers) => {
           const { OutputDirPath } = answers;
-          const date = new Date();
-          const filename = `archive-${date.getFullYear()}-${
-            date.getMonth() + 1
-          }-${date.getDate()}-${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}.tar.gz`;
+          const { year, month, day, hours, minutes, seconds } = getCurrentTime();
+          const filename = `archive-${year}-${month}-${day}-${hours}-${minutes}-${seconds}.tar.gz`;
           const outFilePath = path.join(OutputDirPath, filename);
-          if (checkAndCreateDirectory(OutputDirPath)) {
-            packageDirectory(UserDataDirectory, outFilePath);
-          }
+          checkAndCreateDirectory(OutputDirPath) && packageDirectory(UserDataDirectory, outFilePath);
         });
       break;
+
     case "Unpack and restore user data":
       if (!isDirectoryEmptySync(UserDataDirectory)) {
         const { confirm } = await inquirer.prompt([
@@ -106,25 +80,25 @@ async function main() {
             ),
           },
         ]);
-        if (!confirm) {
-          console.log("Operation canceled.");
+        if (confirm) {
+          inquirer
+            .prompt({
+              type: "input",
+              name: "ArchivedPackagePath",
+              message: "The archive package's path:",
+            })
+            .then((answers) => {
+              const { ArchivedPackagePath } = answers;
+              if (fs.existsSync(ArchivedPackagePath)) {
+                extractTarGz(ArchivedPackagePath, UserDataDirectory);
+              } else {
+                console.log(Color.red("The archive package does not exist."));
+              }
+            });
           return;
         }
       }
-      inquirer
-        .prompt({
-          type: "input",
-          name: "ArchiveFilePath",
-          message: "The archive package's path:",
-        })
-        .then((answers) => {
-          const { ArchiveFilePath } = answers;
-          if (fs.existsSync(ArchiveFilePath)) {
-            extractTarGz(ArchiveFilePath, UserDataDirectory);
-          } else {
-            console.log(Color.red("The archive package does not exist."));
-          }
-        });
+      console.log("Operation canceled.");
       break;
   }
 }

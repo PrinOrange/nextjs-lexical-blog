@@ -24,3 +24,22 @@ export const normalizeDate = (date: string = "1970-01-01"): string => {
   };
   return `${day_num} ${month_en[month_num]}, ${year}`;
 };
+
+export const getCurrentTime = (): {
+  year: string;
+  month: string;
+  day: string;
+  hours: string;
+  minutes: string;
+  seconds: string;
+} => {
+  const today = new Date();
+  return {
+    year: today.getFullYear().toString(),
+    month: String(today.getMonth() + 1).padStart(2, "0"),
+    day: String(today.getDate()).padStart(2, "0"),
+    hours: String(today.getHours()).padStart(2, "0"),
+    minutes: String(today.getMinutes()).padStart(2, "0"),
+    seconds: String(today.getSeconds()).padStart(2, "0"),
+  };
+};
