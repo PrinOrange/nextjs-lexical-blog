@@ -3,7 +3,7 @@ import { TFriendItem } from "@/types/friend.type";
 export const FriendsList: TFriendItem[] = [
   {
     title: "但为君故's Blog",
-    url: "http://blog.terminals.run/",
+    url: "https://dreams.plus/",
   },
   {
     title: "Your Best Friend's Blog",
