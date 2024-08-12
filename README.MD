@@ -23,7 +23,36 @@ It is a responsive website with good support for most different screen sizes ava
 | -------------------------------- | -------------------------------- |
 | <img src="./docs/preview2.png"/> | <img src="./docs/preview4.png"/> |
 
-More importantly, this project can be flexibly configured. This project only writes the basic functions of the blog website and is not obsessed with the details, which means that you can write the theme you like.
+---
+
+<!-- TOC -->
+
+- [NEXT.JS LEXICAL](#nextjs-lexical)
+  - [Quick Start](#quick-start)
+    - [Initialize Project](#initialize-project)
+    - [Creating a Blog Post](#creating-a-blog-post)
+    - [Development](#development)
+    - [Build](#build)
+  - [Data and Configuration](#data-and-configuration)
+  - [Packaging and Restoring User Data](#packaging-and-restoring-user-data)
+  - [FAQ](#faq)
+    - [RTL \& LTR](#rtl--ltr)
+    - [Fonts](#fonts)
+    - [MDX](#mdx)
+    - [Image Hosting, External Image Links](#image-hosting-external-image-links)
+    - [RSS Feed](#rss-feed)
+    - [Sponsor Methods](#sponsor-methods)
+    - [Comment System](#comment-system)
+    - [Full-Text Search](#full-text-search)
+    - [i18n](#i18n)
+  - [Deployment](#deployment)
+    - [Deploying to Vercel](#deploying-to-vercel)
+    - [Deploying to a Server](#deploying-to-a-server)
+  - [Open Source License](#open-source-license)
+
+<!-- /TOC -->
+
+---
 
 ### Quick Start
 
