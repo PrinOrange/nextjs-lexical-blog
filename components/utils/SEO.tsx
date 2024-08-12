@@ -1,42 +1,26 @@
-import { RSSFeedURL, WebsiteURL } from "@/consts/consts";
+import { RSSFeedURL } from "@/consts/consts";
 import { Config } from "@/data/config";
-import { NextSeo } from "next-seo";
+import Head from "next/head";
 
-export const SEO = (props: { title: string; description?: string | null; coverURL?: string | null }) => {
+type TSEOProps = { title: string; description?: string | null; coverURL?: string | null; smallTwitterCard?: boolean };
+
+export const SEO = (props: TSEOProps) => {
   return (
-    <>
+    <Head>
       <title>{props.title}</title>
       <link href={RSSFeedURL} rel="alternate" type="application/rss+xml" />
-      <NextSeo
-        description={props.description ?? Config.Sentence}
-        openGraph={{
-          title: props.title,
-          description: props.description ?? Config.Sentence,
-          images: props.coverURL
-            ? [
-                {
-                  url: props.coverURL,
-                  width: 850,
-                  height: 650,
-                  alt: props.title,
-                },
-              ]
-            : [
-                {
-                  url: Config.PageCovers.websiteCoverURL,
-                  width: 850,
-                  height: 650,
-                  alt: props.title,
-                },
-              ],
-        }}
-        title={props.title}
-        twitter={{
-          handle: `@${Config.SocialLinks.twitter}`,
-          site: WebsiteURL,
-          cardType: "summary_large_image",
-        }}
-      />
-    </>
+
+      <meta content={props.coverURL ?? Config.PageCovers.websiteCoverURL} name="twitter:image" />
+      <meta content={props.smallTwitterCard ? "summary" : "summary_large_image"} name="twitter:card" />
+      <meta content={`@${Config.SocialLinks.twitter}`} name="twitter:site" />
+      <meta content={`@${Config.SocialLinks.twitter}`} name="twitter:creator" />
+      <meta content={props.title} name="twitter:title" />
+      <meta content={props.description ?? props.title} name="twitter:description" />
+
+      <meta content={props.coverURL ?? Config.PageCovers.websiteCoverURL} name="og:image" />
+      <meta content={props.description ?? props.title} name="og:image:alt" />
+      <meta content={props.title} name="og:title" />
+      <meta content={props.description ?? props.title} name="og:description" />
+    </Head>
   );
 };
