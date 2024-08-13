@@ -48,11 +48,10 @@ It is a responsive website with good support for most different screen sizes ava
   - [Deployment](#deployment)
     - [Deploying to Vercel](#deploying-to-vercel)
     - [Deploying to a Server](#deploying-to-a-server)
+  - [Thanks](#thanks)
   - [Open Source License](#open-source-license)
 
-<!-- /TOC -->
-
----
+## <!-- /TOC -->
 
 ### Quick Start
 
@@ -298,9 +297,13 @@ Deploying to your own server can be a bit more complex. We recommend using [PM2.
 
 Additionally, you can use Let's Encrypt + Certbot to configure a free SSL certificate for the website. [Click here for more detailed instructions.](https://letsencrypt.org/getting-started/)
 
+### Thanks
+
+- Thanks for the inspirations from [@timlrx](https://github.com/timlrx) 's project [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog), which provides me a conception and technology inspirations to finish this project.
+- Thanks for the Font Spilt Tools from [@江夏尧](https://github.com/KonghaYao) and his project [Chinese Web Font (中文网字计划)](https://chinese-font.netlify.app/), which provides me a powerful font processing tools, it helped me solve the problem of loading size when loading CJK fonts on the front end.
+
 ### Open Source License
 
-Thanks for the inspirations from [@timlrx](https://github.com/timlrx) 's project [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) \
 This project is open source under the [MIT License](./LICENSE). We welcome any constructive feedback and code contributions.
 
 **Note: Please avoid using this project for commercial purposes whenever possible. Some artistic resources, such as third-party icons and fonts referenced in this project, are intended for non-commercial use and may pose legal risks if used commercially.**

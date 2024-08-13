@@ -48,11 +48,10 @@
   - [部署](#部署)
     - [部署到 Vercel](#部署到-vercel)
     - [部署到服务器](#部署到服务器)
+  - [感谢](#感谢)
   - [开源许可](#开源许可)
 
-<!-- /TOC -->
-
----
+## <!-- /TOC -->
 
 ### 快速上手
 
@@ -293,9 +292,13 @@ Sponsor: {
 
 另外，你可以使用 Let's Encrypt + Certbot 为网站配置免费的 SSL 证书，[点击这里获得更详细的说明。](https://letsencrypt.org/getting-started/)
 
+### 感谢
+
+- 感谢 [@timlrx](https://github.com/timlrx) 的项目 [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) 给予的启发，为我提供了完成这个项目的理念和技术灵感。
+- 感谢 [@江夏尧](https://github.com/KonghaYao) 的 Font Spilt Tools 和他的项目 [中文网字计划](https://chinese-font.netlify.app/)，为我提供了强大的字体处理工具，帮助我解决了前端加载 CJK 字体时加载大小的问题。
+
 ### 开源许可
 
-感谢用户 [@timlrx](https://github.com/timlrx) 开源项目 [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) 的灵感。 \
 本项目以 [MIT 协议](./LICENSE) 开源。我们欢迎一切具有建设性的意见、代码贡献。
 
 **注意：尽量不要将本项目使用于商业用途。因为本项目引用的第三方图标、字体等部分美术资源要求非商业用途，可能存在法律风险。**
