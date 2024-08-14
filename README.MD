@@ -1,11 +1,19 @@
-## NEXT.JS LEXICAL
+<div align="center">
+  <h2>NEXT.JS LEXICAL BLOG</h2>
+</div>
 
-- [简体中文](./README-CN.MD)
+<div align="center">
+  <a href="./README.MD">English</a> |
+  <a href="./README-CN.MD">简体中文</a>
+</div>
+
+---
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
 [![GitHub forks](https://img.shields.io/github/forks/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
 [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FCodemetic)](https://twitter.com/Codemetic)
 [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/PrinOrange/nextjs-lexical-blog)](https://blog.terminals.run/sponsor)
+[![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPrinOrange%2Fnextjs-lexical-blog&project-name=nextjs-lexical-blog-template&repository-name=nextjs-lexical-blog&demo-title=Lexical%20Blog%20Demo&demo-description=This%20is%20a%20sleek%20and%20efficient%20web%20blog%20project%2C%20built%20with%20Next.js%20%2B%20MDX%20%2B%20TailwindCSS.%20You%20can%20write%20your%20blog%20posts%20in%20Markdown%20and%20easily%20deploy%20them%20on%20Vercel.&demo-url=nextjs-lexical-blog-demo.vercel.app&demo-image=https%3A%2F%2Fnextjs-lexical-blog-demo.vercel.app%2Fimages%2Fpreview.png)
 
@@ -14,20 +22,8 @@ This is a sleek and efficient web blog project, built with Next.js + MDX + Tailw
 It has all the basic functions of a blog website: tag classification, writing, comments, title list, etc.
 
 ![Home Page](./docs/preview1.png)
-
-It is a responsive website with good support for most different screen sizes available in the market. Whether it is a mobile phone, tablet, portable small-sized computer, etc., you can easily read website content on it.
-
-![Reader Page](./docs/preview3.png)
-
-| Home Page In Mobile              | Reader Page In Mobile            |
-| -------------------------------- | -------------------------------- |
-| <img src="./docs/preview2.png"/> | <img src="./docs/preview4.png"/> |
-
----
-
 <!-- TOC -->
 
-- [NEXT.JS LEXICAL](#nextjs-lexical)
 - [](#)
   - [Quick Start](#quick-start)
     - [Initialize Project](#initialize-project)
@@ -52,6 +48,20 @@ It is a responsive website with good support for most different screen sizes ava
   - [Thanks](#thanks)
   - [Open Source License](#open-source-license)
 
+<!-- /TOC -->#thanks)
+  - [Open Source License](#open-source-license)
+
+<!-- /TOC -->r Methods](#sponsor-methods)
+    - [Comment System](#comment-system)
+    - [Full-Text Search](#full-text-search)
+    - [i18n](#i18n)
+  - [Deployment](#deployment)
+    - [Deploying to Vercel](#deploying-to-vercel)
+    - [Deploying to a Server](#deploying-to-a-server)
+  - [Thanks](#thanks)
+  - [Open Source License](#open-source-license)
+
+<!-- /TOC -->
 <!-- /TOC -->
 ## <!-- /TOC -->
 

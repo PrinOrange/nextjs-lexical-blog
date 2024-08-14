@@ -1,11 +1,19 @@
-## NEXT.JS LEXICAL BLOG TEMPLATE
+<div align="center">
+  <h2>NEXT.JS LEXICAL BLOG</h2>
+</div>
 
-[English](./README.MD)
+<div align="center">
+  <a href="./README.MD">English</a> |
+  <a href="./README-CN.MD">简体中文</a>
+</div>
+
+---
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
 [![GitHub forks](https://img.shields.io/github/forks/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
 [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FCodemetic)](https://twitter.com/Codemetic)
 [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/PrinOrange/nextjs-lexical-blog)](https://blog.terminals.run/sponsor)
+[![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPrinOrange%2Fnextjs-lexical-blog&project-name=nextjs-lexical-blog-template&repository-name=nextjs-lexical-blog&demo-title=Lexical%20Blog%20Demo&demo-description=This%20is%20a%20sleek%20and%20efficient%20web%20blog%20project%2C%20built%20with%20Next.js%20%2B%20MDX%20%2B%20TailwindCSS.%20You%20can%20write%20your%20blog%20posts%20in%20Markdown%20and%20easily%20deploy%20them%20on%20Vercel.&demo-url=nextjs-lexical-blog-demo.vercel.app&demo-image=https%3A%2F%2Fnextjs-lexical-blog-demo.vercel.app%2Fimages%2Fpreview.png)
 
@@ -14,50 +22,42 @@
 它具备了博客网站的一切基本功能：标签分类、编写、评论、标题列表等。
 
 ![Home Page](./docs/preview1.png)
-
-它是一个响应式的网站，对市场上大多数不同尺寸的屏幕都有良好的支持。无论是手机、平板电脑、便携小尺寸电脑等，都能在上面轻松阅读网站内容。
-
-![Reader Page](./docs/preview3.png)
-
-| Home Page In Mobile              | Reader Page In Mobile            |
-| -------------------------------- | -------------------------------- |
-| <img src="./docs/preview2.png"/> | <img src="./docs/preview4.png"/> |
-
----
-
 <!-- TOC -->
 
-- [NEXT.JS LEXICAL BLOG TEMPLATE](#nextjs-lexical-blog-template)
-  - [快速上手](#快速上手)
-    - [初始化项目](#初始化项目)
-    - [创建博客](#创建博客)
-    - [开发](#开发)
-    - [构建](#构建)
-  - [数据与配置](#数据与配置)
-  - [打包、还原用户数据](#打包还原用户数据)
-  - [一些问题](#一些问题)
-    - [RTL \& LTR](#rtl--ltr)
-    - [字体](#字体)
-    - [MDX](#mdx)
-    - [图床、外链图片](#图床外链图片)
-    - [RSS Feed](#rss-feed)
-    - [赞助渠道](#赞助渠道)
-    - [评论系统](#评论系统)
-    - [全文搜索](#全文搜索)
-    - [i18n](#i18n)
-  - [部署](#部署)
-    - [部署到 Vercel](#部署到-vercel)
-    - [部署到服务器](#部署到服务器)
-  - [感谢](#感谢)
-  - [开源许可](#开源许可)
+- [快速上手](#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B)
+  - [初始化项目](#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE)
+  - [创建博客](#%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2)
+  - [开发](#%E5%BC%80%E5%8F%91)
+  - [构建](#%E6%9E%84%E5%BB%BA)
+- [数据与配置](#%E6%95%B0%E6%8D%AE%E4%B8%8E%E9%85%8D%E7%BD%AE)
+- [打包、还原用户数据](#%E6%89%93%E5%8C%85%E8%BF%98%E5%8E%9F%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE)
+- [一些问题](#%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98)
+  - [RTL & LTR](#rtl--ltr)
+  - [字体](#%E5%AD%97%E4%BD%93)
+  - [MDX](#mdx)
+  - [图床、外链图片](#%E5%9B%BE%E5%BA%8A%E5%A4%96%E9%93%BE%E5%9B%BE%E7%89%87)
+  - [RSS Feed](#rss-feed)
+  - [赞助渠道](#%E8%B5%9E%E5%8A%A9%E6%B8%A0%E9%81%93)
+  - [评论系统](#%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F)
+  - [全文搜索](#%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2)
+  - [i18n](#i18n)
+- [部署](#%E9%83%A8%E7%BD%B2)
+  - [部署到 Vercel](#%E9%83%A8%E7%BD%B2%E5%88%B0-vercel)
+  - [部署到服务器](#%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
+- [感谢](#%E6%84%9F%E8%B0%A2)
+- [开源许可](#%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF)
 
 <!-- /TOC -->
+<!-- /TOC -->
+<!-- /TOC -->
+<!-- /TOC -->
+
 ### 快速上手
 
 着手本项目之前，我在此假设你已经具备以下知识水平：
 
-- 对React.js, Next.js, Node.js 开发和 TypeScript 语言较熟悉。
-- 能较为熟练地书写 Markdown 文档、HTML文档。
+- 对 React.js, Next.js, Node.js 开发和 TypeScript 语言较熟悉。
+- 能较为熟练地书写 Markdown 文档、HTML 文档。
 - 拥有基本的 Web 开发知识，如部署 Web 服务、SSL、反向代理等。
 
 #### 初始化项目
