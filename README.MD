@@ -22,48 +22,33 @@ This is a sleek and efficient web blog project, built with Next.js + MDX + Tailw
 It has all the basic functions of a blog website: tag classification, writing, comments, title list, etc.
 
 ![Home Page](./docs/preview1.png)
+
 <!-- TOC -->
 
-- [](#)
-  - [Quick Start](#quick-start)
-    - [Initialize Project](#initialize-project)
-    - [Creating a Blog Post](#creating-a-blog-post)
-    - [Development](#development)
-    - [Build](#build)
-  - [Data and Configuration](#data-and-configuration)
-  - [Packaging and Restoring User Data](#packaging-and-restoring-user-data)
-  - [FAQ](#faq)
-    - [RTL \& LTR](#rtl--ltr)
-    - [Fonts](#fonts)
-    - [MDX](#mdx)
-    - [Image Hosting, External Image Links](#image-hosting-external-image-links)
-    - [RSS Feed](#rss-feed)
-    - [Sponsor Methods](#sponsor-methods)
-    - [Comment System](#comment-system)
-    - [Full-Text Search](#full-text-search)
-    - [i18n](#i18n)
-  - [Deployment](#deployment)
-    - [Deploying to Vercel](#deploying-to-vercel)
-    - [Deploying to a Server](#deploying-to-a-server)
-  - [Thanks](#thanks)
-  - [Open Source License](#open-source-license)
-
-<!-- /TOC -->#thanks)
-  - [Open Source License](#open-source-license)
-
-<!-- /TOC -->r Methods](#sponsor-methods)
-    - [Comment System](#comment-system)
-    - [Full-Text Search](#full-text-search)
-    - [i18n](#i18n)
-  - [Deployment](#deployment)
-    - [Deploying to Vercel](#deploying-to-vercel)
-    - [Deploying to a Server](#deploying-to-a-server)
-  - [Thanks](#thanks)
-  - [Open Source License](#open-source-license)
+- [Quick Start](#quick-start)
+  - [Initialize Project](#initialize-project)
+  - [Creating a Blog Post](#creating-a-blog-post)
+  - [Development](#development)
+  - [Build](#build)
+- [Data and Configuration](#data-and-configuration)
+- [Packaging and Restoring User Data](#packaging-and-restoring-user-data)
+- [FAQ](#faq)
+  - [RTL \& LTR](#rtl--ltr)
+  - [Fonts](#fonts)
+  - [MDX](#mdx)
+  - [Image Hosting, External Image Links](#image-hosting-external-image-links)
+  - [RSS Feed](#rss-feed)
+  - [Sponsor Methods](#sponsor-methods)
+  - [Comment System](#comment-system)
+  - [Full-Text Search](#full-text-search)
+  - [i18n](#i18n)
+- [Deployment](#deployment)
+  - [Deploying to Vercel](#deploying-to-vercel)
+  - [Deploying to a Server](#deploying-to-a-server)
+- [Thanks](#thanks)
+- [Open Source License](#open-source-license)
 
 <!-- /TOC -->
-<!-- /TOC -->
-## <!-- /TOC -->
 
 ### Quick Start
 
