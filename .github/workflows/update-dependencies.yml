@@ -1,8 +1,8 @@
-name: Update npm Dependencies
+name: Update pnpm Dependencies
 
 on:
   schedule:
-    - cron: "0 0 * * 4"
+    - cron: "0 0 * * 1"
   workflow_dispatch:
 
 jobs:
@@ -13,23 +13,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "20.10.0"
+          cache: "pnpm"
 
-      - name: Install latest npm
-        run: npm install -g npm@latest
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - name: Update npm dependencies
-        run: npm update
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Update dependencies
+        run: pnpm update
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add package-lock.json
-          git commit -m 'chore: update npm dependencies'
+          git add .
+          git commit -m 'chore: update dependencies'
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

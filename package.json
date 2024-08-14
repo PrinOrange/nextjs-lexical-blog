@@ -108,6 +108,5 @@
     "tar": "^7.0.1",
     "turbo": "^2.0.12",
     "webpack-obfuscator": "^3.5.1"
-  },
-  "packageManager": "npm@10.2.3"
+  }
 }

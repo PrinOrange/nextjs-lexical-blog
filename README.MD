@@ -28,6 +28,7 @@ It is a responsive website with good support for most different screen sizes ava
 <!-- TOC -->
 
 - [NEXT.JS LEXICAL](#nextjs-lexical)
+- [](#)
   - [Quick Start](#quick-start)
     - [Initialize Project](#initialize-project)
     - [Creating a Blog Post](#creating-a-blog-post)
@@ -51,6 +52,7 @@ It is a responsive website with good support for most different screen sizes ava
   - [Thanks](#thanks)
   - [Open Source License](#open-source-license)
 
+<!-- /TOC -->
 ## <!-- /TOC -->
 
 ### Quick Start
@@ -66,7 +68,7 @@ Before diving into this project, I assume you already have the following knowled
 The required runtime environment for this project is as follows:
 
 - Node.js v18+
-- npm v9+
+- pnpm v9+
 - Chromium-based browser (Chrome, Edge) or Firefox.
 
 I recommend using Visual Studio Code as the development tool.
@@ -74,7 +76,7 @@ I recommend using Visual Studio Code as the development tool.
 Execute the following script to install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 #### Creating a Blog Post
@@ -84,7 +86,7 @@ All blog files should be written in Markdown and stored in the `/data/posts` dir
 You should use a script to create the post.
 
 ```bash
-npm run newpost
+pnpm run newpost
 ```
 
 Then, the program will ask you a series of questions. Simply input your answers according to the prompts, and the program will automatically create a new post file for you and open it.
@@ -154,13 +156,13 @@ The `summary` field is a general summary of the article, which will be displayed
 Run the project in development mode.
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Alternatively, you can use Turbo Build for development mode, which has good performance for hot reloading.
 
 ```bash
-npm run dev:turbo
+pnpm run dev:turbo
 ```
 
 #### Build
@@ -168,13 +170,13 @@ npm run dev:turbo
 Build the project by running:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 Or use Turbo Build for building the project to enhance performance:
 
 ```bash
-npm run build:turbo
+pnpm run build:turbo
 ```
 
 ### Data and Configuration
@@ -189,7 +191,7 @@ The blog's configuration files are located in the `./data` directory, and there 
 This project offers a convenient feature for one-click packaging and restoration of user data, including blog files and configurations. This is particularly useful for data migration, backup, or restoration during project upgrades. You can use the following script tool for this purpose:
 
 ```bash
-npm run archive
+pnpm run archive
 ```
 
 When you run this script, you'll be presented with two options: `Pack to archive the user data` and `Unpack and restore user data`. These options allow you to package your blog files, configuration files, and other data into a `*.tar.gz` file for archiving or to unpack and restore your user data from an archive.

@@ -51,8 +51,7 @@
   - [感谢](#感谢)
   - [开源许可](#开源许可)
 
-## <!-- /TOC -->
-
+<!-- /TOC -->
 ### 快速上手
 
 着手本项目之前，我在此假设你已经具备以下知识水平：
@@ -66,7 +65,7 @@
 本项目要求的运行环境如下：
 
 - node.js v18+
-- npm v9+
+- pnpm v9+
 - Chromium 系浏览器（Chrome、Edge）或者 Firefox。
 
 我推荐使用 Visual Studio Code 作为开发工具。
@@ -74,7 +73,7 @@
 执行脚本以安装依赖，
 
 ```bash
-npm install
+pnpm install
 ```
 
 #### 创建博客
@@ -84,7 +83,7 @@ npm install
 你应该使用脚本来创建帖子。
 
 ```bash
-npm run newpost
+pnpm run newpost
 ```
 
 然后程序会问你一些问题，你只需要根据问题输入你的回答，程序会自动为你创建一个新帖子文件并打开它。
@@ -151,13 +150,13 @@ allowShare: true
 在开发环境下执行项目。
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 当然你可以使用 Turbo Build 来执行开发模式，它在项目热刷新上有良好的性能。
 
 ```bash
-npm run dev:turbo
+pnpm run dev:turbo
 ```
 
 #### 构建
@@ -165,13 +164,13 @@ npm run dev:turbo
 构建项目，可执行
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 或者使用 Turbo Build 构建项目，以提高性能
 
 ```bash
-npm run build:turbo
+pnpm run build:turbo
 ```
 
 ### 数据与配置
@@ -186,7 +185,7 @@ npm run build:turbo
 本项目可以提供对博客文件、配置等用户数据的一键打包、还原功能，以便于项目升级时迁移或者备份、恢复数据，可以使用脚本工具
 
 ```bash
-npm run archive
+pnpm run archive
 ```
 
 来实现。运行脚本后，给你提供打包用户数据和还原用户数据两个选项：`Pack to archive the user data` 和 `Unpack and restore user data` ，分别用于打包归档用户数据和解包恢复用户数据。
