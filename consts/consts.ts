@@ -14,4 +14,4 @@ export const PostURL = (postId: string) => `https://${Config.SiteDomain}/blog/${
 export const SearchURL = (keyword: string) => `https://${Config.SiteDomain}/search/?q=${keyword}`;
 
 const year = getCurrentTime().year;
-export const CopyrightAnnouncement = `COPYRIGHT © ${Config.YearStart}-${year} ${Config.AuthorName} ALL RIGHTS RESERVED`;
+export const CopyrightAnnouncement = `COPYRIGHT © ${Config.YearStart === year ? year : `${Config.YearStart}-${year}`} ${Config.AuthorName} ALL RIGHTS RESERVED`;

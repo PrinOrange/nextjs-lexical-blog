@@ -37,14 +37,15 @@ async function extractFrontmatters(filepath: string): Promise<TFrontmatter> {
 
 function readPostsDirectory(): string[] {
   const result: string[] = [];
-  fs.readdirSync(PostFilesDirectory).forEach((fileName) => {
+  const files = fs.readdirSync(PostFilesDirectory);
+  
+  for (const fileName of files) {
     const filePath = path.join(PostFilesDirectory, fileName);
     const fileStat = fs.statSync(filePath);
-
     if (fileStat.isFile() && fileName.endsWith(".md")) {
       result.push(filePath);
     }
-  });
+  }
   return result;
 }
 

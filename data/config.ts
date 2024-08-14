@@ -77,7 +77,7 @@ export const Config: TConfig = {
   },
 
   // Website establishment year.
-  YearStart: 2023,
+  YearStart: "2023",
   // Please enter your legal name for use with the copyright mark.
   AuthorName: "JOHN DOE",
 };

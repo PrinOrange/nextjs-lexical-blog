@@ -41,6 +41,6 @@ export type TConfig = {
     Crypto?: { Name: string; Address: string; Blockchain: string }[];
   };
 
-  YearStart: number;
+  YearStart: string;
   AuthorName: string;
 };
