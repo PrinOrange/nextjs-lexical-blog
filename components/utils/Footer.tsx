@@ -31,7 +31,9 @@ export const Footer = () => {
           </Link>
           {Config.RSSFeed?.enabled && (
             <DialogTrigger asChild>
-              <button title="Subscribe the RSS Feed.">{"Feed"}</button>
+              <button title="Subscribe the RSS Feed." type="button">
+                {"Feed"}
+              </button>
             </DialogTrigger>
           )}
         </div>
@@ -39,20 +41,20 @@ export const Footer = () => {
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex">
-              <IoLogoRss className="mr-2 my-auto" />
+              <IoLogoRss className="my-auto mr-2" />
               {"RSS Feed"}
             </DialogTitle>
           </DialogHeader>
 
           <div>
-            <div className="w-full text-sm my-2">
+            <div className="my-2 w-full text-sm">
               <div>
                 <b>NOTE: </b>Some RSS Feed Reader may has deficient in rendering SVG formulations, graphs. Such as the
                 Inoreader, Feedly. If it happens, please read the origin web page for better experience.
               </div>
             </div>
             <Separator />
-            <div className="w-full flex my-3">
+            <div className="my-3 flex w-full">
               <Input defaultValue={RSSFeedURL} readOnly />
               <CopyToClipboard
                 onCopy={() => {
@@ -61,7 +63,7 @@ export const Footer = () => {
                 text={RSSFeedURL}
               >
                 <Button
-                  className={`ml-3 my-auto ${isCopied && "bg-green-500 hover:bg-green-500"}`}
+                  className={`my-auto ml-3 ${isCopied && "bg-green-500 hover:bg-green-500"}`}
                   size="sm"
                   type="submit"
                 >

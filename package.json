@@ -14,12 +14,11 @@
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "npx turbo dev",
-    "build:turbo": "npx turbo build lint",
+    "build:turbo": "npx turbo build",
     "build": "next build",
     "start": "next start",
-    "format": "npx prettier . --write && npx autocorrect --fix",
-    "lint": "next lint",
-    "lint:fix": "npx eslint --fix .",
+    "format": "npx biome format --write . && npx autocorrect --fix",
+    "lint:fix": "npx biome check --fix",
     "newpost": "bun ./scripts/newpost.ts",
     "archive": "bun ./scripts/archive.ts"
   },
@@ -43,8 +42,6 @@
     "clsx": "^2.0.0",
     "cmdk": "^1.0.0",
     "colors": "^1.4.0",
-    "eslint-config-next": "^14.1.4",
-    "eslint-config-plugin": "^1.0.11",
     "highlight.js": "^11.9.0",
     "jsdom": "^24.0.0",
     "katex": "^0.16.9",
@@ -89,6 +86,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@tailwindcss/typography": "^0.5.10",
     "@types/archiver": "^6.0.2",
     "@types/inquirer": "^9.0.7",
@@ -105,13 +103,8 @@
     "archiver": "^7.0.1",
     "autocorrect-node": "^2.11.1",
     "bun": "^1.1.22",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
     "feed": "^4.2.2",
     "inquirer": "^9.2.12",
-    "prettier": "^3.0.3",
-    "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-tailwindcss": "^0.5.7",
     "tar": "^7.0.1",
     "turbo": "^2.0.12",
     "webpack-obfuscator": "^3.5.1"

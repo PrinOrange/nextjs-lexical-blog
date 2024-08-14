@@ -23,7 +23,7 @@ function tokenizer(str: string) {
 
 function makeSearchIndex() {
   const startTime = Date.now();
-  let miniSearch = new minisearch({
+  const miniSearch = new minisearch({
     fields: ["id", "title", "tags", "subtitle", "summary", "content"],
     storeFields: ["id", "title", "tags", "summary"],
     tokenize: tokenizer,

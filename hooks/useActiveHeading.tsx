@@ -39,7 +39,7 @@ export function useActiveHeading(headingList: string[], options?: IntersectionOb
     headingList
       .map((heading) => document?.querySelector(`[id='${removeFirstHash(heading)}']`))
       //Remove null elments
-      .flatMap((f) => (!!f ? [f] : []))
+      .flatMap((f) => (f ? [f] : []))
       .forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();

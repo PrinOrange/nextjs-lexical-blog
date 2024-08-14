@@ -1,4 +1,4 @@
-import { TConfig } from "@/types/config.type";
+import type { TConfig } from "@/types/config.type";
 
 export const Config: TConfig = {
   // Image url for avatar.
@@ -33,7 +33,7 @@ export const Config: TConfig = {
   // Giscus Configure. Please refer to the https://giscus.app for entire instruction
   Giscus: {
     enabled: true,
-    repo: `PrinOrange/nextjs-lexical-blog`,
+    repo: "PrinOrange/nextjs-lexical-blog",
     repoId: "R_kgDOK44zmw",
     category: "Announcements",
     categoryId: "DIC_kwDOK44zm84Cb94g",

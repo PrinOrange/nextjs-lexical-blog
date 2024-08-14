@@ -1,6 +1,6 @@
 const TableWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-full overflow-x-auto flat-scrollbar-normal">
+    <div className="flat-scrollbar-normal w-full overflow-x-auto">
       <table>{children}</table>
     </div>
   );

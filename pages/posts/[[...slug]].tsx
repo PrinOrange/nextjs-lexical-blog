@@ -11,12 +11,12 @@ import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { isEmptyArray, paginateArray } from "@/lib/utils";
-import { TPostListItem } from "@/types/post-list";
+import type { TPostListItem } from "@/types/post-list";
 import { nanoid } from "nanoid";
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
+import { type ChangeEvent, type KeyboardEvent, useEffect, useState } from "react";
 import { LuPenTool } from "react-icons/lu";
 
 type PostsPageProps = {
@@ -32,7 +32,7 @@ export default function PostsPage(props: PostsPageProps) {
 
   const handleEnterKeyJump = (event: KeyboardEvent<HTMLInputElement>) => {
     setPageNumber(pageNumber.replace(/[^\d]/g, ""));
-    if (parseInt(pageNumber) > 0 && parseInt(pageNumber) < props.pageAmount + 1) {
+    if (Number.parseInt(pageNumber) > 0 && Number.parseInt(pageNumber) < props.pageAmount + 1) {
       (event.key === "Go" || event.key === "Enter") && router.push(`/posts/${pageNumber}`);
       return;
     }
@@ -55,20 +55,20 @@ export default function PostsPage(props: PostsPageProps) {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-center text-2xl caption-font font-bold`}>
+        <h2 className={"caption-font my-5 flex justify-center font-bold text-2xl"}>
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
         </h2>
         {!isEmptyArray(props.tagList) && (
           <Accordion collapsible type="single">
             <AccordionItem className="border-t" value="item-1">
-              <AccordionTrigger className="hover:no-underline font-bold">{"TAG FILTER"}</AccordionTrigger>
+              <AccordionTrigger className="font-bold hover:no-underline">{"TAG FILTER"}</AccordionTrigger>
               <AccordionContent>
                 <Separator />
-                <div className={`my-5 flex flex-wrap text-wrap text-sm justify-center px-2`}>
+                <div className={"my-5 flex flex-wrap justify-center text-wrap px-2 text-sm"}>
                   {props.tagList.map((item) => (
                     <Link
-                      className="m-1 p-1 underline underline-offset-[5px] my-auto text-gray-700 decoration-2 hover:text-black dark:text-gray-300 dark:hover:text-white font-bold"
+                      className="m-1 my-auto p-1 font-bold text-gray-700 underline decoration-2 underline-offset-[5px] hover:text-black dark:text-gray-300 dark:hover:text-white"
                       href={`/tags/${item.name}`}
                       key={`tags-${nanoid()}`}
                     >
@@ -83,7 +83,7 @@ export default function PostsPage(props: PostsPageProps) {
         <Separator />
         <PostList data={props.postList} />
         <Separator />
-        <div className="my-5 flex justify-between text-base font-bold">
+        <div className="my-5 flex justify-between font-bold text-base">
           {props.pageNumber !== 1 && (
             <Button asChild>
               <Link className="font-bold" href={`/posts/${props.pageNumber - 1}/`}>
@@ -91,9 +91,9 @@ export default function PostsPage(props: PostsPageProps) {
               </Link>
             </Button>
           )}
-          <div className="my-auto font-bold flex justify-center">
+          <div className="my-auto flex justify-center font-bold">
             <Input
-              className="my-auto mx-2 w-11 h-6"
+              className="mx-2 my-auto h-6 w-11"
               onChange={handleInputPageNumber}
               onKeyDown={handleEnterKeyJump}
               title="Type the specified page number and press Enter to jump."
@@ -130,9 +130,9 @@ export const getStaticPaths: GetStaticPaths = () => {
 export const getStaticProps: GetStaticProps<PostsPageProps> = async (context) => {
   const params = (context.params?.slug as string[]) ?? [];
 
-  const pageNumber = params[0] ? parseInt(params[0]) : 1;
+  const pageNumber = params[0] ? Number.parseInt(params[0]) : 1;
 
-  let postList: TPostListItem[] = paginateArray(sortedPosts.allPostList, PostCountPerPagination, pageNumber);
+  const postList: TPostListItem[] = paginateArray(sortedPosts.allPostList, PostCountPerPagination, pageNumber);
 
   const pageAmount = Math.ceil(sortedPosts.allPostList.length / PostCountPerPagination);
 

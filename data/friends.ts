@@ -1,4 +1,4 @@
-import { TFriendItem } from "@/types/friend.type";
+import type { TFriendItem } from "@/types/friend.type";
 
 export const FriendsList: TFriendItem[] = [
   {

@@ -10,11 +10,11 @@ import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { paginateArray } from "@/lib/utils";
-import { TPostListItem } from "@/types/post-list";
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { TPostListItem } from "@/types/post-list";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
+import { type ChangeEvent, type KeyboardEvent, useEffect, useState } from "react";
 
 type TagsContentPageProps = {
   tagName: string | null;
@@ -29,7 +29,7 @@ export default function TagsContentPage(props: TagsContentPageProps) {
 
   const handleEnterKeyJump = (event: KeyboardEvent<HTMLInputElement>) => {
     setPageNumber(pageNumber.replace(/[^\d]/g, ""));
-    if (parseInt(pageNumber) > 0 && parseInt(pageNumber) < props.pageAmount + 1) {
+    if (Number.parseInt(pageNumber) > 0 && Number.parseInt(pageNumber) < props.pageAmount + 1) {
       (event.key === "Go" || event.key === "Enter") && router.push(`/tags/${props.tagName}/${pageNumber}`);
       return;
     }
@@ -52,13 +52,13 @@ export default function TagsContentPage(props: TagsContentPageProps) {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={"my-5 flex flex-col justify-center text-center font-bold caption-font"}>
+        <h2 className={"caption-font my-5 flex flex-col justify-center text-center font-bold"}>
           <div className="mx-auto text-2xl">{`Posts of ${props.tagName}`}</div>
         </h2>
         <Separator />
         <PostList data={props.postList} />
         <Separator />
-        <div className="my-5 flex justify-between text-base font-bold">
+        <div className="my-5 flex justify-between font-bold text-base">
           {props.pageNumber !== 1 && (
             <Button asChild>
               <Link className="font-bold" href={`/tags/${props.tagName}/${props.pageNumber - 1}/`}>
@@ -66,9 +66,9 @@ export default function TagsContentPage(props: TagsContentPageProps) {
               </Link>
             </Button>
           )}
-          <div className="my-auto font-bold flex justify-center">
+          <div className="my-auto flex justify-center font-bold">
             <Input
-              className="my-auto mx-2 w-11 h-6"
+              className="mx-2 my-auto h-6 w-11"
               onChange={handleInputPageNumber}
               onKeyDown={handleEnterKeyJump}
               title="Type the specified page number and press Enter to jump."
@@ -112,7 +112,7 @@ export const getStaticProps: GetStaticProps<TagsContentPageProps> = async (conte
   const params = (context.params?.slug as string[]) ?? [];
 
   const tagName = params[0] ?? null;
-  const pageNumber = params[1] ? parseInt(params[1]) : 1;
+  const pageNumber = params[1] ? Number.parseInt(params[1]) : 1;
   let postList: TPostListItem[] = [];
 
   postList = paginateArray(sortedPosts.postsByTag[tagName], PostCountPerPagination, pageNumber);

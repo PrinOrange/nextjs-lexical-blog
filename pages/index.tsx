@@ -10,8 +10,8 @@ import { LatestPostCountInHomePage } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { generateRSSFeed } from "@/lib/rss";
-import { TPostListItem } from "@/types/post-list";
-import { GetStaticProps } from "next";
+import type { TPostListItem } from "@/types/post-list";
+import type { GetStaticProps } from "next";
 import Link from "next/link";
 import { LuPenTool } from "react-icons/lu";
 import { RiStarFill } from "react-icons/ri";
@@ -35,7 +35,7 @@ export default function Home(props: HomePageProps) {
         {props.pinnedPostList.length !== 0 && (
           <div>
             <Separator />
-            <h2 className={`my-5 flex justify-center text-2xl font-bold caption-font`}>
+            <h2 className={"caption-font my-5 flex justify-center font-bold text-2xl"}>
               <RiStarFill className="mx-2 my-auto" />
               {"PINNED POSTS"}
             </h2>
@@ -46,7 +46,7 @@ export default function Home(props: HomePageProps) {
         {props.latestPostList.length !== 0 && (
           <div>
             <Separator />
-            <h2 className={`my-5 flex justify-center text-2xl font-bold caption-font`}>
+            <h2 className={"caption-font my-5 flex justify-center font-bold text-2xl"}>
               <LuPenTool className="mx-2 my-auto" />
               {"LATEST POSTS"}
             </h2>

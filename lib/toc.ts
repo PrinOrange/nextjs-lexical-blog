@@ -1,4 +1,4 @@
-import { TTOCItem } from "@/types/toc.type";
+import type { TTOCItem } from "@/types/toc.type";
 import { JSDOM } from "jsdom";
 
 /**
@@ -12,7 +12,7 @@ export const makeTOCTree = (htmlCode: string) => {
   const all_headers = doc_dom.window.document.querySelectorAll("h1,h2,h3,h4,h5,h6");
   const result: TTOCItem[] = [];
   for (let i = 0; i < all_headers.length; i++) {
-    const level = parseInt(all_headers[i].tagName.replace("H", ""));
+    const level = Number.parseInt(all_headers[i].tagName.replace("H", ""));
     result.push({
       level: level,
       anchorId: all_headers[i].id,

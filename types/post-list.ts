@@ -1,4 +1,4 @@
-import { TFrontmatter } from "./frontmatter.type";
+import type { TFrontmatter } from "./frontmatter.type";
 
 export type TPostListItem = {
   id: string;

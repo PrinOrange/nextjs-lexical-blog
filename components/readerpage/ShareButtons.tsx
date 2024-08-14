@@ -17,8 +17,8 @@ export const ShareButtons = (props: {
   }'s Blog ${postURL}`;
   const { toast } = useToast();
   return (
-    <div className="py-3 flex justify-center space-x-4 text-2xl">
-      {props.allowShare != false ? (
+    <div className="flex justify-center space-x-4 py-3 text-2xl">
+      {props.allowShare !== false ? (
         <>
           <FacebookShareButton className="mx-2" quote={props.quote ?? props.title} url={postURL}>
             <FaFacebook className="hover:text-blue-500" title="Share to Facebook" />
@@ -39,13 +39,13 @@ export const ShareButtons = (props: {
             text={copyShareText}
           >
             <FaLink
-              className="hover:text-gray-500 mx-2 cursor-pointer"
+              className="mx-2 cursor-pointer hover:text-gray-500"
               title="Share with the post url and description"
             />
           </CopyToClipboard>
         </>
       ) : (
-        <div className="my-auto text-sm font-bold">{"SHARING IS NOT ALLOWED"}</div>
+        <div className="my-auto font-bold text-sm">{"SHARING IS NOT ALLOWED"}</div>
       )}
     </div>
   );

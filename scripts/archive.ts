@@ -1,11 +1,11 @@
+import * as fs from "fs";
+import * as path from "path";
 import { UserDataDirectory } from "@/consts/consts";
 import { getCurrentTime } from "@/lib/date";
 import { checkAndCreateDirectory, isDirectoryEmptySync } from "@/lib/file";
 import archiver from "archiver";
 import Color from "colors";
-import * as fs from "fs";
 import inquirer from "inquirer";
-import * as path from "path";
 import * as tar from "tar";
 
 function packageDirectory(sourceDir: string, outputFilePath: string) {

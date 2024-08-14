@@ -6,7 +6,7 @@ export const HomeCover = () => {
     <>
       <div className="w-full">
         <div
-          className="mb-20 mt-5 flex w-full justify-center rounded-xl"
+          className="mt-5 mb-20 flex w-full justify-center rounded-xl"
           style={{
             aspectRatio: "4/1",
             background: `url(${Config.PageCovers.websiteCoverURL})`,
@@ -20,10 +20,10 @@ export const HomeCover = () => {
           />
         </div>
       </div>
-      <div className={`caption-font my-8 text-center text-4xl font-bold`}>{Config.Nickname}</div>
+      <div className={"caption-font my-8 text-center font-bold text-4xl"}>{Config.Nickname}</div>
       {Config.Sentence && (
         <div className="my-5 flex justify-center">
-          <p className={`content-font text-lg`}>{Config.Sentence}</p>
+          <p className={"text-lg content-font"}>{Config.Sentence}</p>
         </div>
       )}
       <div className="my-8">

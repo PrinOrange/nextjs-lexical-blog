@@ -1,7 +1,7 @@
+import fs from "fs";
 import { CopyrightAnnouncement, LatestPostCountInHomePage, WebsiteURL } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { Feed } from "feed";
-import fs from "fs";
 import { JSDOM } from "jsdom";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
@@ -17,7 +17,8 @@ import remarkMath from "remark-math";
 import remarkPrism from "remark-prism";
 import { getPostFileContent, sortedPosts } from "./post-process";
 
-const NoticeForRSSReaders = `\n---\n**NOTE:** Different RSS reader may have deficient even no support for svg formulations rendering. If it happens, please read the origin page to have better experience.`;
+const NoticeForRSSReaders =
+  "\n---\n**NOTE:** Different RSS reader may have deficient even no support for svg formulations rendering. If it happens, please read the origin page to have better experience.";
 
 function minifyHTMLCode(htmlString: string): string {
   const dom = new JSDOM(htmlString);
@@ -61,7 +62,7 @@ export const generateRSSFeed = async () => {
   for (let i = 0; i < Math.min(LatestPostCountInHomePage, sortedPosts.allPostList.length); i++) {
     const post = sortedPosts.allPostList[i];
     const postFileContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders}}`;
-    const dateNumber = post.frontMatter.time.split("-").map((num) => parseInt(num));
+    const dateNumber = post.frontMatter.time.split("-").map((num) => Number.parseInt(num));
     const mdxSource = await serialize(postFileContent ?? "", {
       parseFrontmatter: true,
       mdxOptions: {

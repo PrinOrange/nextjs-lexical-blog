@@ -18,16 +18,15 @@ export default function AboutPage() {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-5 flex justify-around text-2xl font-bold caption-font`}>{"ABOUT ME"}</h2>
+        <h2 className={"caption-font my-5 flex justify-around font-bold text-2xl"}>{"ABOUT ME"}</h2>
         <Separator />
-        <div className={`content-font my-5 justify-center md:flex md:space-x-10`}>
+        <div className={"my-5 justify-center content-font md:flex md:space-x-10"}>
           <div className="my-auto flex md:w-1/3">
             <img alt="my-profile" className="mx-auto my-auto max-h-[23rem] rounded-lg" src="/images/profile.webp" />
           </div>
           <div className="my-auto md:w-1/3">
-            <div className="mt-5 mb-3 text-3xl font-bold">Hi, there👋</div>
-            I am a student / entrepreneur / engineer (Your profession) majoring in (Your Research Field) born in XXXX
-            (Your birth year)
+            <div className="mt-5 mb-3 font-bold text-3xl">Hi, there👋</div>I am a student / entrepreneur / engineer
+            (Your profession) majoring in (Your Research Field) born in XXXX (Your birth year)
             <br />
             <br />
             My main research interests includes XXXX
@@ -40,7 +39,7 @@ export default function AboutPage() {
         <SocialIcons />
         <Separator />
 
-        <ul className="mx-auto my-10 px-5 md:w-2/3 list-disc">
+        <ul className="mx-auto my-10 list-disc px-5 md:w-2/3">
           {Config.SocialLinks.github && (
             <li className="my-2">
               {"📕 Check out my github profile at "}
@@ -64,7 +63,7 @@ export default function AboutPage() {
           <li className="my-2">From : Your Country, State / Province</li>
         </ul>
 
-        <div className="mx-auto my-10 md:w-2/3 font-bold">
+        <div className="mx-auto my-10 font-bold md:w-2/3">
           {
             "** In addition to the above content, you can also add other customized components, content, etc. to this page. **"
           }

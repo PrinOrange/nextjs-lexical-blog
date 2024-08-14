@@ -16,12 +16,12 @@ import { normalizeDate } from "@/lib/date";
 import { getPostFileContent, sortedPosts } from "@/lib/post-process";
 import { makeTOCTree } from "@/lib/toc";
 import useDrawerTOCState from "@/stores/useDrawerTOCState";
-import { TFrontmatter } from "@/types/frontmatter.type";
-import { TPostListItem } from "@/types/post-list";
-import { TTOCItem } from "@/types/toc.type";
+import type { TFrontmatter } from "@/types/frontmatter.type";
+import type { TPostListItem } from "@/types/post-list";
+import type { TTOCItem } from "@/types/toc.type";
 import { nanoid } from "nanoid";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import type { GetStaticPaths, GetStaticProps } from "next";
+import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Link from "next/link";
 import { renderToString } from "react-dom/server";
@@ -70,34 +70,36 @@ const ReaderPage = (props: ReaderPageProps) => {
       <NavBar />
       <ContentContainer>
         <div
-          className={`py-1 ${isTOCLongEnough ? "justify-between" : "justify-center"} lg:flex space-x-5`}
+          className={`py-1 ${isTOCLongEnough ? "justify-between" : "justify-center"} space-x-5 lg:flex`}
           style={{ borderRadius: "5px" }}
         >
           <div className={`${isTOCLongEnough ? "lg:w-2/3" : "lg:w-5/6"} py-5`}>
             <div className="typesetting">
               {props.frontMatter.coverURL && <PostCover coverURL={props.frontMatter.coverURL} />}
-              <div className="pb-1 border-b-2 border-black dark:border-gray-300">
+              <div className="border-black border-b-2 pb-1 dark:border-gray-300">
                 <div
-                  className={`caption-font my-2 text-black dark:text-white flex justify-center whitespace-normal break-words text-3xl font-bold capitalize`}
+                  className={
+                    "caption-font my-2 flex justify-center whitespace-normal break-words font-bold text-3xl text-black capitalize dark:text-white"
+                  }
                 >
                   {props.frontMatter?.title}
                 </div>
                 {props.frontMatter?.subtitle && (
-                  <div className={`caption-font my-1 flex justify-center text-xl font-bold capitalize`}>
+                  <div className={"caption-font my-1 flex justify-center font-bold text-xl capitalize"}>
                     {props.frontMatter.subtitle}
                   </div>
                 )}
                 <div className="my-1 flex justify-center text-sm italic">{normalizeDate(props.frontMatter?.time)}</div>
                 {props.frontMatter?.summary && (
-                  <p className={"content-font my-4 indent-8 text-gray-800 dark:text-gray-300"}>
+                  <p className={"my-4 indent-8 text-gray-800 content-font dark:text-gray-300"}>
                     {props.frontMatter?.summary}
                   </p>
                 )}
                 {props.frontMatter.tags && (
-                  <div className={"pt-1 flex flex-wrap border-t-2 border-black dark:border-gray-300"}>
+                  <div className={"flex flex-wrap border-black border-t-2 pt-1 dark:border-gray-300"}>
                     {props.frontMatter.tags.map((tagName) => (
                       <Link
-                        className="not-prose mr-2 px-2 py-1 font-bold border-2 border-black dark:border-gray-300 my-1 text-gray-700 hover:text-black text-xs  dark:text-gray-300 dark:hover:text-gray-200"
+                        className="not-prose my-1 mr-2 border-2 border-black px-2 py-1 font-bold text-gray-700 text-xs hover:text-black dark:border-gray-300 dark:text-gray-300 dark:hover:text-gray-200"
                         href={`/tags/${tagName}`}
                         key={`tags-${nanoid()}`}
                       >
@@ -135,7 +137,7 @@ const ReaderPage = (props: ReaderPageProps) => {
               title={props.frontMatter.title}
             />
             <Separator />
-            <ul className="my-5 px-5 flex flex-col justify-center list-disc">
+            <ul className="my-5 flex list-disc flex-col justify-center px-5">
               {props.prevPostListItem && (
                 <li className="my-1">
                   <Link
@@ -160,7 +162,7 @@ const ReaderPage = (props: ReaderPageProps) => {
             {Config.Giscus?.enabled && <PostComments postId={props.postId} />}
           </div>
           {isTOCLongEnough && (
-            <div className="hidden lg:block md:w-1/3 py-5">
+            <div className="hidden py-5 md:w-1/3 lg:block">
               <div className="sticky top-[5em]">
                 <TOC data={props.tocList} />
               </div>

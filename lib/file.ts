@@ -8,6 +8,7 @@ export function checkAndCreateDirectory(dirPath: string) {
     fs.accessSync(dirPath, fs.constants.R_OK | fs.constants.W_OK);
     return true;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 }
@@ -20,6 +21,7 @@ export function isDirectoryEmptySync(directory: string) {
     const files = fs.readdirSync(directory);
     return files.length === 0;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 }

@@ -1,6 +1,6 @@
+import path from "path";
 import { Config } from "@/data/config";
 import { getCurrentTime } from "@/lib/date";
-import path from "path";
 import process from "process";
 
 export const LatestPostCountInHomePage = 10;

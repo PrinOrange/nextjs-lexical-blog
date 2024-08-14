@@ -20,15 +20,15 @@ export default function SponsorPage() {
       <Toaster />
       <NavBar />
       <ContentContainer>
-        <div className="md:flex mt-10">
+        <div className="mt-10 md:flex">
           <div className="flex flex-col justify-center md:w-1/2">
-            <h2 className={`my-5 flex justify-center text-2xl font-bold text-red-500 caption-font`}>
+            <h2 className={"caption-font my-5 flex justify-center font-bold text-2xl text-red-500"}>
               <GoHeartFill className="mx-2 my-auto" />
               {"SPONSOR"}
             </h2>
             <SponsorDescription />
           </div>
-          <div className="md:px-15 md:w-1/2">
+          <div className="md:w-1/2 md:px-15">
             <SponsorBoard />
           </div>
         </div>

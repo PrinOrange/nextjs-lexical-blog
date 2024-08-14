@@ -8,14 +8,14 @@ import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
 import { isEmptyString } from "@/lib/utils";
-import { TSearchResultItem } from "@/types/search-result";
+import type { TSearchResultItem } from "@/types/search-result";
 import axios from "axios";
 import { isArray } from "lodash";
 import { nanoid } from "nanoid";
-import { GetServerSideProps } from "next";
+import type { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
+import { type ChangeEvent, type KeyboardEvent, useEffect, useState } from "react";
 
 type SearchPageProps = { query: string | null };
 
@@ -88,8 +88,8 @@ export default function SearchPage(props: SearchPageProps) {
       <Toaster />
       <NavBar />
       <ContentContainer>
-        <h2 className={`my-10 flex justify-center text-2xl font-bold caption-font`}>{"SEARCH POSTS"}</h2>
-        <div className="flex my-10">
+        <h2 className={"caption-font my-10 flex justify-center font-bold text-2xl"}>{"SEARCH POSTS"}</h2>
+        <div className="my-10 flex">
           <Input
             className="my-auto py-0"
             onChange={handleInputSearchText}
@@ -97,26 +97,26 @@ export default function SearchPage(props: SearchPageProps) {
             placeholder="Input the keyword"
             value={searchText}
           />
-          <Button className="mx-3 w-32 my-auto" disabled={isLoading} onClick={handleMakeSearch}>
+          <Button className="mx-3 my-auto w-32" disabled={isLoading} onClick={handleMakeSearch}>
             {isLoading ? "Loading" : "Search"}
           </Button>
         </div>
         <div className="flex flex-col justify-center">
-          <div className={`min-h-full flex flex-col content-font`}>
+          <div className={"flex min-h-full flex-col content-font"}>
             {searchResult.map((item, index) => (
               <Link
-                className={`p-2 border-t ${index === searchResult.length - 1 && "border-b"} hover:bg-gray-50 dark:hover:bg-gray-900 flex flex-col`}
+                className={`border-t p-2 ${index === searchResult.length - 1 && "border-b"} flex flex-col hover:bg-gray-50 dark:hover:bg-gray-900`}
                 href={`/blog/${item.id}`}
                 key={nanoid()}
                 target="_blank"
               >
                 <div className="my-1">
-                  <div className="capitalize post-list-caption-font text-md font-bold">{item.title}</div>
+                  <div className="post-list-caption-font font-bold text-md capitalize">{item.title}</div>
                   {item.summary && <div>{item.summary}</div>}
                 </div>
-                <div className="flex space-x-2 flex-wrap">
+                <div className="flex flex-wrap space-x-2">
                   {item.tags?.map((tagitem) => (
-                    <div className="text-sm text-gray-500 dark:text-gray-400" key={nanoid()}>
+                    <div className="text-gray-500 text-sm dark:text-gray-400" key={nanoid()}>
                       {tagitem}
                     </div>
                   ))}
@@ -125,7 +125,7 @@ export default function SearchPage(props: SearchPageProps) {
             ))}
           </div>
         </div>
-        <div className="text-center my-3 text-gray-500 dark:text-gray-400">
+        <div className="my-3 text-center text-gray-500 dark:text-gray-400">
           <p className="mx-auto text-sm">{"For search efficiency, only the first 20 results are displayed."}</p>
         </div>
       </ContentContainer>

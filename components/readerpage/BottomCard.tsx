@@ -2,8 +2,8 @@ import { Config } from "@/data/config";
 
 export const BottomCard = () => {
   return (
-    <div className="p-8 w-full flex flex-col justify-center">
-      <img alt={Config.AuthorName} className="h-24 w-24 rounded-full mx-auto" src={Config.AvatarURL} />
+    <div className="flex w-full flex-col justify-center p-8">
+      <img alt={Config.AuthorName} className="mx-auto h-24 w-24 rounded-full" src={Config.AvatarURL} />
       <p className="mx-auto mt-5 content-font">{Config.Sentence}</p>
     </div>
   );

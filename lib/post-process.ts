@@ -1,9 +1,9 @@
-import { PostFilesDirectory } from "@/consts/consts";
-import { TFrontmatter } from "@/types/frontmatter.type";
-import { TPostListItem, TPostsByTag } from "@/types/post-list";
 import fs from "fs";
-import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
+import { PostFilesDirectory } from "@/consts/consts";
+import type { TFrontmatter } from "@/types/frontmatter.type";
+import type { TPostListItem, TPostsByTag } from "@/types/post-list";
+import { serialize } from "next-mdx-remote/serialize";
 import { titleCase } from "title-case";
 import { isEmptyString, nullifyEmptyArray, nullifyEmptyString } from "./utils";
 
@@ -38,7 +38,7 @@ async function extractFrontmatters(filepath: string): Promise<TFrontmatter> {
 function readPostsDirectory(): string[] {
   const result: string[] = [];
   const files = fs.readdirSync(PostFilesDirectory);
-  
+
   for (const fileName of files) {
     const filePath = path.join(PostFilesDirectory, fileName);
     const fileStat = fs.statSync(filePath);

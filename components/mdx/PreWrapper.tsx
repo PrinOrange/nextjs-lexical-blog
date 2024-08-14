@@ -23,7 +23,7 @@ const PreWrapper = ({ children }: { children: JSX.Element }) => {
 
   return (
     <div
-      className="relative flat-scrollbar-normal"
+      className="flat-scrollbar-normal relative"
       dir="ltr"
       onMouseLeave={onExit}
       onMouseMove={onEnter}
@@ -32,14 +32,14 @@ const PreWrapper = ({ children }: { children: JSX.Element }) => {
       {hovered && (
         <Button
           aria-label="Copy code"
-          className={`absolute right-2 top-2 h-8 w-8 rounded p-1 ${copied ? "hover:text-green-500 text-green-500" : ""}`}
+          className={`absolute top-2 right-2 h-8 w-8 rounded p-1 ${copied ? "text-green-500 hover:text-green-500" : ""}`}
           onClick={onCopy}
           variant={"outline"}
         >
           {copied ? <FaCheck /> : <IoCopyOutline />}
         </Button>
       )}
-      <pre className="p-2 dark:bg-[#0d1117] bg-[#F6F8FA] rounded-md flat-scrollbar-normal not-prose text-sm dark:selection:bg-gray-700 selection:bg-gray-300 selection:text-inherit">
+      <pre className="flat-scrollbar-normal not-prose rounded-md bg-[#F6F8FA] p-2 text-sm selection:bg-gray-300 selection:text-inherit dark:bg-[#0d1117] dark:selection:bg-gray-700">
         {children}
       </pre>
     </div>

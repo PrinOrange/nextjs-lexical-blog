@@ -4,11 +4,11 @@ export const SponsorDescription = () => {
   return (
     <div className="h-full">
       {!Config.Sponsor ? (
-        <p className={`content-font break-words text-lg`}>
+        <p className={"break-words text-lg content-font"}>
           {"Thank you, for data and personal private security, every sponsor method was paused."}
         </p>
       ) : (
-        <p className={`content-font break-words text-lg`}>
+        <p className={"break-words text-lg content-font"}>
           {
             "If you like my works, I would deeply appreciate your support as a patron. Your contribution not only fuels my creative journey but also allows me to delve deeper into my passion. Your support plays a vital role in making this vision a reality. Thank you for considering becoming a patron and being an integral part of this work endeavor."
           }

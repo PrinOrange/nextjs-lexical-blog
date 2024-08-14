@@ -1,11 +1,11 @@
+import { type ChildProcessWithoutNullStreams, type SpawnSyncReturns, spawn, spawnSync } from "child_process";
+import fs from "fs";
+import path from "path";
 import { PostFilesDirectory } from "@/consts/consts";
 import { getCurrentTime } from "@/lib/date";
-import { ChildProcessWithoutNullStreams, SpawnSyncReturns, spawn, spawnSync } from "child_process";
 import colors from "colors";
-import fs from "fs";
-import inquirer, { QuestionCollection } from "inquirer";
+import inquirer, { type QuestionCollection } from "inquirer";
 import _ from "lodash";
-import path from "path";
 import { titleCase } from "title-case";
 
 type TAnswer = {

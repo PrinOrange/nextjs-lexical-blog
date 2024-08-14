@@ -1,4 +1,4 @@
-import { NonEmptyArray } from "./utils.type";
+import type { NonEmptyArray } from "./utils.type";
 
 export type TFrontmatter = {
   title: string;

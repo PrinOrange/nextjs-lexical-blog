@@ -5,7 +5,7 @@ import { TbBrandFacebook, TbBrandLinkedin, TbBrandMastodon } from "react-icons/t
 
 export const SocialIcons = () => {
   return (
-    <div className="my-5 flex justify-center space-x-4 text-2xl font-bold">
+    <div className="my-5 flex justify-center space-x-4 font-bold text-2xl">
       {Config.SocialLinks.twitter && (
         <Link href={`https://x.com/${Config.SocialLinks.twitter}`} target="_blank" title="Twitter">
           <FiTwitter className="hover:text-sky-500" />

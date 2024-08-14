@@ -1,4 +1,4 @@
-var WebpackObfuscator = require("webpack-obfuscator");
+const WebpackObfuscator = require("webpack-obfuscator");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],

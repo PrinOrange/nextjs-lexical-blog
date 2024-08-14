@@ -1,6 +1,6 @@
 import { SearchIndex } from "@/lib/search";
 import { isEmptyString } from "@/lib/utils";
-import { TSearchResultItem } from "@/types/search-result";
+import type { TSearchResultItem } from "@/types/search-result";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type ResponseData = TSearchResultItem[];
