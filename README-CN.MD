@@ -11,7 +11,7 @@
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
 [![GitHub forks](https://img.shields.io/github/forks/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
-[![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FCodemetic)](https://twitter.com/Codemetic)
+![Follow My Twitter](https://img.shields.io/twitter/follow/codemetic)
 [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/PrinOrange/nextjs-lexical-blog)](https://blog.terminals.run/sponsor)
 [![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 
@@ -25,6 +25,7 @@
 
 <!-- TOC -->
 
+- [案例展示](#%E6%A1%88%E4%BE%8B%E5%B1%95%E7%A4%BA)
 - [快速上手](#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B)
   - [初始化项目](#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE)
   - [创建博客](#%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2)
@@ -49,6 +50,15 @@
 - [开源许可](#%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF)
 
 <!-- /TOC -->
+
+### 案例展示
+
+以下博客网站均采用了本项目。
+
+- [NEXTJS-LEXICAL-BLOG DEMO](https://nextjs-lexical-blog-demo.vercel.app)
+- [但为君故 NOTE & BLOG](https://dreams.plus)
+
+如果你希望在此处也展示你搭建的博客，你也可以创建一个 Pull Request 来提交你的网址。
 
 ### 快速上手
 

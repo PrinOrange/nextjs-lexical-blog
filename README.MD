@@ -11,7 +11,7 @@
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
 [![GitHub forks](https://img.shields.io/github/forks/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
-[![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FCodemetic)](https://twitter.com/Codemetic)
+![Follow My Twitter](https://img.shields.io/twitter/follow/codemetic)
 [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/PrinOrange/nextjs-lexical-blog)](https://blog.terminals.run/sponsor)
 [![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 
@@ -21,10 +21,9 @@ This is a sleek and efficient web blog project, built with Next.js + MDX + Tailw
 
 It has all the basic functions of a blog website: tag classification, writing, comments, title list, etc.
 
-![Home Page](./docs/preview1.png)
-
 <!-- TOC -->
 
+- [Showcase](#showcase)
 - [Quick Start](#quick-start)
   - [Initialize Project](#initialize-project)
   - [Creating a Blog Post](#creating-a-blog-post)
@@ -49,6 +48,15 @@ It has all the basic functions of a blog website: tag classification, writing, c
 - [Open Source License](#open-source-license)
 
 <!-- /TOC -->
+
+### Showcase
+
+The following blog sites all use this project.
+
+- [NEXTJS-LEXICAL-BLOG DEMO](https://nextjs-lexical-blog-demo.vercel.app)
+- [但为君故 NOTE & BLOG](https://dreams.plus)
+
+If you want to show your blog here, you can also create a Pull Request to submit your URL.
 
 ### Quick Start
 
