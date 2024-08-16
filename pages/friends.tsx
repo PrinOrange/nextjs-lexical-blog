@@ -18,7 +18,7 @@ export default function FriendsPage() {
         <Separator />
         <div className={"my-5 flex flex-wrap justify-center text-2xl content-font"}>
           {FriendsList.map((item) => (
-            <Link className="mx-2 p-2 underline" href={item.url} key={nanoid()}>
+            <Link className="mx-2 p-2 underline underline-offset-4" href={item.url} key={nanoid()}>
               {item.title}
             </Link>
           ))}
