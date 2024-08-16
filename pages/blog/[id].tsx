@@ -1,10 +1,8 @@
 import { MDXComponentsSet } from "@/components/mdx";
-import { BottomCard } from "@/components/reader-page/BottomCard";
 import { DrawerTOC } from "@/components/reader-page/DrawerTOC";
 import { PostComments } from "@/components/reader-page/PostComments";
 import { PostCover } from "@/components/reader-page/PostCover";
 import { ShareButtons } from "@/components/reader-page/ShareButtons";
-import { TOC } from "@/components/reader-page/TOC";
 import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";
@@ -15,7 +13,6 @@ import { Config } from "@/data/config";
 import { normalizeDate } from "@/lib/date";
 import { getPostFileContent, sortedPosts } from "@/lib/post-process";
 import { makeTOCTree } from "@/lib/toc";
-import useDrawerTOCState from "@/stores/useDrawerTOCState";
 import type { TFrontmatter } from "@/types/frontmatter.type";
 import type { TPostListItem } from "@/types/post-list";
 import type { TTOCItem } from "@/types/toc.type";
@@ -25,7 +22,6 @@ import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Link from "next/link";
 import { renderToString } from "react-dom/server";
-import { useSwipeable } from "react-swipeable";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
@@ -35,6 +31,7 @@ import rehypeSlug from "rehype-slug";
 import externalLinks from "remark-external-links";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import { titleCase } from "title-case";
 
 type ReaderPageProps = {
   compiledSource: MDXRemoteSerializeResult;
@@ -47,87 +44,82 @@ type ReaderPageProps = {
 
 const ReaderPage = (props: ReaderPageProps) => {
   const compiledSource = props.compiledSource;
-  const setIsTOCOpen = useDrawerTOCState((state) => state.changeDrawerTOCOpen);
+  // const setIsTOCOpen = useDrawerTOCState((state) => state.changeDrawerTOCOpen);
 
   // Only the TOC length reaches 3 can be displayed.
   // In order to avoid large blank spaces that ruin the visual perception
   const isTOCLongEnough = props.tocList.length > 2;
-  const handleRightSwipe = useSwipeable({
-    onSwipedRight: () => {
-      isTOCLongEnough && setIsTOCOpen(true);
-    },
-    delta: 150,
-  });
+  // const handleLeftSwipe = useSwipeable({
+  //   onSwipedLeft: () => isTOCLongEnough && setIsTOCOpen(true),
+  //   delta: 150,
+  // });
 
   return (
     <Page>
       <SEO
-        coverURL={props.frontMatter.coverURL ?? Config.AvatarURL}
+        coverURL={props.frontMatter.coverURL}
         description={props.frontMatter.summary}
-        title={`${props.frontMatter.title} - ${Config.SiteTitle}`}
+        title={`${titleCase(props.frontMatter.title)} - ${Config.SiteTitle}`}
       />
       <Toaster />
       <NavBar />
       <ContentContainer>
-        <div
-          className={`py-1 ${isTOCLongEnough ? "justify-between" : "justify-center"} space-x-5 lg:flex`}
-          style={{ borderRadius: "5px" }}
-        >
-          <div className={`${isTOCLongEnough ? "lg:w-2/3" : "lg:w-5/6"} py-5`}>
-            <div className="typesetting">
-              {props.frontMatter.coverURL && <PostCover coverURL={props.frontMatter.coverURL} />}
-              <div className="border-black border-b-2 pb-1 dark:border-gray-300">
-                <div
+        <div className="flex justify-center py-5">
+          <div className="typesetting" style={{ width: "min(50rem,100%)" }}>
+            {props.frontMatter.coverURL && <PostCover coverURL={props.frontMatter.coverURL} />}
+            <div className="border-black border-b-2 pb-1 dark:border-gray-300">
+              <div
+                className={
+                  "caption-font my-2 flex justify-center whitespace-normal break-words font-bold text-3xl text-black dark:text-white"
+                }
+              >
+                {props.frontMatter?.title}
+              </div>
+              {props.frontMatter?.subtitle && (
+                <div className={"my-1 flex justify-center font-bold text-xl content-font"}>
+                  {props.frontMatter.subtitle}
+                </div>
+              )}
+              <div className="my-1 flex justify-center text-sm italic">{normalizeDate(props.frontMatter?.time)}</div>
+              {props.frontMatter?.summary && (
+                <p
                   className={
-                    "caption-font my-2 flex justify-center whitespace-normal break-words font-bold text-3xl text-black capitalize dark:text-white"
+                    "my-4 border-gray-400 border-l-4 bg-gray-100 py-5 pr-2 pl-5 text-[16px] text-gray-800 content-font dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300"
                   }
                 >
-                  {props.frontMatter?.title}
+                  {props.frontMatter?.summary}
+                </p>
+              )}
+              {props.frontMatter.tags && (
+                <div className={"flex flex-wrap border-black border-t-2 pt-1 dark:border-gray-300"}>
+                  {props.frontMatter.tags.map((tagName) => (
+                    <Link
+                      className="not-prose my-1 mr-2 border-2 border-black px-2 py-1 font-bold text-gray-700 text-xs hover:text-black dark:border-gray-300 dark:text-gray-300 dark:hover:text-gray-200"
+                      href={`/tags/${tagName}`}
+                      key={`tags-${nanoid()}`}
+                    >
+                      {tagName}
+                    </Link>
+                  ))}
                 </div>
-                {props.frontMatter?.subtitle && (
-                  <div className={"caption-font my-1 flex justify-center font-bold text-xl capitalize"}>
-                    {props.frontMatter.subtitle}
-                  </div>
-                )}
-                <div className="my-1 flex justify-center text-sm italic">{normalizeDate(props.frontMatter?.time)}</div>
-                {props.frontMatter?.summary && (
-                  <p className={"my-4 indent-8 text-gray-800 content-font dark:text-gray-300"}>
-                    {props.frontMatter?.summary}
-                  </p>
-                )}
-                {props.frontMatter.tags && (
-                  <div className={"flex flex-wrap border-black border-t-2 pt-1 dark:border-gray-300"}>
-                    {props.frontMatter.tags.map((tagName) => (
-                      <Link
-                        className="not-prose my-1 mr-2 border-2 border-black px-2 py-1 font-bold text-gray-700 text-xs hover:text-black dark:border-gray-300 dark:text-gray-300 dark:hover:text-gray-200"
-                        href={`/tags/${tagName}`}
-                        key={`tags-${nanoid()}`}
-                      >
-                        {tagName}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-              <div
-                className={`text-wrap border-gray-500 content-font ${
-                  !props.frontMatter.allowShare ? "select-none" : ""
-                }`}
-                {...handleRightSwipe}
-              >
-                {compiledSource && (
-                  <MDXRemote
-                    compiledSource={compiledSource.compiledSource}
-                    // @ts-ignore
-                    components={MDXComponentsSet}
-                    frontmatter={compiledSource.frontmatter}
-                    scope={compiledSource.scope}
-                  />
-                )}
-              </div>
+              )}
+            </div>
+            <div
+              className={`text-wrap border-gray-500 content-font ${!props.frontMatter.allowShare ? "select-none" : ""}`}
+              // {...handleLeftSwipe}
+            >
+              {compiledSource && (
+                <MDXRemote
+                  compiledSource={compiledSource.compiledSource}
+                  // @ts-ignore
+                  components={MDXComponentsSet}
+                  frontmatter={compiledSource.frontmatter}
+                  scope={compiledSource.scope}
+                />
+              )}
             </div>
             <Separator />
-            <BottomCard />
+            {/* <BottomCard /> */}
             <Separator />
             <ShareButtons
               allowShare={props.frontMatter.allowShare}
@@ -161,19 +153,8 @@ const ReaderPage = (props: ReaderPageProps) => {
             </ul>
             {Config.Giscus?.enabled && <PostComments postId={props.postId} />}
           </div>
-          {isTOCLongEnough && (
-            <div className="hidden py-5 md:w-1/3 lg:block">
-              <div className="sticky top-[5em]">
-                <TOC data={props.tocList} />
-              </div>
-            </div>
-          )}
         </div>
-        {isTOCLongEnough && (
-          <div className="lg:hidden">
-            <DrawerTOC data={props.tocList} />
-          </div>
-        )}
+        {isTOCLongEnough && <DrawerTOC data={props.tocList} />}
       </ContentContainer>
       <Footer />
     </Page>
@@ -209,6 +190,7 @@ export const getStaticProps: GetStaticProps<ReaderPageProps> = async (context) =
       remarkPlugins: [externalLinks, remarkMath, remarkGfm],
       rehypePlugins: [
         rehypeRaw,
+
         rehypeKatex as any,
         rehypeAutolinkHeadings,
         rehypeSlug,

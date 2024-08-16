@@ -31,6 +31,7 @@ export const Config: TConfig = {
     bilibili: "123456", // Bilibili Number ID
     weibo: "123456", // Weibo UID
     telegram: "example", // Telegram ID
+    quora: "example", //Quora ID
     mastodon: "https://mas.to/@example", // Mastodon link
     email: "me@example.com", // Email address, required.
   },

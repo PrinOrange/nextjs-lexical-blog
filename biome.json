@@ -20,6 +20,7 @@
         "noForEach": "off"
       },
       "correctness": {
+        "noUnusedImports": "error",
         "useExhaustiveDependencies": "off"
       },
       "suspicious": {

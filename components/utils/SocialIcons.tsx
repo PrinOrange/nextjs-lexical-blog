@@ -1,7 +1,7 @@
 import { Config } from "@/data/config";
 import Link from "next/link";
+import { FaQuora, FaWeibo } from "react-icons/fa";
 import { FiGithub, FiInstagram, FiMail, FiTwitter } from "react-icons/fi";
-import { FaWeibo } from "react-icons/fa";
 import {
   TbBrandBilibili,
   TbBrandFacebook,
@@ -93,6 +93,16 @@ export const SocialIcons = () => {
           title="Facebook"
         >
           <TbBrandFacebook className="hover:text-blue-500" />
+        </Link>
+      )}
+      {Config.SocialLinks.quora && (
+        <Link
+          className="flex w-1/5 basis-0 justify-center p-2"
+          href={`https://quora.com/profile/${Config.SocialLinks.quora}`}
+          target="_blank"
+          title="Quora"
+        >
+          <FaQuora className="hover:text-red-500" />
         </Link>
       )}
       {Config.SocialLinks.linkedin && (

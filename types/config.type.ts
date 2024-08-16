@@ -14,6 +14,7 @@ export type TConfig = {
     twitter?: string;
     bilibili?: string;
     weibo?: string;
+    quora?: string;
     reddit?: string;
     facebook?: string;
     instagram?: string;
