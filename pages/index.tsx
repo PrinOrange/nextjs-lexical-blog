@@ -1,5 +1,5 @@
-import { HomeCover } from "@/components/homepage/HomeCover";
-import { ContentContainer, Page } from "@/components/layouts";
+import { HomeCover } from "@/components/home-page/HomeCover";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";

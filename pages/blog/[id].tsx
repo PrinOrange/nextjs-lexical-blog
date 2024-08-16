@@ -1,11 +1,11 @@
-import { ContentContainer, Page } from "@/components/layouts";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { MDXComponentsSet } from "@/components/mdx";
-import { BottomCard } from "@/components/readerpage/BottomCard";
-import { DrawerTOC } from "@/components/readerpage/DrawerTOC";
-import { PostComments } from "@/components/readerpage/PostComments";
-import { PostCover } from "@/components/readerpage/PostCover";
-import { ShareButtons } from "@/components/readerpage/ShareButtons";
-import { TOC } from "@/components/readerpage/TOC";
+import { BottomCard } from "@/components/reader-page/BottomCard";
+import { DrawerTOC } from "@/components/reader-page/DrawerTOC";
+import { PostComments } from "@/components/reader-page/PostComments";
+import { PostCover } from "@/components/reader-page/PostCover";
+import { ShareButtons } from "@/components/reader-page/ShareButtons";
+import { TOC } from "@/components/reader-page/TOC";
 import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";

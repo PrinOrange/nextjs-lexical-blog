@@ -1,4 +1,4 @@
-import { ContentContainer, Page } from "@/components/layouts";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { NavBar } from "@/components/utils/NavBar";

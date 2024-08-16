@@ -1,4 +1,4 @@
-import { ContentContainer, Page } from "@/components/layouts";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
