@@ -11,7 +11,7 @@
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
 [![GitHub forks](https://img.shields.io/github/forks/PrinOrange/nextjs-lexical-blog?style=social)](https://github.com/PrinOrange/nextjs-lexical-blog)
-![Follow My Twitter](https://img.shields.io/twitter/follow/codemetic)
+[![Follow My Twitter](https://img.shields.io/twitter/follow/codemetic)](https://twitter.com/intent/follow?screen_name=codemetic)
 [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/PrinOrange/nextjs-lexical-blog)](https://blog.terminals.run/sponsor)
 [![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 
