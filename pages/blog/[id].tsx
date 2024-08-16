@@ -1,4 +1,3 @@
-import { ContentContainer, Page } from "@/components/utils/Layout";
 import { MDXComponentsSet } from "@/components/mdx";
 import { BottomCard } from "@/components/reader-page/BottomCard";
 import { DrawerTOC } from "@/components/reader-page/DrawerTOC";
@@ -9,6 +8,7 @@ import { TOC } from "@/components/reader-page/TOC";
 import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";

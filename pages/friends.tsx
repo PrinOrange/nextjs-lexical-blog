@@ -1,6 +1,6 @@
-import { ContentContainer, Page } from "@/components/utils/Layout";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";

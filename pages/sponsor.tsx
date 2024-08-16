@@ -1,8 +1,8 @@
-import { ContentContainer, Page } from "@/components/utils/Layout";
 import { SponsorBoard } from "@/components/sponsor-page/SponsorBoard";
 import { SponsorDescription } from "@/components/sponsor-page/SponsorDescription";
 import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";

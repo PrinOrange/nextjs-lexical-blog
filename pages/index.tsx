@@ -1,8 +1,8 @@
 import { HomeCover } from "@/components/home-page/HomeCover";
-import { ContentContainer, Page } from "@/components/utils/Layout";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
 import { PostList } from "@/components/utils/PostList";
 import { SEO } from "@/components/utils/SEO";

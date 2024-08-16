@@ -1,9 +1,9 @@
-import { ContentContainer, Page } from "@/components/utils/Layout";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
+import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
 import { PostList } from "@/components/utils/PostList";
 import { SEO } from "@/components/utils/SEO";

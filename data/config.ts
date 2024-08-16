@@ -26,13 +26,12 @@ export const Config: TConfig = {
     linkedin: "example", // Linkedin ID
     github: "example", // Github ID
     facebook: "example", // Facebook ID
-
-    // Add more platform IDs here.
-    // youtube: "example", // Channel ID
-    // reddit:"example", // Reddit ID
-    // bilibili:"123456",  // Bilibili Number ID
-    // telegram: "example", // Telegram ID
-    // mastodon: "https://mas.to/@example", // Mastodon link
+    youtube: "example", // Channel ID
+    reddit: "example", // Reddit ID
+    bilibili: "123456", // Bilibili Number ID
+    weibo: "123456", // Weibo UID
+    telegram: "example", // Telegram ID
+    mastodon: "https://mas.to/@example", // Mastodon link
     email: "me@example.com", // Email address, required.
   },
 
