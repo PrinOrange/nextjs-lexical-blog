@@ -12,11 +12,15 @@ export type TConfig = {
 
   SocialLinks: {
     twitter?: string;
+    bilibili?: string;
+    reddit?: string;
     facebook?: string;
     instagram?: string;
     github?: string;
     mastodon?: string;
     linkedin?: string;
+    youtube?: string;
+    telegram?: string;
     email: string;
   };
 

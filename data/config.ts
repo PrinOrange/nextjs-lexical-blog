@@ -23,10 +23,16 @@ export const Config: TConfig = {
   SocialLinks: {
     twitter: "example", // Twitter ID
     instagram: "example", // Instagram ID
+    linkedin: "example", // Linkedin ID
     github: "example", // Github ID
     facebook: "example", // Facebook ID
-    linkedin: "example", // Linkedin ID
-    mastodon: "https://mas.to/@example", // Mastodon link
+
+    // Add more platform IDs here.
+    // youtube: "example", // Channel ID
+    // reddit:"example", // Reddit ID
+    // bilibili:"123456",  // Bilibili Number ID
+    // telegram: "example", // Telegram ID
+    // mastodon: "https://mas.to/@example", // Mastodon link
     email: "me@example.com", // Email address, required.
   },
 
