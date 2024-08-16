@@ -17,8 +17,10 @@
     "build:turbo": "npx turbo build",
     "build": "next build",
     "start": "next start",
-    "format": "npx biome format --write . && npx autocorrect --fix",
-    "lint:fix": "npx biome check --fix",
+    "format": "npx biome format && npx autocorrect --fix",
+    "lint": "npx biome lint",
+    "lint:fix": "npx biome lint --fix",
+    "lint:fix:unsafe": "npx biome lint --fix --unsafe",
     "newpost": "bun ./scripts/newpost.ts",
     "archive": "bun ./scripts/archive.ts"
   },
