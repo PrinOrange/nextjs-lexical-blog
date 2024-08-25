@@ -32,14 +32,19 @@ const PreWrapper = ({ children }: { children: JSX.Element }) => {
       {hovered && (
         <Button
           aria-label="Copy code"
-          className={`absolute top-2 right-2 h-8 w-8 rounded p-1 ${copied ? "text-green-500 hover:text-green-500" : ""}`}
+          className={`absolute top-2 right-2 h-8 w-8 rounded p-1 ${
+            copied ? "text-green-500 hover:text-green-500" : ""
+          }`}
           onClick={onCopy}
           variant={"outline"}
         >
           {copied ? <FaCheck /> : <IoCopyOutline />}
         </Button>
       )}
-      <pre className="flat-scrollbar-normal not-prose rounded-md bg-[#F6F8FA] p-2 text-sm selection:bg-gray-300 selection:text-inherit dark:bg-[#0d1117] dark:selection:bg-gray-700">
+      <pre
+        translate="no"
+        className="flat-scrollbar-normal not-prose rounded-md bg-[#F6F8FA] p-2 text-sm selection:bg-gray-300 selection:text-inherit dark:bg-[#0d1117] dark:selection:bg-gray-700"
+      >
         {children}
       </pre>
     </div>
