@@ -242,11 +242,7 @@ Into
 
 #### Fonts
 
-After extensive practical testing, this site primarily uses Chinese and English texts. Therefore, this project employs **Fangzheng Xiaobiaosong (for non-commercial use) and Source Han Serif Screen** as font resources. They display well on both mobile and PC screens, hence are used respectively for official titles and main text.
-
-However, to save bandwidth and improve loading speed, I've subset these two fonts, cutting out a large number of rare characters. These fonts only support Simplified Chinese, common special symbols, and English Latin letters. Therefore, if your blog uses rare Chinese characters, Japanese characters, Korean text, or other rare characters, they might not display correctly.
-
-Of course, you can also download your preferred fonts from the internet and customize them according to your requirements.
+After extensive practical testing, this site primarily uses Chinese and English texts. Therefore, this project employs **Fangzheng Xiaobiaosong (for non-commercial use) and Source Han Serif Screen, Source Serif 4、Source Serif KR** as font resources. They supports most of Latin Characters, Cylliric Characters and most of common characters, and CJK ideological Characters, Hanguls and Kanas. They display well on both mobile and PC screens, hence are used respectively for official titles and main text.
 
 #### MDX
 
