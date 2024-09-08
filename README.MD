@@ -23,6 +23,7 @@ It has all the basic functions of a blog website: tag classification, writing, c
 
 <!-- TOC -->
 
+- [Feature Support](#feature-support)
 - [Showcase](#showcase)
 - [Quick Start](#quick-start)
   - [Initialize Project](#initialize-project)
@@ -48,6 +49,20 @@ It has all the basic functions of a blog website: tag classification, writing, c
 - [Open Source License](#open-source-license)
 
 <!-- /TOC -->
+
+### Feature Support
+
+| Feature             | Support |
+| ------------------- | ------- |
+| Math Formula        | ✅      |
+| RSS                 | ✅      |
+| Full Text Search    | ✅      |
+| RTL & LTR           | Partial |
+| Code Block          | ✅      |
+| Ready to use        | ✅      |
+| Highly customizable | ✅      |
+| Blog Comments       | ✅      |
+| SEO                 | ✅      |
 
 ### Showcase
 
