@@ -63,6 +63,7 @@ It has all the basic functions of a blog website: tag classification, writing, c
 | Highly customizable | ✅      |
 | Blog Comments       | ✅      |
 | SEO                 | ✅      |
+| Accessibility       | ✅      |
 
 ### Showcase
 
