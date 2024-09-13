@@ -17,8 +17,11 @@ import remarkMath from "remark-math";
 import remarkPrism from "remark-prism";
 import { getPostFileContent, sortedPosts } from "./post-process";
 
-const NoticeForRSSReaders =
-  "\n---\n**NOTE:** Different RSS reader may have deficient even no support for svg formulations rendering. If it happens, please read the origin page to have better experience.";
+const NoticeForRSSReaders = (postId: string) => `
+---
+**NOTE:** Different RSS reader may have deficient even no support for svg formulations rendering. 
+If it happens, [please read the origin web page](https://${Config.SiteDomain}/blog/${postId}) to have better experience
+`;
 
 function minifyHTMLCode(htmlString: string): string {
   const dom = new JSDOM(htmlString);
@@ -61,7 +64,7 @@ export const generateRSSFeed = async () => {
 
   for (let i = 0; i < Math.min(LatestPostCountInHomePage, sortedPosts.allPostList.length); i++) {
     const post = sortedPosts.allPostList[i];
-    const postFileContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders}}`;
+    const postFileContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders(post.id)}`;
     const dateNumber = post.frontMatter.time.split("-").map((num) => Number.parseInt(num));
     const mdxSource = await serialize(postFileContent ?? "", {
       parseFrontmatter: true,
