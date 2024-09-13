@@ -19,8 +19,10 @@ jobs:
           node-version: "20.10.0"
           cache: "pnpm"
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.7.0
 
       - name: Install dependencies
         run: pnpm install
@@ -32,8 +34,6 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m 'chore: update dependencies'
-          git push
+          git diff --quiet || (git add . && git commit -m '[update]: update dependencies' && git push)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
