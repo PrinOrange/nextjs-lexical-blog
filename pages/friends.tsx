@@ -11,28 +11,14 @@ import Link from "next/link";
 export default function FriendsPage() {
   return (
     <Page>
-      <SEO
-        description={"My Friend Links"}
-        title={`${Config.SiteTitle} - Friends`}
-      />
+      <SEO description={"My Friend Links"} title={`${Config.SiteTitle} - Friends`} />
       <NavBar />
       <ContentContainer>
-        <h2
-          className={"caption-font my-5 flex justify-center font-bold text-2xl"}
-        >
-          {"FRIENDS"}
-        </h2>
+        <h2 className={"caption-font my-5 flex justify-center font-bold text-2xl"}>{"FRIENDS"}</h2>
         <Separator />
-        <div
-          className={"my-5 flex flex-wrap justify-center text-2xl content-font"}
-        >
+        <div className={"my-5 flex flex-wrap justify-center text-2xl content-font"}>
           {FriendsList.map((item) => (
-            <Link
-              className="mx-2 p-2 underline underline-offset-4"
-              href={item.url}
-              key={nanoid()}
-              target="_blank"
-            >
+            <Link className="mx-2 p-2 underline underline-offset-4" href={item.url} key={nanoid()} target="_blank">
               {item.title}
             </Link>
           ))}
@@ -40,13 +26,8 @@ export default function FriendsPage() {
         <Separator />
         <div className="my-2 flex flex-col justify-start text-base">
           <div className="mx-auto">
-            {
-              "Welcome to exchange our friend links and every high-quality blog websites are welcomed. "
-            }
-            <Link
-              className="underline"
-              href={`mailto:${Config.SocialLinks.email}`}
-            >
+            {"Welcome to exchange our friend links and every high-quality blog websites are welcomed. "}
+            <Link className="underline" href={`mailto:${Config.SocialLinks.email}`}>
               {"Email me please"}
             </Link>
           </div>
