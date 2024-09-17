@@ -45,6 +45,7 @@
 - [部署](#%E9%83%A8%E7%BD%B2)
   - [部署到 Vercel](#%E9%83%A8%E7%BD%B2%E5%88%B0-vercel)
   - [部署到服务器](#%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
+  - [部署到 Cloudflare Pages](#%E9%83%A8%E7%BD%B2%E5%88%B0-cloudflare-pages)
 - [感谢](#%E6%84%9F%E8%B0%A2)
 - [开源许可](#%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF)
 
@@ -308,6 +309,12 @@ Sponsor: {
 部署到自己的服务器较为麻烦。我们推荐使用 [PM2.js](https://github.com/Unitech/pm2) 来部署网站，并使用 nginx 等反向代理工具将主机域名映射到本地程序端口上。
 
 另外，你可以使用 Let's Encrypt + Certbot 为网站配置免费的 SSL 证书，[点击这里获得更详细的说明。](https://letsencrypt.org/getting-started/)
+
+#### 部署到 Cloudflare Pages
+
+本项目目前暂时**不支持**部署到 Cloudflare Pages。因为本项目中的全文搜索功能还不支持在 Edge Runtime 中运行。本项目在动态运行时中使用了 MDX 库来对文档进行索引编排，而 Edge Runtime 和 MDX.js 库的 API 接口互不兼容。
+
+不过这一方面的内容仍然在探索中。
 
 ### 感谢
 

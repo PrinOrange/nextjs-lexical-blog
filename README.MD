@@ -45,11 +45,11 @@ It has all the basic functions of a blog website: tag classification, writing, c
 - [Deployment](#deployment)
   - [Deploying to Vercel](#deploying-to-vercel)
   - [Deploying to a Server](#deploying-to-a-server)
+  - [Deploy to Cloudflare Pages](#deploy-to-cloudflare-pages)
 - [Thanks](#thanks)
 - [Open Source License](#open-source-license)
 
 <!-- /TOC -->
-
 ### Feature Support
 
 | Feature             | Support |
@@ -313,6 +313,12 @@ Click the button below for a quick deployment.
 Deploying to your own server can be a bit more complex. We recommend using [PM2.js](https://github.com/Unitech/pm2) to deploy the website and using reverse proxy tools like Nginx to map the host domain to the local program port.
 
 Additionally, you can use Let's Encrypt + Certbot to configure a free SSL certificate for the website. [Click here for more detailed instructions.](https://letsencrypt.org/getting-started/)
+
+#### Deploy to Cloudflare Pages
+
+This project currently **does NOT** support deployment to Cloudflare Pages. This is because the full-text search feature in this project does not yet support running in Edge Runtime. This project uses the MDX library to index documents in the dynamic runtime, and the API interfaces of the Edge Runtime and MDX.js library are incompatible.
+
+However, this aspect is still under exploration.
 
 ### Thanks
 
