@@ -3,7 +3,7 @@ title: "Chinese-Japanese-Korean Characters Typography Preview"
 subtitle: ""
 summary: "This article is used to display fonts, typography and layout effects for Chinese, Japanese and Korean characters."
 coverURL: ""
-time: "2024-04-17"
+time: "2024-02-17"
 tags: ["others"]
 noPrompt: false
 pin: false
