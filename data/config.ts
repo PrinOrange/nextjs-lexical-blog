@@ -4,8 +4,7 @@ export const Config: TConfig = {
   // Image url for avatar.
   AvatarURL: "/images/avatar.webp",
   // Your favorite motto, or a brief self-introduction, for homepage display
-  Sentence:
-    "Two things fill the mind with ever-increasing wonder and awe: the starry heavens above and the moral law within.",
+  Sentence: "L'homme est né libre, et partout il est dans les fers.",
   // Your nickname, or pen name here.
   Nickname: "John Doe",
 
