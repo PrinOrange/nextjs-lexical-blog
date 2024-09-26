@@ -1,9 +1,7 @@
-import type { NonEmptyArray } from "./utils.type";
-
-export type TFrontmatter = {
+export type TPostFrontmatter = {
   title: string;
   time: string;
-  tags: NonEmptyArray<string> | null;
+  tags: string[] | null;
   subtitle: string | null;
   summary: string | null;
   coverURL: string | null;

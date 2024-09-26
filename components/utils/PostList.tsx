@@ -1,5 +1,5 @@
 import { normalizeDate } from "@/lib/date";
-import type { TPostListItem } from "@/types/post-list";
+import type { TPostListItem } from "@/types/docs.type";
 import { nanoid } from "nanoid";
 import Link from "next/link";
 import { Badge } from "../ui/badge";

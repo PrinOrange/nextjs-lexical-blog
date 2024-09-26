@@ -1,25 +1,25 @@
 import fs from "fs";
 import path from "path";
 import { PostFilesDirectory } from "@/consts/consts";
-import type { TFrontmatter } from "@/types/frontmatter.type";
-import type { TPostListItem, TPostsByTag } from "@/types/post-list";
+import type { TPostFrontmatter } from "@/types/frontmatter.type";
+import type { TPostListItem, TPostsByTag } from "@/types/docs.type";
 import { serialize } from "next-mdx-remote/serialize";
 import { titleCase } from "title-case";
 import { isEmptyString, nullifyEmptyArray, nullifyEmptyString } from "./utils";
 
-async function extractFrontmatters(filepath: string): Promise<TFrontmatter> {
+async function extractFrontmatters(filepath: string): Promise<TPostFrontmatter> {
   const source = fs.readFileSync(filepath, "utf-8");
   const mdxSource = await serialize(source, {
     parseFrontmatter: true,
     mdxOptions: { format: "md" },
   });
-  const frontmatter = mdxSource.frontmatter as TFrontmatter;
+  const frontmatter = mdxSource.frontmatter as TPostFrontmatter;
 
   const normalizedTags = frontmatter.tags
     ?.filter((tagname) => !isEmptyString(tagname))
     .map((tagname) => tagname.toUpperCase());
 
-  const normalizedResult: TFrontmatter = {
+  const normalizedResult: TPostFrontmatter = {
     title: titleCase(frontmatter.title),
     subtitle: nullifyEmptyString(frontmatter.subtitle),
     coverURL: nullifyEmptyString(frontmatter.coverURL),

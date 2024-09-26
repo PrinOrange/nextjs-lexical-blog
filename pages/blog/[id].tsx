@@ -13,9 +13,8 @@ import { Config } from "@/data/config";
 import { normalizeDate } from "@/lib/date";
 import { getPostFileContent, sortedPosts } from "@/lib/post-process";
 import { makeTOCTree } from "@/lib/toc";
-import type { TFrontmatter } from "@/types/frontmatter.type";
-import type { TPostListItem } from "@/types/post-list";
-import type { TTOCItem } from "@/types/toc.type";
+import type { TPostFrontmatter } from "@/types/frontmatter.type";
+import type { TPostListItem, TTOCItem } from "@/types/docs.type";
 import { nanoid } from "nanoid";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -36,7 +35,7 @@ import { titleCase } from "title-case";
 type ReaderPageProps = {
   compiledSource: MDXRemoteSerializeResult;
   tocList: TTOCItem[];
-  frontMatter: TFrontmatter;
+  frontMatter: TPostFrontmatter;
   postId: string;
   nextPostListItem: TPostListItem | null;
   prevPostListItem: TPostListItem | null;
@@ -205,7 +204,7 @@ export const getStaticProps: GetStaticProps<ReaderPageProps> = async (context) =
 
   const postIndexInAllPosts = sortedPosts.allPostList.findIndex((item) => item.id === postId);
 
-  const frontMatter: TFrontmatter = sortedPosts.allPostList[postIndexInAllPosts].frontMatter;
+  const frontMatter: TPostFrontmatter = sortedPosts.allPostList[postIndexInAllPosts].frontMatter;
 
   const nextPostListItem =
     postIndexInAllPosts !== sortedPosts.allPostList.length - 1

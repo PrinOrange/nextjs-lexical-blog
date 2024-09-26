@@ -1,6 +1,7 @@
 import { PostFilesDirectory } from "@/consts/consts";
 import { getCurrentTime } from "@/lib/date";
 import { stringifyFrontmatter } from "@/lib/frontmatter";
+import type { TPostFrontmatter } from "@/types/frontmatter.type";
 import { type ChildProcessWithoutNullStreams, type SpawnSyncReturns, spawn, spawnSync } from "child_process";
 import colors from "colors";
 import fs from "fs";
@@ -103,7 +104,7 @@ inquirer.prompt<TAnswer>(questions).then((answers) => {
   const time = `${year}-${month}-${day}`;
 
   // Stringify the frontmatters
-  const stringifiedFrontmatter = stringifyFrontmatter({
+  const frontmatter: TPostFrontmatter = {
     title: title,
     subtitle: subtitle,
     summary: "",
@@ -114,7 +115,8 @@ inquirer.prompt<TAnswer>(questions).then((answers) => {
     noPrompt: noPrompt,
     allowShare: allowShare,
     closed: false,
-  });
+  };
+  const stringifiedFrontmatter = stringifyFrontmatter(frontmatter);
 
   // Output the new post file
   const postFileName = `${year}-${month}-${day}-${_.kebabCase(answers.inputTitle)}.md`;

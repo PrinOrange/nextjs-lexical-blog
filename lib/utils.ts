@@ -1,4 +1,3 @@
-import type { NonEmptyArray } from "@/types/utils.type";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -84,11 +83,11 @@ export function isEmptyArray(value: any[] | null | undefined): boolean {
  * @param value - The array value to be nullified if empty.
  * @returns The nullified array if it is empty, otherwise returns the original array.
  */
-export function nullifyEmptyArray<T>(value: T[] | null | undefined): NonEmptyArray<T> | null {
+export function nullifyEmptyArray<T>(value: T[] | null | undefined): T[] | null {
   if (isEmptyArray(value)) {
     return null;
   }
-  return value as NonEmptyArray<T>;
+  return value!;
 }
 
 /**

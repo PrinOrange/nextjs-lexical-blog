@@ -8,7 +8,7 @@ import { NavBar } from "@/components/utils/NavBar";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
 import { isEmptyString } from "@/lib/utils";
-import type { TSearchResultItem } from "@/types/search-result";
+import type { TSearchResultItem } from "@/types/docs.type";
 import axios from "axios";
 import { isArray } from "lodash";
 import { nanoid } from "nanoid";

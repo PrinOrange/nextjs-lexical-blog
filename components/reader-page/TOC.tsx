@@ -1,5 +1,5 @@
 import { useActiveHeading } from "@/hooks/useActiveHeading";
-import type { TTOCItem } from "@/types/toc.type";
+import type { TTOCItem } from "@/types/docs.type";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 

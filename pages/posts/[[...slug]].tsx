@@ -11,7 +11,7 @@ import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { isEmptyArray, paginateArray } from "@/lib/utils";
-import type { TPostListItem } from "@/types/post-list";
+import type { TPostListItem } from "@/types/docs.type";
 import { nanoid } from "nanoid";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";

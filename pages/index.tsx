@@ -10,7 +10,7 @@ import { LatestPostCountInHomePage } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
 import { generateRSSFeed } from "@/lib/rss";
-import type { TPostListItem } from "@/types/post-list";
+import type { TPostListItem } from "@/types/docs.type";
 import type { GetStaticProps } from "next";
 import Link from "next/link";
 import { LuPenTool } from "react-icons/lu";

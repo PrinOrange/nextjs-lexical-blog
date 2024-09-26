@@ -1,4 +1,4 @@
-import type { TTOCItem } from "@/types/toc.type";
+import type { TTOCItem } from "@/types/docs.type";
 import { JSDOM } from "jsdom";
 
 /**

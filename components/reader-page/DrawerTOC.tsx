@@ -1,7 +1,7 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useActiveHeading } from "@/hooks/useActiveHeading";
 import useDrawerTOCState from "@/stores/useDrawerTOCState";
-import type { TTOCItem } from "@/types/toc.type";
+import type { TTOCItem } from "@/types/docs.type";
 import Link from "next/link";
 import { MdMenuBook } from "react-icons/md";
 import { twMerge } from "tailwind-merge";
