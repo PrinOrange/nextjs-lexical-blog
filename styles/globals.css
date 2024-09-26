@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import "./typesetting.css";
-@import "./formulation.css";
+@import "./formula.css";
 @import "./scrollbar.css";
 
 @import "./font.css";
