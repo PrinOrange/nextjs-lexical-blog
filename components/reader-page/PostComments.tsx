@@ -11,7 +11,6 @@ export const PostComments = (props: { postId: string }) => {
           category={Config.Giscus.category}
           categoryId={Config.Giscus.categoryId}
           emitMetadata="0"
-          id={props.postId}
           inputPosition="top"
           lang="en"
           loading="eager"

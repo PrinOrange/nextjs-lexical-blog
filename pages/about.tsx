@@ -1,7 +1,9 @@
+import { Introduction } from "@/components/about-page/Introduction";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
+import { PageTitle } from "@/components/utils/PageTitle";
 import { SEO } from "@/components/utils/SEO";
 import { SocialIcons } from "@/components/utils/SocialIcons";
 import { Config } from "@/data/config";
@@ -18,23 +20,9 @@ export default function AboutPage() {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={"caption-font my-5 flex justify-around font-bold text-2xl"}>{"ABOUT ME"}</h2>
+        <PageTitle>{"ABOUT ME"}</PageTitle>
         <Separator />
-        <div className={"my-5 justify-center content-font md:flex md:space-x-10"}>
-          <div className="my-auto flex md:w-1/3">
-            <img alt="my-profile" className="mx-auto my-auto max-h-[23rem] rounded-lg" src="/images/profile.webp" />
-          </div>
-          <div className="my-auto md:w-1/3">
-            <div className="mt-5 mb-3 font-bold text-3xl">Hi, there👋</div>I am a student / entrepreneur / engineer
-            (Your profession) majoring in (Your Research Field) born in XXXX (Your birth year)
-            <br />
-            <br />
-            My main research interests includes XXXX
-            <br />
-            <br />
-            Additionally, I am also interested in XXXX.
-          </div>
-        </div>
+        <Introduction />
         <Separator />
         <SocialIcons />
         <Separator />

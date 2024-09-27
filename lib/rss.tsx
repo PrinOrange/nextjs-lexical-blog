@@ -65,7 +65,7 @@ export const generateRSSFeed = async () => {
   for (let i = 0; i < Math.min(LatestPostCountInHomePage, sortedPosts.allPostList.length); i++) {
     const post = sortedPosts.allPostList[i];
     const postFileContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders(post.id)}`;
-    const dateNumber = post.frontMatter.time.split("-").map((num) => Number.parseInt(num));
+    const dateNumber = post.frontMatter.time.split("-").map((num: string) => Number.parseInt(num));
     const mdxSource = await serialize(postFileContent ?? "", {
       parseFrontmatter: true,
       mdxOptions: {
@@ -89,7 +89,9 @@ export const generateRSSFeed = async () => {
           link: `https://${Config.SiteDomain}/about`,
         },
       ],
-      category: post.frontMatter.tags?.map((tagname) => ({ name: tagname })),
+      category: post.frontMatter.tags?.map((tagname: string) => ({
+        name: tagname,
+      })),
       date: new Date(dateNumber[0], dateNumber[1], dateNumber[2]),
       image: post.frontMatter.coverURL ?? undefined,
     });

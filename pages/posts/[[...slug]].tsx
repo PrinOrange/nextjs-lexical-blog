@@ -1,22 +1,19 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { TagsList } from "@/components/post-list-page/TagsList";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
+import { PageTitle } from "@/components/utils/PageTitle";
+import { Pagination } from "@/components/utils/Pagination";
 import { PostList } from "@/components/utils/PostList";
 import { SEO } from "@/components/utils/SEO";
 import { PostCountPerPagination } from "@/consts/consts";
 import { Config } from "@/data/config";
 import { sortedPosts } from "@/lib/post-process";
-import { isEmptyArray, paginateArray } from "@/lib/utils";
+import { paginateArray } from "@/lib/utils";
 import type { TPostListItem } from "@/types/docs.type";
-import { nanoid } from "nanoid";
 import type { GetStaticPaths, GetStaticProps } from "next";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { type ChangeEvent, type KeyboardEvent, useEffect, useState } from "react";
 import { LuPenTool } from "react-icons/lu";
 
 type PostsPageProps = {
@@ -28,23 +25,10 @@ type PostsPageProps = {
 
 export default function PostsPage(props: PostsPageProps) {
   const router = useRouter();
-  const [pageNumber, setPageNumber] = useState<string>(props.pageNumber.toString());
 
-  const handleEnterKeyJump = (event: KeyboardEvent<HTMLInputElement>) => {
-    setPageNumber(pageNumber.replace(/[^\d]/g, ""));
-    if (Number.parseInt(pageNumber) > 0 && Number.parseInt(pageNumber) < props.pageAmount + 1) {
-      (event.key === "Go" || event.key === "Enter") && router.push(`/posts/${pageNumber}`);
-      return;
-    }
+  const handleChangePage = (pageNumber: number) => {
+    router.push(`/posts/${pageNumber}`);
   };
-
-  const handleInputPageNumber = (event: ChangeEvent<HTMLInputElement>) => {
-    setPageNumber(event.target.value);
-  };
-
-  useEffect(() => {
-    setPageNumber(props.pageNumber.toString().replace(/[^\d]/g, ""));
-  }, [props.pageNumber]);
 
   return (
     <Page>
@@ -55,60 +39,21 @@ export default function PostsPage(props: PostsPageProps) {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={"caption-font my-5 flex justify-center font-bold text-2xl"}>
+        <PageTitle>
           <LuPenTool className="mx-2 my-auto" />
           {"ALL POSTS"}
-        </h2>
-        {!isEmptyArray(props.tagList) && (
-          <Accordion collapsible type="single">
-            <AccordionItem className="border-t" value="item-1">
-              <AccordionTrigger className="font-bold hover:no-underline">{"TAG FILTER"}</AccordionTrigger>
-              <AccordionContent>
-                <Separator />
-                <div className={"my-5 flex flex-wrap justify-center text-wrap px-2 text-sm"}>
-                  {props.tagList.map((item) => (
-                    <Link
-                      className="m-1 my-auto p-1 font-bold text-gray-700 underline decoration-2 underline-offset-[5px] hover:text-black dark:text-gray-300 dark:hover:text-white"
-                      href={`/tags/${item.name}`}
-                      key={`tags-${nanoid()}`}
-                    >
-                      {`${item.name} (${item.count})`}
-                    </Link>
-                  ))}
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        )}
+        </PageTitle>
+        <TagsList tagsList={props.tagList} />
         <Separator />
         <PostList data={props.postList} />
         <Separator />
-        <div className="my-5 flex justify-between font-bold text-base">
-          {props.pageNumber !== 1 && (
-            <Button asChild>
-              <Link className="font-bold" href={`/posts/${props.pageNumber - 1}/`}>
-                {"< PREV"}
-              </Link>
-            </Button>
-          )}
-          <div className="my-auto flex justify-center font-bold">
-            <Input
-              className="mx-2 my-auto h-6 w-11"
-              onChange={handleInputPageNumber}
-              onKeyDown={handleEnterKeyJump}
-              title="Type the specified page number and press Enter to jump."
-              value={pageNumber}
-            />
-            <div className="my-auto">{`  /  ${props.pageAmount}`}</div>
-          </div>
-          {props.pageNumber !== props.pageAmount && (
-            <Button asChild>
-              <Link className="font-bold" href={`/posts/${props.pageNumber + 1}/`}>
-                {"NEXT >"}
-              </Link>
-            </Button>
-          )}
-        </div>
+        <Pagination
+          onGotoNextPage={(nextPage) => handleChangePage(nextPage)}
+          onGotoPrevPage={(prevPage) => handleChangePage(prevPage)}
+          onJumpToSpecPage={(pageNum) => handleChangePage(pageNum)}
+          pageNumber={props.pageNumber}
+          pageAmount={props.pageAmount}
+        />
       </ContentContainer>
       <Footer />
     </Page>

@@ -1,13 +1,13 @@
 import { useActiveHeading } from "@/hooks/useActiveHeading";
-import type { TTOCItem } from "@/types/docs.type";
+import type { TPostTOCItem } from "@/types/docs.type";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 
-export const TOC = (props: { data: TTOCItem[] }) => {
+export const TOC = (props: { data: TPostTOCItem[] }) => {
   const activeId = useActiveHeading(props.data.map((item) => `#${item.anchorId}`));
 
   return (
-    <div className="mx-5">
+    <div className="mr-5">
       <div className="border-gray-500 border-t-2 border-b-2 p-2 text-center font-bold text-lg">
         {"TABLE OF CONTENTS"}
       </div>

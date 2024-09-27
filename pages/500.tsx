@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
+import { PageTitle } from "@/components/utils/PageTitle";
 import { MdOutlineDangerous } from "react-icons/md";
 
 export default function ServerErrorPage() {
@@ -14,7 +15,7 @@ export default function ServerErrorPage() {
     <Page>
       <NavBar />
       <ContentContainer>
-        <h2 className={"caption-font my-5 flex justify-center font-bold text-2xl"}>{"INVALID OPERATION"}</h2>
+        <PageTitle>{"INVALID OPERATION"}</PageTitle>
         <Separator />
         <div className="my-5 flex flex-col justify-center">
           <MdOutlineDangerous className="mx-auto my-4" size={"6em"} />

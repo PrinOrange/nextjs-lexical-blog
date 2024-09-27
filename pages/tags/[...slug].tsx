@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/utils/Footer";
 import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
+import { PageTitle } from "@/components/utils/PageTitle";
+import { Pagination } from "@/components/utils/Pagination";
 import { PostList } from "@/components/utils/PostList";
 import { SEO } from "@/components/utils/SEO";
 import { PostCountPerPagination } from "@/consts/consts";
@@ -12,9 +12,7 @@ import { sortedPosts } from "@/lib/post-process";
 import { paginateArray } from "@/lib/utils";
 import type { TPostListItem } from "@/types/docs.type";
 import type { GetStaticPaths, GetStaticProps } from "next";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { type ChangeEvent, type KeyboardEvent, useEffect, useState } from "react";
 
 type TagsContentPageProps = {
   tagName: string | null;
@@ -25,23 +23,9 @@ type TagsContentPageProps = {
 
 export default function TagsContentPage(props: TagsContentPageProps) {
   const router = useRouter();
-  const [pageNumber, setPageNumber] = useState<string>(props.pageNumber.toString());
-
-  const handleEnterKeyJump = (event: KeyboardEvent<HTMLInputElement>) => {
-    setPageNumber(pageNumber.replace(/[^\d]/g, ""));
-    if (Number.parseInt(pageNumber) > 0 && Number.parseInt(pageNumber) < props.pageAmount + 1) {
-      (event.key === "Go" || event.key === "Enter") && router.push(`/tags/${props.tagName}/${pageNumber}`);
-      return;
-    }
+  const handleChangePage = (pageNumber: number) => {
+    router.push(`/tags/${props.tagName}/${pageNumber}/`);
   };
-
-  const handleInputPageNumber = (event: ChangeEvent<HTMLInputElement>) => {
-    setPageNumber(event.target.value);
-  };
-
-  useEffect(() => {
-    setPageNumber(props.pageNumber.toString());
-  }, [props.pageNumber]);
 
   return (
     <Page>
@@ -52,38 +36,17 @@ export default function TagsContentPage(props: TagsContentPageProps) {
       />
       <NavBar />
       <ContentContainer>
-        <h2 className={"caption-font my-5 flex flex-col justify-center text-center font-bold"}>
-          <div className="mx-auto text-2xl">{`Posts of ${props.tagName}`}</div>
-        </h2>
+        <PageTitle>{`Posts of ${props.tagName}`}</PageTitle>
         <Separator />
         <PostList data={props.postList} />
         <Separator />
-        <div className="my-5 flex justify-between font-bold text-base">
-          {props.pageNumber !== 1 && (
-            <Button asChild>
-              <Link className="font-bold" href={`/tags/${props.tagName}/${props.pageNumber - 1}/`}>
-                {"< PREV"}
-              </Link>
-            </Button>
-          )}
-          <div className="my-auto flex justify-center font-bold">
-            <Input
-              className="mx-2 my-auto h-6 w-11"
-              onChange={handleInputPageNumber}
-              onKeyDown={handleEnterKeyJump}
-              title="Type the specified page number and press Enter to jump."
-              value={pageNumber}
-            />
-            <div className="my-auto">{`  /  ${props.pageAmount}`}</div>
-          </div>
-          {props.pageNumber !== props.pageAmount && (
-            <Button asChild>
-              <Link className="font-bold" href={`/tags/${props.tagName}/${props.pageNumber + 1}/`}>
-                {"NEXT >"}
-              </Link>
-            </Button>
-          )}
-        </div>
+        <Pagination
+          onGotoNextPage={(nextPage) => handleChangePage(nextPage)}
+          onGotoPrevPage={(prevPage) => handleChangePage(prevPage)}
+          onJumpToSpecPage={(pageNum) => handleChangePage(pageNum)}
+          pageNumber={props.pageNumber}
+          pageAmount={props.pageAmount}
+        />
       </ContentContainer>
       <Footer />
     </Page>
@@ -101,7 +64,9 @@ export const getStaticPaths: GetStaticPaths = () => {
   for (let i = 0; i < allTags.length; i++) {
     allPaths.push({ params: { slug: [allTags[i].name] } });
     for (let j = 0; j < allTags[i].count; j++) {
-      allPaths.push({ params: { slug: [allTags[i].name, (j + 1).toString()] } });
+      allPaths.push({
+        params: { slug: [allTags[i].name, (j + 1).toString()] },
+      });
     }
   }
 

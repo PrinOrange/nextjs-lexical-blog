@@ -1,8 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { PostFilesDirectory } from "@/consts/consts";
-import type { TPostFrontmatter } from "@/types/frontmatter.type";
-import type { TPostListItem, TPostsByTag } from "@/types/docs.type";
+import type { TPostFrontmatter, TPostListItem, TPostsByTag } from "@/types/docs.type";
 import { serialize } from "next-mdx-remote/serialize";
 import { titleCase } from "title-case";
 import { isEmptyString, nullifyEmptyArray, nullifyEmptyString } from "./utils";
@@ -93,7 +92,7 @@ const sortOutPosts = async (): Promise<{
   });
 
   allPostList.forEach((item) => {
-    item.frontMatter.tags?.forEach((tagName) => {
+    item.frontMatter.tags?.forEach((tagName: string) => {
       if (postsByTag[tagName] == null) {
         postsByTag[tagName] = [];
       }

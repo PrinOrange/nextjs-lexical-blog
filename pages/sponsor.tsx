@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Footer } from "@/components/utils/Footer";
 import { ContentContainer, Page } from "@/components/utils/Layout";
 import { NavBar } from "@/components/utils/NavBar";
+import { PageTitle } from "@/components/utils/PageTitle";
 import { SEO } from "@/components/utils/SEO";
 import { Config } from "@/data/config";
 import { GoHeartFill } from "react-icons/go";
@@ -22,10 +23,10 @@ export default function SponsorPage() {
       <ContentContainer>
         <div className="mt-10 md:flex">
           <div className="flex flex-col justify-center md:w-1/2">
-            <h2 className={"caption-font my-5 flex justify-center font-bold text-2xl text-red-500"}>
+            <PageTitle classNames="text-red-500">
               <GoHeartFill className="mx-2 my-auto" />
               {"SPONSOR"}
-            </h2>
+            </PageTitle>
             <SponsorDescription />
           </div>
           <div className="md:w-1/2 md:px-15">

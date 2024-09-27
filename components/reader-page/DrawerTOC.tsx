@@ -1,12 +1,12 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useActiveHeading } from "@/hooks/useActiveHeading";
 import useDrawerTOCState from "@/stores/useDrawerTOCState";
-import type { TTOCItem } from "@/types/docs.type";
+import type { TPostTOCItem } from "@/types/docs.type";
 import Link from "next/link";
 import { MdMenuBook } from "react-icons/md";
 import { twMerge } from "tailwind-merge";
 
-export const DrawerTOC = (props: { data: TTOCItem[] }) => {
+export const DrawerTOC = (props: { data: TPostTOCItem[] }) => {
   const isTOCOpen = useDrawerTOCState((state) => state.isOpen);
   const setIsTOCOpen = useDrawerTOCState((state) => state.changeDrawerTOCOpen);
   const activeId = useActiveHeading(props.data.map((item) => `#${item.anchorId}`));
@@ -16,13 +16,18 @@ export const DrawerTOC = (props: { data: TTOCItem[] }) => {
         className="fixed right-5 bottom-16 border border-gray-700 bg-white shadow-xl dark:border-gray-500 dark:bg-black"
         title="Open the table of contents"
       >
-        <div className="p-1 font-bold" onClick={() => setIsTOCOpen(!isTOCOpen)} title="Open the table of contents">
+        <div
+          className="p-1 font-bold"
+          onClick={() => setIsTOCOpen(!isTOCOpen)}
+          onKeyDown={() => {}}
+          title="Open the table of contents"
+        >
           <MdMenuBook className="text-3xl" />
         </div>
       </SheetTrigger>
-      <SheetContent side={"left"}>
+      <SheetContent side={"right"}>
         <SheetHeader>
-          <SheetTitle className="mt-8 font-bold">{"TABLE OF CONTENTS"}</SheetTitle>
+          <SheetTitle className="mt-8 text-center font-bold text-base">{"TABLE OF CONTENTS"}</SheetTitle>
         </SheetHeader>
         <ul className="flat-scrollbar flat-scrollbar-normal my-3 flex h-[70vh] flex-col overflow-y-auto">
           {props.data?.map((item) => (

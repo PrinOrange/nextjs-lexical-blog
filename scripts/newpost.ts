@@ -1,7 +1,7 @@
 import { PostFilesDirectory } from "@/consts/consts";
 import { getCurrentTime } from "@/lib/date";
 import { stringifyFrontmatter } from "@/lib/frontmatter";
-import type { TPostFrontmatter } from "@/types/frontmatter.type";
+import type { TPostFrontmatter } from "@/types/docs.type";
 import { type ChildProcessWithoutNullStreams, type SpawnSyncReturns, spawn, spawnSync } from "child_process";
 import colors from "colors";
 import fs from "fs";

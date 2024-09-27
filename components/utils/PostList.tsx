@@ -37,7 +37,7 @@ export const PostList = (props: { data: TPostListItem[] }) => {
               </div>
               {postItem.frontMatter.tags && (
                 <div className="my-auto flex flex-wrap">
-                  {postItem.frontMatter.tags.map((tagName) => (
+                  {postItem.frontMatter.tags.map((tagName: string) => (
                     <Badge
                       className="my-1 mr-1 text-gray-600 dark:text-gray-300"
                       key={`tags-${nanoid()}`}
