@@ -34,3 +34,5 @@ export type TPostFrontmatter = {
   allowShare: boolean | null;
   closed: boolean | null;
 };
+
+export type TTagListItem = { name: string; count: number };
