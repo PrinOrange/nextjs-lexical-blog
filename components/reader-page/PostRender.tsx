@@ -19,7 +19,7 @@ export const PostRender = (props: {
       <div className="border-black border-b-2 pb-1 dark:border-gray-300">
         <div
           className={
-            "caption-font my-2 flex justify-center whitespace-normal break-words font-bold text-[1.8rem] text-black leading-[2.1rem] dark:text-white"
+            "caption-font my-2 flex justify-center whitespace-normal break-words font-bold text-[1.65rem] text-black leading-[2.1rem] dark:text-white"
           }
         >
           {props.frontMatter?.title}

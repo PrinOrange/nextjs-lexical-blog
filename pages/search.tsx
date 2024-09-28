@@ -24,7 +24,7 @@ export default function SearchPage(props: SearchPageProps) {
   const { toast } = useToast();
 
   const fetchSearchAPI = (param: string): Promise<TSearchResultItem[]> => {
-    setIsLoading(true)
+    setIsLoading(true);
     return axios.get<TSearchResultItem[]>(`/api/search/${param}`).then((response) => response.data);
   };
 

@@ -1,5 +1,3 @@
-import type { TPostFrontmatter } from "./frontmatter.type";
-
 export type TPostListItem = {
   id: string;
   frontMatter: TPostFrontmatter;
