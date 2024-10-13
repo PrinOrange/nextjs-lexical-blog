@@ -92,7 +92,7 @@ export const generateRSSFeed = async () => {
       category: post.frontMatter.tags?.map((tagname: string) => ({
         name: tagname,
       })),
-      date: new Date(dateNumber[0], dateNumber[1], dateNumber[2]),
+      date: new Date(dateNumber[0], dateNumber[1] - 1, dateNumber[2]),
       image: post.frontMatter.coverURL ?? undefined,
     });
   }
