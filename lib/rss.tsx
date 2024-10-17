@@ -48,7 +48,7 @@ function minifyHTMLCode(htmlString: string): string {
 export const generateRSSFeed = async () => {
   const feed = new Feed({
     title: Config.SiteTitle,
-    description: "feedId:68173131511981056+userId:69616630442815488",
+    description: Config.Sentence,
     id: Config.SiteDomain,
     link: WebsiteURL,
     image: Config.PageCovers.websiteCoverURL,
