@@ -80,7 +80,7 @@ export const generateRSSFeed = async () => {
       title: post.frontMatter.title,
       id: post.id,
       link: `https://${Config.SiteDomain}/blog/${post.id}`,
-      description: post.frontMatter.summary ?? undefined,
+      description: "feedId:68173131511981056+userId:69616630442815488",
       content: htmlContent,
       author: [
         {
